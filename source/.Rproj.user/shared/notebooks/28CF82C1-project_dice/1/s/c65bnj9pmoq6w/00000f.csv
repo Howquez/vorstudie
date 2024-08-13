@@ -1,0 +1,4 @@
+"0","dice_plus <- data.table::merge.data.table(x = dice,"
+"0","                                          y = times[page_name == ""C_Feed"","
+"0","                                                    .(participant_code, time_spent_on_page)],"
+"0","                                          by = ""participant_code"")"

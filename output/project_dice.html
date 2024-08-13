@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Out of Control: - 2&nbsp; Digital In-Context Experiments (DICE)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./project_civility.html" rel="next">
+<link href="./projects.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projects.html">INDIVIDUAL PROJECTS</a></li><li class="breadcrumb-item"><a href="./project_dice.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Digital In-Context Experiments (DICE)</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Out of Control:</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">INTRODUCTION</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Research Overview</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">INDIVIDUAL PROJECTS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_dice.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Digital In-Context Experiments (DICE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_civility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Price of Civility: Economic and Social Returns on Investment in Toxicity Moderation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_sounds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Sound of Certainty: Assessing Paralinguistic Indicators of Decision Confidence</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">OUTLOOK</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./timeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Work Plan</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./outcomes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Outcomes and Impact</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_sounds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Sound of Certainty</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
+  <li><a href="#research-paradigms-in-social-media-research" id="toc-research-paradigms-in-social-media-research" class="nav-link" data-scroll-target="#research-paradigms-in-social-media-research"><span class="header-section-number">2.2</span> Research paradigms in social media research</a>
+  <ul class="collapse">
+  <li><a href="#scenario-based-vignette-studies" id="toc-scenario-based-vignette-studies" class="nav-link" data-scroll-target="#scenario-based-vignette-studies"><span class="header-section-number">2.2.1</span> Scenario-based vignette studies</a></li>
+  <li><a href="#online-platform-studies" id="toc-online-platform-studies" class="nav-link" data-scroll-target="#online-platform-studies"><span class="header-section-number">2.2.2</span> Online platform studies</a></li>
+  <li><a href="#observational-social-media-studies" id="toc-observational-social-media-studies" class="nav-link" data-scroll-target="#observational-social-media-studies"><span class="header-section-number">2.2.3</span> Observational social media studies</a></li>
+  </ul></li>
+  <li><a href="#app-implementation" id="toc-app-implementation" class="nav-link" data-scroll-target="#app-implementation"><span class="header-section-number">2.3</span> App Implementation</a></li>
+  <li><a href="#sec-dice-case-studies" id="toc-sec-dice-case-studies" class="nav-link" data-scroll-target="#sec-dice-case-studies"><span class="header-section-number">2.4</span> Case Studies</a>
+  <ul class="collapse">
+  <li><a href="#context-matters-evaluating-brand-safety-in-social-media-advertising" id="toc-context-matters-evaluating-brand-safety-in-social-media-advertising" class="nav-link" data-scroll-target="#context-matters-evaluating-brand-safety-in-social-media-advertising"><span class="header-section-number">2.4.1</span> Context Matters: Evaluating Brand Safety in Social Media Advertising</a></li>
+  <li><a href="#dwell-time-case" id="toc-dwell-time-case" class="nav-link" data-scroll-target="#dwell-time-case"><span class="header-section-number">2.4.2</span> Dwell Time Case</a></li>
+  </ul></li>
+  <li><a href="#future-opportunities-from-using-dice-in-marketing-research" id="toc-future-opportunities-from-using-dice-in-marketing-research" class="nav-link" data-scroll-target="#future-opportunities-from-using-dice-in-marketing-research"><span class="header-section-number">2.5</span> Future Opportunities from using DICE in Marketing Research</a>
+  <ul class="collapse">
+  <li><a href="#methodological-implications" id="toc-methodological-implications" class="nav-link" data-scroll-target="#methodological-implications"><span class="header-section-number">2.5.1</span> Methodological Implications</a></li>
+  <li><a href="#future-research-directions" id="toc-future-research-directions" class="nav-link" data-scroll-target="#future-research-directions"><span class="header-section-number">2.5.2</span> Future Research Directions</a></li>
+  </ul></li>
+  <li><a href="#concluding-thoughts" id="toc-concluding-thoughts" class="nav-link" data-scroll-target="#concluding-thoughts"><span class="header-section-number">2.6</span> Concluding Thoughts</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Digital In-Context Experiments (DICE)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Co-authored with Johannes Boegershausen (Rotterdam School of Management) and Christian Hildebrand (University of St.&nbsp;Gallen), we are finalizing the data collection and the manuscript for a re-submission at the Journal of Marketing’s special issue on <a href="https://www.ama.org/journal-of-marketing-call-for-papers-marketing-impact-with-research-driven-apps/"><em>“Marketing Impact with Research-Driven Apps”</em></a>.</p>
+<section id="introduction" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
+<p>With 4.76 billion social media users in 2023 (i.e., approximately 60% of the world’s population) and an average daily social media usage of more than 2.5 hours <span class="citation" data-cites="Kemp_2023">(<a href="references.html#ref-Kemp_2023" role="doc-biblioref">Kemp 2023</a>)</span>, understanding the consequences of social media use carries tremendous economic and societal weight <span class="citation" data-cites="AhmadEtAl_2024 AndersonWood_2021 AppelMarkerGnambs_2020 OrbenPrzybylski_2019 Stephen_2016">(e.g., <a href="references.html#ref-AhmadEtAl_2024" role="doc-biblioref">Ahmad et al. 2024</a>; <a href="references.html#ref-AndersonWood_2021" role="doc-biblioref">Anderson and Wood 2021</a>; <a href="references.html#ref-AppelMarkerGnambs_2020" role="doc-biblioref">M. Appel, Marker, and Gnambs 2020</a>; <a href="references.html#ref-OrbenPrzybylski_2019" role="doc-biblioref">Orben and Przybylski 2019</a>; <a href="references.html#ref-Stephen_2016" role="doc-biblioref">Stephen 2016</a>)</span>. Consequently, the last two decades have seen an explosive growth of research examining consumer and firm behavior on social media platforms <span class="citation" data-cites="AridorEtAl_2024 LeungEtAl_2022 ShankarEtAl_2022 AppelEtAl_2020">(for recent reviews, see <a href="references.html#ref-AridorEtAl_2024" role="doc-biblioref">Aridor et al. 2024</a>; <a href="references.html#ref-LeungEtAl_2022" role="doc-biblioref">Leung, Gu, and Palmatier 2022</a>; <a href="references.html#ref-ShankarEtAl_2022" role="doc-biblioref">Shankar et al. 2022</a>; <a href="references.html#ref-AppelEtAl_2020" role="doc-biblioref">G. Appel et al. 2020</a>)</span>. Consumer attention and engagement on social media platforms have become key assets in the digital (attention) economy, driving billion-dollar valuations of companies and leading to major investments by brands to harness these platforms effectively.</p>
+<p>To better understand attention and engagement on social media, researchers strive to get access to proprietary data directly from these platforms as they own granular data that is less susceptible to selection issues such as algorithmic interference <span class="citation" data-cites="GordonMoaklerZettelmeyer_2022 FarronatoFradkin_2022">Xu, Zhang, and Zhou (<a href="references.html#ref-XuZhangZhou_2020" role="doc-biblioref">2020</a>)</span> than what is publicly available. However, most researchers do not have the option of using confidential data because platforms are hesitant to share these data (due to perceived regulatory, legal, or competitive risk). Even when platforms provide data another challenge may arise because researchers may be limited to studying topics that could benefit the company, or, at the very least, will not hurt it <span class="citation" data-cites="FarronatoFradkinKarr_2024">(<a href="references.html#ref-FarronatoFradkinKarr_2024" role="doc-biblioref">Farronato, Fradkin, and Karr 2024, 4</a>)</span>.</p>
+<p>To address these challenges and to provide researchers with an accessible method for studying social media behavior, this paper introduces Digital-In-Context-Experiments (DICE). DICE is an open-source tool that allows researchers to mimic and manipulate social media feeds and track study participants’ interactions with that feed, offering a novel approach to understanding user behavior on social media platforms. This method complements and extends existing research paradigms in our field, which has primarily employed four approaches: scenario-based vignette studies, observational social media studies, online platform studies, and browser extensions.</p>
+<p>Scenario-based vignette studies typically use a set of static vignettes (e.g., an image or screenshot of a single or a few selected Twitter posts) and are the back bone of consumer research. They offer high levels of internal validity, yet they can be criticized for being too artificial <span class="citation" data-cites="MoralesAmirLee_2017">(<a href="references.html#ref-MoralesAmirLee_2017" role="doc-biblioref">Morales, Amir, and Lee 2017</a>)</span>. In online platform studies researchers can use social media platforms as hidden recruitment tools and disguise their stimuli as ads that are displayed to the social media platforms’ real user base. Importantly, researchers can make use of “A/B testing” functionalities and expose different variants of the ads to different users. However, this approach scores low on internal validity because, unlike in experiments, the assignment of users to these ad variants is affected by a platform’s algorithms <span class="citation" data-cites="BraunEtAl_2024">(<a href="references.html#ref-BraunEtAl_2024" role="doc-biblioref">Braun et al. 2024</a>)</span> and thus, not random. Observational study designs are yet another, non-experimental approach to study social media. They leverage proprietary datasets, web scraping, or application programming interfaces (API) to capture archival data from social media platforms <span class="citation" data-cites="BoegershausenEtAl_2022">(<a href="references.html#ref-BoegershausenEtAl_2022" role="doc-biblioref">Boegershausen et al. 2022</a>)</span>. While such data captures actual behavior, these gains in realism typically come at the expense of construct validity, internal validity, and endogeneity issues. Jointly, these factors exacerbate the detection of causal effects and require sophisticated econometric modeling approaches <span class="citation" data-cites="GoldfarbTuckerWang_2022">(<a href="references.html#ref-GoldfarbTuckerWang_2022" role="doc-biblioref">Goldfarb, Tucker, and Wang 2022</a>)</span> as well as natural experiments. However, these are challenging to find, provide information about only specific causal effects, and involve assumptions that are difficult to validate empirically <span class="citation" data-cites="GroszEtAl_2024">(<a href="references.html#ref-GroszEtAl_2024" role="doc-biblioref">Grosz et al. 2024</a>)</span>. Hence, researchers in neighboring disciplines have started to use custom software (i.e., browser extensions) to conduct experiments. Under this paradigm, recruited participants install software which can implement interventions while tracking consumer behavior online <span class="citation" data-cites="FarronatoFradkinKarr_2024 Aridor_2024 AllcottGentzkowSong_2022">(see, e.g., <a href="references.html#ref-FarronatoFradkinKarr_2024" role="doc-biblioref">Farronato, Fradkin, and Karr 2024</a>; <a href="references.html#ref-Aridor_2024" role="doc-biblioref">Aridor 2024</a>; <a href="references.html#ref-AllcottGentzkowSong_2022" role="doc-biblioref">Allcott, Gentzkow, and Song 2022</a>)</span>. Whereas this approach offers experimentation in realistic environments as well as stable and random group assignment, it usually requires software development making it inaccessible for many researchers. In fact, to the best of our knowledge, there are no published studies in the field of marketing using this paradigm to date.</p>
+<!--
+Scenario-based vignette studies typically use a set of static vignettes (e.g., an image or screenshot of a single or a few selected Twitter posts). They are one of the most commonly used research designs. Such vignette experiments offer high levels of internal validity, yet they can be criticized for being too artificial [@MoralesAmirLee_2017] and findings may potentially be contingent on the specific stimuli applied [@SimonsohnMontealegreEvangelidis_2024]. Accordingly, marketing scholars increasingly complement or even substitute static vignette research designs with other types of studies that promise higher levels of realism, such as observational social media studies or online platform studies.
+
+Observational social media studies leverage proprietary datasets, web scraping, or application programming interfaces (API) to capture data from social media platforms [@BoegershausenEtAl_2022]. While observational social media studies naturally offer greater ecological validity, these gains typically come at the expense of construct validity, internal validity, and endogeneity issues. Jointly, these factors exacerbate the detection of causal effects and require sophisticated econometric modeling approaches [@GoldfarbTuckerWang_2022] and natural experiments. However, these are challenging to find, provide information about only specific causal effects, and involve assumptions that are difficult to validate empirically [@GroszEtAl_2024].  
+
+The third paradigm employed in extant social media research is online platform studies [@BraunEtAl_2024]. In contrast to observational studies, online platform studies allow researchers to use their own stimuli by creating variants of advertisements that are deployed in (so-called) “A/B testing” functionalities provided by all major social media platforms, such as Meta (i.e., Facebook and Instagram), Twitter, or TikTok. Yet, by using these functionalities, researchers relinquish control over randomization to social media platforms as they employ targeting algorithms that may differ between variants. Hence, there is no random assignment of participants to different treatments [@BraunEtAl_2024] making a causal interpretation impossible [@GordonMoaklerZettelmeyer_2022].
+
+
+Copied from @FarronatoFradkinKarr_2024 [p. 2]:
+
+> Researchers of digital behavior have started to use custom software to conduct studies. Under this paradigm, recruited participants install software on a device such as a laptop or mobile phone, and this software implements a variety of interventions while tracking consumer choices online. This approach has recently been used to study social media [@AllcottGentzkowSong_2022; @Aridor_2024; @Levy_2021; @BeknazarYuzbashevEtAl_2022]). Although these studies require a similar technology, there is no software infrastructure that allows researchers to easily run such studies. Developing this type of technology is costly–both financially and time-wise–, which inevitably creates entry barriers for academics to develop online research studies with credible random variation.
+-->
+<!--
+Prior social media research has employed observational methods that often involve assumptions that are difficult to validate empirically [@GroszEtAl_2024] as well as two experimental methods: static scenario-based vignette studies and online platform studies. However, the former can be criticized for its lack of realism [@MoralesAmirLee_2017] whereas the latter fails to establish causality [@BraunEtAl_2024]. `[Add review of browser extensions.]`
+-->
+<p>In summary, <em>accessible</em> approaches to derive causal inference in realistic social media settings remain limited and none of them captures the actual context of social media experiences: vignette studies intentionally neglect contextual factors, platform studies do allow the manipulation of contexts and do not report contextual data whereas observational studies’ archival data can capture these data but may be affected by algorithmic interference. Consequently, researchers are often unable to fully control, manipulate, or even observe the contextual factors that have been shown to affect consumer behavior <span class="citation" data-cites="BergerMilkman_2016 Schmitt_1994">(see, e.g., study 3 in <a href="references.html#ref-BergerMilkman_2016" role="doc-biblioref">Berger and Milkman 2012</a>; or <a href="references.html#ref-Schmitt_1994" role="doc-biblioref">Schmitt 1994</a>)</span>. Furthermore, none of the approaches reports granular data that describe individual browsing behavior. Instead, vignette studies often elicit self-reports whereas platform- and observational data provide behavioral data such as clicks or likes on an aggregate level. Whereas these data are important to inform (conscious) psychological processes and ecologically valid behavior, they tend to miss out on unconscious and passive user behavior, that is, internal processes that do not translate into mouse clicks <span class="citation" data-cites="BaumesiterVohsFunder_2007">(<a href="references.html#ref-BaumesiterVohsFunder_2007" role="doc-biblioref">Baumeister, Vohs, and Funder 2007</a>)</span>.</p>
+<p>DICE addresses these limitations by making three key contributions. First, it maintains the high internal validity characteristic of static scenario-based vignette studies while enhancing ecological validity by creating interactive stimuli in realistic look-and-feels. Second, it provides researchers with control over context that also allows them to create interventions that manipulate it. This essentially enables them to systematically vary individual social media posts or even complete social media feeds to examine how different (contextual) factors influence user behavior. Third, it enables unobtrusive tracking of implicit behavioral data, measuring the duration and timing of a participant’s interaction with each social media post. This provides metrics that are highly used by platforms internally <span class="citation" data-cites="BergerMoeSchweidel_2023 Cramer_2015 YiEtAl_2014">(see, e.g., <a href="references.html#ref-BergerMoeSchweidel_2023" role="doc-biblioref">Berger, Moe, and Schweidel 2023</a>; <a href="references.html#ref-Cramer_2015" role="doc-biblioref">Cramer 2015</a>; <a href="references.html#ref-YiEtAl_2014" role="doc-biblioref">Yi et al. 2014</a>)</span> but unavailable through any accessible research paradigm.</p>
+<p><code>[Taken together, DICE provides a tool to work on research questions that couldn't be answered before... and in a way that was not accessible before.]</code></p>
+<p>We developed DICE with the aim to complement (and not replace) existing research paradigms—static scenario-based vignette studies, observational studies, and online platform studies. We also designed it to be useful to a broad range of marketing stakeholders, such as brand managers, influencers, agencies, and policy makers—with and without programming experience. For this reason, the software consists of two components. At its core, DICE is an oTree app <span class="citation" data-cites="oTree">(<a href="references.html#ref-oTree" role="doc-biblioref">Chen, Schonger, and Wickens 2016</a>)</span> that can be extended and customized by stakeholders <em>with</em> basic programming experience. In addition, we created a web interface (<a href="https://www.dice-app.org/">www.dice-app.org</a>) designed for stakeholders <em>without</em> programming experience. To further increase its ease of use, we designed DICE as a module that can be embedded in the experimentalists’ typical workflow as it is compatible with recruitment procedures in behavioral labs or Prolific and survey tools such as Qualtrics.</p>
+<p>While developing DICE, we applied principles of the Open Science movement to make research software widely available, interoperable, and reusable. We hope that by leveraging oTree, which is frequently used in incentive-compatible group experiments but, admittedly, not yet established in marketing research, other researchers can add to DICE’s functionalities. For instance, to adapt media platform or to mimic the interface of the social also mimic mass media feeds, product review platforms or web shops.</p>
+<p>In what follows, we first provide a critical synthesis of the three dominant research paradigms employed in extant social media research and their implications for validity (see Table 1) to derive our first contribution: the enhancement of ecological validity while maintaining high internal validity. Next, we introduce DICE, its configuration, workflow, integration with existing research tools, participant and data management, and its novel behavioral tracking capabilities. Subsequently, we present two case studies that further illustrate the workflow and the obtained data. Importantly, these studies showcase how to leverage the control over context as well as the implicit behavioral data, supporting our second and third contributions respectively. The first case study demonstrates how DICE allows for precise manipulation of social media contexts, enabling researchers to examine the impact of varying environmental factors on user behavior. The second case study highlights DICE’s capacity to capture fine-grained behavioral metrics, such as dwell time and scrolling patterns, providing insights unavailable through traditional methods. Finally, we conclude with a roadmap on how DICE might be leveraged to shape future social media research and offer directions for key stakeholders in the social media ecosystem (e.g., brands, influencers, and public policy).</p>
+
+<!--
+In what follows, we first provide a critical synthesis of the three dominant research paradigms employed in extant social media research and their implications for validity (see Table 1) to derive our first contribution. Next, we introduce DICE, its configuration, workflow, integration with existing research tools, participant and data management, and its novel behavioral tracking capabilities. Subsequently, we present two case studies that further illustrate the workflow and the obtained data. Importantly, the two studies also showcase how to leverage the control over context as well as the implicit behavioral data to support our second and third contribution. Finally, we conclude with a roadmap on how DICE might be leveraged to shape future social media research and offer directions for key stakeholders in the social media ecosystem (e.g., brands, influencers, and public policy).
+-->
+</section>
+<section id="research-paradigms-in-social-media-research" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-paradigms-in-social-media-research"><span class="header-section-number">2.2</span> Research paradigms in social media research</h2>
+<p>This section also discuss the implications of these paradigms for construct validity, internal validity, and ecological validity given their critical role for the quality of the inferences made in marketing research and are critical during the review process at top marketing journals <span class="citation" data-cites="Jacoby_1978 LynchEtAl_2024 ShrihariEtAl_2022">(<a href="references.html#ref-Jacoby_1978" role="doc-biblioref">Jacoby 1978</a>; <a href="references.html#ref-LynchEtAl_2024" role="doc-biblioref">J. G. Lynch, Osselaer, and Torres 2024</a>; <a href="references.html#ref-ShrihariEtAl_2022" role="doc-biblioref">Sridhar et al. 2022</a>)</span>. Construct validity, with its focus on the validity of inferences about higher order constructs, and internal validity, with its focus on the validity of causal relationships <span class="citation" data-cites="ShadishCookCampbell_2002 XuZhangZhou_2020">(<a href="references.html#ref-ShadishCookCampbell_2002" role="doc-biblioref">Shadish, Cook, and Campbell 2002</a>; <a href="references.html#ref-XuZhangZhou_2020" role="doc-biblioref">Xu, Zhang, and Zhou 2020</a>)</span>, are often considered necessary but not sufficient for high-quality marketing research <span class="citation" data-cites="SchmittEtAl_2022 vanHeerdeEtAl_2021">(e.g., <a href="references.html#ref-SchmittEtAl_2022" role="doc-biblioref">Schmitt et al. 2022</a>; <a href="references.html#ref-vanHeerdeEtAl_2021" role="doc-biblioref">Heerde et al. 2021</a>)</span>. Specifically, scholars continue to call for greater realism and external validity in marketing research <span class="citation" data-cites="JedidiEtAl_2021 MoralesAmirLee_2017 Lynch_1982">(e.g., <a href="references.html#ref-JedidiEtAl_2021" role="doc-biblioref">Jedidi et al. 2021</a>; <a href="references.html#ref-MoralesAmirLee_2017" role="doc-biblioref">Morales, Amir, and Lee 2017</a>; <a href="references.html#ref-Lynch_1982" role="doc-biblioref">Jr. Lynch John G. 1982</a>)</span>. External validity concerns whether the cause-effect relationship holds over variations in study design, setting, samples, and measurement variables <span class="citation" data-cites="ShadishCookCampbell_2002">(@ <a href="references.html#ref-ShadishCookCampbell_2002" role="doc-biblioref">Shadish, Cook, and Campbell 2002</a>)</span>. Because every result is valid to some setting and no result is externally valid to all settings, we focus our discussion to the related, yet distinct concept of ecological validity. It refers to the extent to which research findings can be generalized to real-life settings. It focuses on how closely the study’s methods, materials, and setting approximate the real-world situation under investigation. High ecological validity means the study’s conditions are similar to those in the real world, making the results more likely to be applicable in natural contexts. When deciding between different research paradigms, scholars often face a trade-off between different types of validity, as we will detail in the following.</p>
+<p><code>[Limit Scope and mention that real RCTs are impossible without the platforms' data and that browser extensions are equally inaccessible.]</code></p>
+<section id="scenario-based-vignette-studies" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="scenario-based-vignette-studies"><span class="header-section-number">2.2.1</span> Scenario-based vignette studies</h3>
+<p>Scenario-based vignette studies typically feature an image of a single social media post that varies the focal construct(s) of interest between different experimental conditions. For example, participants in Study 2 of <span class="citation" data-cites="ZhouEtAl_2022">Zhou, Du, and Cutright (<a href="references.html#ref-ZhouEtAl_2022" role="doc-biblioref">2022</a>, see Web Appendix F for the stimuli)</span> were randomly shown one of two images displaying only a single tweet ostensibly from the brand KitKat. The image of the tweet either praised a competitor or featured a control message. Subsequently, study participants reported their attitudes toward both Kit Kat and a competitor brand (i.e., Twix).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Among the three accessible paradigms of social media studies, scenario-based vignettes offer the highest level of internal validity as researchers have full control over the treatment (e.g., experimental manipulations), measurement of variables, and the randomization process. By carefully designing their stimuli and measures, researchers can also achieve high levels of construct validity (i.e., close alignment between the specific operationalization and the higher-order theoretical construct). These studies are generally easy to design, execute, and analyze.</p>
+<p>However, experiments with static vignettes are often criticized for their low levels of ecological validity <span class="citation" data-cites="MoralesAmirLee_2017">(<a href="references.html#ref-MoralesAmirLee_2017" role="doc-biblioref">Morales, Amir, and Lee 2017</a>)</span> and as “research-by-convenience” <span class="citation" data-cites="Ferber_1977 BaumesiterVohsFunder_2007">(<a href="references.html#ref-Ferber_1977" role="doc-biblioref">Ferber 1977</a>; <a href="references.html#ref-BaumesiterVohsFunder_2007" role="doc-biblioref">Baumeister, Vohs, and Funder 2007</a>)</span> failing to sufficiently mimic an environment that would be informative of consumers’ actual responses observable in a real consumption setting. Static vignette studies also magnify the salience of the focal aspects of the treatment (e.g., a particular post from a brand), which increases the risk of demand effects and may overestimate the size of the observed effect compared to a more noisy field setting <span class="citation" data-cites="SimonsohnMontealegreEvangelidis_2024">(see, e.g., <a href="references.html#ref-SimonsohnMontealegreEvangelidis_2024" role="doc-biblioref">Simonsohn, Montealegre, and Evangelidis 2024</a>)</span> <code>(e.g., Dubois et al. 2021)</code>.</p>
+<p>A particular concern for social media research is that the prototypical vignette social media study lacks the rich context of the actual user experience on social media sites. Rather than seeing a single post, consumers browse endless feeds in which many posts compete for their attention and engagement. Thus, static vignette studies may lead participants to adopt overly analytical mindsets that diverge from how they would approach the same post while browsing social media platforms (see, e.g., <span class="citation" data-cites="Pham_2013">Pham (<a href="references.html#ref-Pham_2013" role="doc-biblioref">2013</a>)</span>’s 6th sin of consumer psychology).</p>
+<p><code>[Also mention that this focus on single posts limits the research questions on can answer.]</code></p>
+</section>
+<section id="online-platform-studies" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="online-platform-studies"><span class="header-section-number">2.2.2</span> Online platform studies</h3>
+<p>Given these limitations online platform studies have emerged as an increasingly popular third paradigm in social media research. Since 2021, more than thirty articles in the leading marketing journals have used such study designs <span class="citation" data-cites="CornilEtAl_2023">(<a href="references.html#ref-CornilEtAl_2023" role="doc-biblioref">Cornil et al. 2023</a>)</span>. Specifically, researchers use the A/B testing functionalities provided by social media platforms, such as Meta (i.e., Facebook and Instagram), Twitter, or LinkedIn to compare the effect of different ads in a naturalistic social media environment <span class="citation" data-cites="BraunEtAl_2024">(<a href="references.html#ref-BraunEtAl_2024" role="doc-biblioref">Braun et al. 2024</a>)</span>. The A/B testing functionalities offered by these platforms are primarily intended for advertisers, fairly easy to use, and provide an opportunity to study consumer behaviors in the wild by tracking conversion outcomes across the purchase funnel such as impressions, clicks <code>[or likes and comments?]</code>.</p>
+<p>Another benefit of these online platform studies is that online ad platforms provide some functionalities to target users based on demographics or “user interests” based on their past online behavior <span class="citation" data-cites="CornilEtAl_2023">(<a href="references.html#ref-CornilEtAl_2023" role="doc-biblioref">Cornil et al. 2023</a>)</span>. For example, in Study 1 of <span class="citation" data-cites="ZhouEtAl_2022">Zhou, Du, and Cutright (<a href="references.html#ref-ZhouEtAl_2022" role="doc-biblioref">2022</a>)</span>, 13,719 Facebook users saw an ad for the Facebook page of a fictional car wash provider. The authors use three different ads featuring either a self-promotion, an external endorsement, or a brand-to-brand praise message from the car wash company. Like other online platform studies, <span class="citation" data-cites="ZhouEtAl_2022">Zhou, Du, and Cutright (<a href="references.html#ref-ZhouEtAl_2022" role="doc-biblioref">2022</a>)</span> leverage the aggregate summary statistics (i.e., clicks/impressions) provided by Facebook to compute and compare the clickthrough rates of these three different ad creatives. Online platform studies promise higher ecological validity as they excel in realism and naturalism, given that they are conducted directly on social media sites used by major advertisers, while still allowing researchers (limited) control of the stimuli and the users exposed to the stimuli.</p>
+<p>While the A/B testing functionalities of social media platforms might appear to be randomized controlled trials (RCTs) run in a naturalistic environment. If they were indeed RCTs, online platform studies would be the gold standard in social media research. Yet, by using the A/B testing functionalities provided by digital platforms, researchers relinquish control over critical elements of the study design to the digital platform. Specifically, online platforms employ post-randomization targeting algorithms that prevent clean random assignment of participants to different treatments. Researchers’ stimuli (i.e., ads) compete in a bidding system in the digital advertising marketplace, producing a so-called “divergent delivery” across different ads (i.e., conditions) that emerges as the platform selects users based on expected audience reaction and bid amount <span class="citation" data-cites="BraunSchwartz_2023 Johnson_2023">(<a href="references.html#ref-BraunSchwartz_2023" role="doc-biblioref">Braun and Schwartz 2023</a>; <a href="references.html#ref-Johnson_2023" role="doc-biblioref">Johnson 2023</a>)</span>.</p>
+<p>Additionally, at any given point in time, social media platforms are likely to run numerous A/B tests of their own to optimize their platform that are unobservable to researchers and may comingle with their study. These concerns about construct validity and internal validity severely limit the quality of inferences from these studies <span class="citation" data-cites="GordonMoaklerZettelmeyer_2022">(see also <a href="references.html#ref-GordonMoaklerZettelmeyer_2022" role="doc-biblioref">Gordon, Moakler, and Zettelmeyer 2022</a>)</span>. Unfortunately, many social media platforms like Meta do not present the mechanisms underlying these types of studies (i.e., so-called split or A/B tests) and their limitation very transparently <span class="citation" data-cites="DeLanghePuntoni_2021">(<a href="references.html#ref-DeLanghePuntoni_2021" role="doc-biblioref">Langhe and Puntoni 2021</a>)</span>.</p>
+<p>Another limitation of online platform studies is that they only provide aggregate data. While the summary data of clicks and impressions allows researchers to generate datasets for analysis, it prevents any serious individual-level analysis of the psychological processes driving consumer responses (e.g., clicking sequence, time spent on a post). At present, and despite their increasing popularity in marketing research, it is unclear whether online platform studies have sufficient levels of internal and construct validity to be informative for academic research at all <span class="citation" data-cites="EcklesGordonJohnson_2018 MatzEtAl_2018 OraziJohnston_2020 BraunEtAl_2024">Braun and Schwartz (<a href="references.html#ref-BraunSchwartz_2023" role="doc-biblioref">2023</a>)</span>. Yet, it is already clear that online platform studies are not a panacea to offset the limited realism of typical static scenario-based vignette studies.</p>
+<p><code>[Make clear that online platform studies are not necessarily social media studies. Often they just use social media as a recruitment platform that is unnoticed by its participants. Many online platform studies are as much about social media as prolific studies are about online behavior. Just because someone is recruited in an social media or online environment, it does not mean that one studies behavior in there.]</code></p>
+</section>
+<section id="observational-social-media-studies" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="observational-social-media-studies"><span class="header-section-number">2.2.3</span> Observational social media studies</h3>
+<p>A third, non-experimental paradigm, observational social media studies, directly accesses existing social media data. Typically, researchers collect such datasets themselves via web scraping or application programming interfaces <span class="citation" data-cites="BoegershausenEtAl_2022">(<a href="references.html#ref-BoegershausenEtAl_2022" role="doc-biblioref">Boegershausen et al. 2022</a>)</span>, or purchase them from proprietary sources <span class="citation" data-cites="WiesBeierEdeling_2023">(e.g., social media agencies in <a href="references.html#ref-WiesBeierEdeling_2023" role="doc-biblioref">Wies, Bleier, and Edeling 2023</a>)</span>. Various social media sites such as Twitter (#2, N = 27) and Facebook (#6, N = 13) are among the most frequently scraped sources in articles published in the leading marketing journals <span class="citation" data-cites="BoegershausenEtAl_2022">(<a href="references.html#ref-BoegershausenEtAl_2022" role="doc-biblioref">Boegershausen et al. 2022</a>)</span>. An example of such an observational social media study is the pilot study of <span class="citation" data-cites="ZhouEtAl_2022">Zhou, Du, and Cutright (<a href="references.html#ref-ZhouEtAl_2022" role="doc-biblioref">2022</a>)</span>, featuring 8,393 tweets from three gaming console manufacturers between September 1st, 2016 to September 30th, 2017 collected via the Twitter API. The authors coded the tweets for their focal construct of interest (i.e., whether they mentioned a competitor) and compared aggregate user reactions to the different types of tweets (i.e., number of likes, number of retweets). A critical advantage of such observational data is that it features consequential dependent variables (e.g., likes, comments, and retweets/reshares) of interest to marketing managers, content creators, and other decision-makers <span class="citation" data-cites="InmanEtAl_2018">(<a href="references.html#ref-InmanEtAl_2018" role="doc-biblioref">Inman et al. 2018</a>)</span>. As researchers can collect such data unobtrusively, these studies are unlikely to be affected by demand effects and help identify ecologically valid effects “in the real world”.</p>
+<p>Yet, observational studies are likely affected by “algorithmic interference” <span class="citation" data-cites="BoegershausenEtAl_2022">(<a href="references.html#ref-BoegershausenEtAl_2022" role="doc-biblioref">Boegershausen et al. 2022</a>)</span>, which is the effect of personalization algorithms on information display and retrieval <span class="citation" data-cites="XuZhangZhou_2020">(<a href="references.html#ref-XuZhangZhou_2020" role="doc-biblioref">Xu, Zhang, and Zhou 2020</a>)</span>. This interference occurs both during the data generation stage (e.g., which tweets users are exposed to) and the data retrieval stage (e.g., which tweets researchers can retrieve). These concerns are particularly pronounced for social media research that draws from online platforms heavily relying on sophisticated, dynamic, black-box algorithms <span class="citation" data-cites="AridorEtAl_2024">(<a href="references.html#ref-AridorEtAl_2024" role="doc-biblioref">Aridor et al. 2024</a>)</span>. The opaqueness and lack of control over these algorithms that shape the data-generating process on social media platforms make it difficult to address these concerns, reducing construct and internal validity in observational social media studies <span class="citation" data-cites="Davidson_2023 XuZhangZhou_2020">(e.g., <a href="references.html#ref-Davidson_2023" role="doc-biblioref">Davidson et al. 2023</a>; <a href="references.html#ref-XuZhangZhou_2020" role="doc-biblioref">Xu, Zhang, and Zhou 2020</a>)</span>.</p>
+<p>Because observational social media studies are based on archival data, researcher cannot intervene to exogenously manipulate treatment variables. Hence, these datasets require careful consideration of the familiar methodological challenges encountered with organically generated data, due to potential as endogeneity issues (see, e.g., <span class="citation" data-cites="RutzWatson_2019">Rutz and Watson (<a href="references.html#ref-RutzWatson_2019" role="doc-biblioref">2019</a>)</span>; <span class="citation" data-cites="GoldfarbTuckerWang_2022">Goldfarb, Tucker, and Wang (<a href="references.html#ref-GoldfarbTuckerWang_2022" role="doc-biblioref">2022</a>)</span>). To overcome these challenges, researchers typically exploit natural experiments in which the assignment of treatments to users is “as good as random” <span class="citation" data-cites="AngristPischke_2009">(<a href="references.html#ref-AngristPischke_2009" role="doc-biblioref">Angrist and Pischke 2009</a>)</span> because it is chosen by nature or policy rather than an experimenters. They then and apply regression discontinuity, difference-in-differences as well as instrumental variable designs to these natural experiments to identify causal effects. However, natural experiments are rare to find and the corresponding methods involve postulates, that is, assumptions that are difficult to validate empirically <span class="citation" data-cites="GroszEtAl_2024">(<a href="references.html#ref-GroszEtAl_2024" role="doc-biblioref">Grosz et al. 2024</a>)</span>.</p>
+<p>Finally, given the increased privacy regulations in the EU and other major markets, most observational studies only contain limited individual-level data and data granularity to explore the psychological processes producing consumer reactions to content.</p>
+</section>
+</section>
+<section id="app-implementation" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="app-implementation"><span class="header-section-number">2.3</span> App Implementation</h2>
+<blockquote class="blockquote">
+<p><em>Submissions to the special issue should include a new section titled “App Implementation.” In this section, the author(s) should: (1) Describe the problem solved by the app and how it supplements the research contribution of the manuscript. (2) Define the audience or the end users targeted by the app and the usefulness of the app to this audience over and above the current situation or available (software or other) solutions. The audience can be broad and include managers, executives, researchers, consumers, policy makers, government, media, general public, other marketing academics, and students. (3) Provide a secure, anonymous relatively permanent link to the app, with appropriate instructions on how to use the app and interpret the results. Share open-source access to the app to allow accelerated dissemination upon publication.</em></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>Ideally, the app implementation informs the problem statement and intended contribution of the research and manuscript.</em></p>
+</blockquote>
+</section>
+<section id="sec-dice-case-studies" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-dice-case-studies"><span class="header-section-number">2.4</span> Case Studies</h2>
+<p>The following case studies demonstrate the practical application and novel capabilities of DICE. They not only showcase the tool in action but also highlight its key contributions, particularly by manipulating entire feed contexts and in measuring dwell time. By presenting these studies, we aim to provide a blueprint for researchers interested in adopting DICE for their own studies The first case study illustrates the tool’s capacity for manipulating and controlling entire feed contexts whereas the second focuses on measuring participant engagement through dwell times. Together, these studies exemplify how our tool can enhance ecological validity while maintaining high levels of internal validity as discussed above.</p>
+<section id="context-matters-evaluating-brand-safety-in-social-media-advertising" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="context-matters-evaluating-brand-safety-in-social-media-advertising"><span class="header-section-number">2.4.1</span> Context Matters: Evaluating Brand Safety in Social Media Advertising</h3>
+<p>Brand safety refers to strategies and measures ensuring that a brand’s content, particularly advertisements, does not appear in contexts that could harm the brand’s reputation <span class="citation" data-cites="BellmanEtAl_2018 LeeKimLim_2021 Hemmings_2021">(see, e.g., <a href="references.html#ref-BellmanEtAl_2018" role="doc-biblioref">Bellman et al. 2018</a>; <a href="references.html#ref-LeeKimLim_2021" role="doc-biblioref">Lee, Kim, and Lim 2021</a>; <a href="references.html#ref-Hemmings_2021" role="doc-biblioref">Hemmings 2021</a>)</span>. These measures are especially crucial in social media, where platforms use automated systems to place ads in dynamic, rapidly changing, and user-generated content environments. Such automated systems often lack the nuanced understanding that humans possess, which can lead to ad placements in contexts that seem appropriate at first glance but are ultimately unsuitable. In our hyper-connected world, such of misplacement can rapidly propagate, potentially magnifying reputational damage beyond the initial exposure <span class="citation" data-cites="SwaminathanEtAl_2020">(<a href="references.html#ref-SwaminathanEtAl_2020" role="doc-biblioref">Swaminathan et al. 2020</a>)</span>. Accordingly, <span class="citation" data-cites="AhmadEtAl_2024">Ahmad et al. (<a href="references.html#ref-AhmadEtAl_2024" role="doc-biblioref">2024</a>)</span> found that most brand managers have a strong preference to avoid misplacement and <span class="citation" data-cites="Schmitt_1994">Schmitt (<a href="references.html#ref-Schmitt_1994" role="doc-biblioref">1994, 1986</a>)</span> quotes an expert saying <em>“Advertisers [do] not want to display their products between battle scenes.”</em> This is also reflected in an industry report that not only states that about 70% of brands take brand safety seriously but also that 75% of the interviewed brands report brand-unsafe exposures <span class="citation" data-cites="GumGum_2017">(<a href="references.html#ref-GumGum_2017" role="doc-biblioref">GumGum Inc. 2017</a>)</span>.</p>
+<p>Brands typically consider juxtapositions with hate speech, pornography, and violence as the most egregious violations of brand safety. To mitigate such risks, brands and platforms commonly employ blacklists and negative targeting strategies, defining keywords and publishers associated with these topics to avoid undesirable ad placements. On X (formerly Twitter), for instance, brand managers can utilize adjacency controls, allowing them to specify up to 1,000 negative keywords to regulate the content appearing above and below their ads in users’ timelines. While these measures have proven relatively effective in preventing placements alongside the most <em>brand-unsafe</em> content, misplacements adjacent to disasters, tragedies, divisive political content, and misinformation remain prevalent and, in part, unnoticed: <span class="citation" data-cites="AhmadEtAl_2024">Ahmad et al. (<a href="references.html#ref-AhmadEtAl_2024" role="doc-biblioref">2024</a>)</span> find that most decision-makers are unaware that their companies’ advertising appears on misinformation websites. This persistent challenge may be attributed to the inherent difficulty in accurately classifying and identifying fake news, subtle forms of divisive content, and emerging crisis situations in real-time. <span class="citation" data-cites="GumGum_2017">GumGum Inc. (<a href="references.html#ref-GumGum_2017" role="doc-biblioref">2017</a>)</span> reported that 39% of sampled brands experienced their content being displayed adjacent to at least one of these problematic topics.</p>
+<p>To illustrate the unique capabilities of DICE, we propose a simple study that extends beyond altering individual posts to modifying entire feeds: Unlike traditional online platform studies, we hold the ad copy and creative constant while manipulating the surrounding context between-subjects. Importantly, this study design is uniquely feasible within the DICE paradigm due to its precise control over the contextual environment—a capability not available in other experimental methodologies such as vignette or online platform studies. This level of control is crucial when examining brand safety, a phenomenon inherently defined by an advertisement’s context. By manipulating the surrounding content while keeping the ad constant, we can directly investigate how context impacts brand perceptions, offering insights into brand safety that would be challenging to obtain through alternative research approaches.</p>
+<p>We test the intuitive hypothesis that an inappropriate (compared to a more general) context negatively affects brand attitudes. To better understand whether the effect is also driven by implicit memory effects <span class="citation" data-cites="Schmitt_1994">(<a href="references.html#ref-Schmitt_1994" role="doc-biblioref">Schmitt 1994</a>)</span>, we control for cued and uncued recall.</p>
+<!--
+
+This study directly relates to the topic of brand safety by highlighting how _malgorithms_ that place advertisements in insensitive or inappropriate contexts can impact consumer perception [see, e.g., @BellmanEtAl_2018; @LeeKimLim_2021; @Hemmings_2021].
+
+Anecdotal evidence of algorithmic misplacement is exemplified by the juxtaposition of an Apple iPad advertisement with a headline reporting the disappearance of Malaysia Airlines flight 370, as illustrated in @fig-misplaced-ad. This instance demonstrates how algorithmic ad placement can result in content juxtapositions that potentially undermine the advertiser's intended message and brand positioning.
+
+![Programmatic Advertising Misplacement During Sensitive News Coverage](https://i.insider.com/552318f2ecad04737e059937?width=1300&format=jpeg&auto=webp){#fig-misplaced-ad}
+
+Our case study sought to examine whether such misaligned contexts significantly influence consumer brand perceptions. Specifically, we investigated if misaligned ad placements generate unintended associations between brands and sensitive content, potentially eroding brand equity. We believe that this question is salient given the viral nature of digital content in today's interconnected media landscape [@SwaminathanEtAl_2020], where instances of misplaced advertisements can rapidly propagate, potentially magnifying reputational damage beyond the initial exposure.
+-->
+<section id="experimental-design" class="level4" data-number="2.4.1.1">
+<h4 data-number="2.4.1.1" class="anchored" data-anchor-id="experimental-design"><span class="header-section-number">2.4.1.1</span> Experimental Design</h4>
+<p>Our study focuses on scenarios where airlines promote travel destinations through targeted advertising, placing ads in contexts that align with specific destinations. Given that major airlines serve numerous destinations globally, these ad placements are typically managed through automated programmatic systems. We leverage this automated placement approach to create two hypothetical scenarios featuring KLM Royal Dutch Airlines (KLM) promoting flights to Brazil. At the time of the study, Brazil was experiencing severe flooding that claimed at least 95 lives <span class="citation" data-cites="Buschschlueter_2024">(<a href="references.html#ref-Buschschlueter_2024" role="doc-biblioref">Buschschlüter 2024</a>)</span>. To simulate real-world conditions, we scraped real tweets and assembled them to two distinct Twitter feeds: one covering the natural disaster and another featuring more general content, including coverage of Madonna’s free concert in Rio de Janeiro. This experimental design allows us to examine the impact of contextual advertising in varying circumstances, including during times of crisis.</p>
+<!--
+
+inadvertently promotes a travel destination recently impacted by a natural disaster.^[This approach mirrors real-world practices; for instance, the German airline Lufthansa actively monitors news coverage and maintains a blacklist of affected travel destinations to avoid such misplacements.]
+More specifically, we exposed participants in the treatment group to a simulated Twitter feed that consisted of real tweets describing the [severe flooding](https://www.bbc.com/news/articles/cle07g0zzqeo) affecting Brazil in 2024. 
+
+Assuming that the automated placement systems focus on the keyword "Brazil" without any further nuance, the social media platform should display one and the same ad in both contexts. Accordingly, we placed the same fictitious sponsored post by KLM advertising flights to Brazil in both feeds. Clearly, both the creative (displayed in @fig-ad) and the copy saying _"Brazil's wild beauty calls! Experience nature like never before. Book your breathtaking adventure with KLM."_ appear inappropriate in light of the natural disaster (but would have appeared normal without the flooding). 
+
+-->
+<p>For the illustrative character of this study, we assumed that automated placement systems primarily target the keyword “Brazil” without considering nuanced contextual factors. This assumption allowed us to simulate how the same advertisement might appear in markedly different contexts on a social media platform. Consequently, we placed an identical fictitious sponsored post by KLM, promoting flights to Brazil, into both Twitter feeds. The advertisement features a creative (as shown in <a href="#fig-ad">Figure&nbsp;<span>2.1</span></a>) as well as copy that read: <em>“Brazil’s wild beauty calls! Experience nature like never before. Book your breathtaking adventure with KLM.”</em> While this messaging would typically be considered appropriate for tourism promotion, it appears strikingly insensitive when juxtaposed against news of a natural disaster. <code>[Shall we pre-test this assumption?]</code></p>
+<div id="fig-ad" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://github.com/Howquez/oFeeds/blob/main/studies/brand_safety/stimuli/brazil_wild_beauty.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: KLM Ad Creative</figcaption>
+</figure>
+</div>
+<p><strong>Method:</strong> Participants read instructions and browsed one of two twitter feeds (flooding-related vs.&nbsp;general) <code>[formerly called unsafe and safe, respectively]</code> in which we placed the KLM ad, before they were directed to a Qualtrics survey. Our stimuli, that is, the two feeds consisted of 20 real tweets each and placed the focal ad (by KLM) in fifth position.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> In the survey, we elicited whether participants recall a brand advertising in the feed—first uncued and then cued (i.e., participants saw a list of a diverse range of brands and had to indicate whether they recall seeing them). Next, participants evaluated the target brand on three seven-point scales presented in a random order (1 = “Negative/Unfavorable/Dislike” and 7 = “Positive/Favorable/Like”), which we averaged into a single measure. Finally, participants indicated whether they were aware of the flooding, provided demographic information, read a debriefing and were redirected to Prolific.</p>
+<p><strong>Participants:</strong> We recruited 299 US-American participants (<span class="math inline">\(M_{age} = 37\)</span> years; 49% female) from Prolific. All participants who started the experiment and read the instructions (N=317), submitted the social media feed. 299 finished the qualtrics survey. Of these 299 participants, 111 have been assigned to the inappropriate condition. We do not observe selective attrition and are confident that the group assignment was indeed random—an assumption that is generally accepted in vignette studies, but cannot be presumed in observational studies. <a href="#tbl-balance">Table&nbsp;<span>2.1</span></a> demonstrates that the two treatment groups do not exhibit significant differences in observables. Nevertheless, the unsafe condition tends to skew slightly younger, as indicated by the second column group.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-balance" class="anchored">
+
+<div id="sarnbtlepf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sarnbtlepf table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#sarnbtlepf thead, #sarnbtlepf tbody, #sarnbtlepf tfoot, #sarnbtlepf tr, #sarnbtlepf td, #sarnbtlepf th {
+  border-style: none;
+}
+
+#sarnbtlepf p {
+  margin: 0;
+  padding: 0;
+}
+
+#sarnbtlepf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#sarnbtlepf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#sarnbtlepf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#sarnbtlepf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#sarnbtlepf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#sarnbtlepf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#sarnbtlepf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#sarnbtlepf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#sarnbtlepf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#sarnbtlepf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#sarnbtlepf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sarnbtlepf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#sarnbtlepf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#sarnbtlepf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#sarnbtlepf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sarnbtlepf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#sarnbtlepf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#sarnbtlepf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#sarnbtlepf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sarnbtlepf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#sarnbtlepf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sarnbtlepf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#sarnbtlepf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sarnbtlepf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sarnbtlepf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sarnbtlepf .gt_left {
+  text-align: left;
+}
+
+#sarnbtlepf .gt_center {
+  text-align: center;
+}
+
+#sarnbtlepf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#sarnbtlepf .gt_font_normal {
+  font-weight: normal;
+}
+
+#sarnbtlepf .gt_font_bold {
+  font-weight: bold;
+}
+
+#sarnbtlepf .gt_font_italic {
+  font-style: italic;
+}
+
+#sarnbtlepf .gt_super {
+  font-size: 65%;
+}
+
+#sarnbtlepf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#sarnbtlepf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#sarnbtlepf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#sarnbtlepf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#sarnbtlepf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#sarnbtlepf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#sarnbtlepf .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;2.1:  <p>Balance Across Conditions</p> </caption>
+  <thead>
+    
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="Female">
+        <span class="gt_column_spanner">Female</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="Age">
+        <span class="gt_column_spanner">Age</span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Beta</strong>"><strong>Beta</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>95% CI</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong>"><strong>p-value</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Beta</strong>"><strong>Beta</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>95% CI</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong>"><strong>p-value</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">condition</td>
+<td headers="estimate_1" class="gt_row gt_center"><br></td>
+<td headers="ci_1" class="gt_row gt_center"><br></td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center"><br></td>
+<td headers="ci_2" class="gt_row gt_center"><br></td>
+<td headers="p.value_2" class="gt_row gt_center"><br></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;safe</td>
+<td headers="estimate_1" class="gt_row gt_center">—</td>
+<td headers="ci_1" class="gt_row gt_center">—</td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center">—</td>
+<td headers="ci_2" class="gt_row gt_center">—</td>
+<td headers="p.value_2" class="gt_row gt_center"><br></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;unsafe</td>
+<td headers="estimate_1" class="gt_row gt_center">0.04</td>
+<td headers="ci_1" class="gt_row gt_center">-0.08, 0.15</td>
+<td headers="p.value_1" class="gt_row gt_center">0.5</td>
+<td headers="estimate_2" class="gt_row gt_center">-2.6</td>
+<td headers="ci_2" class="gt_row gt_center">-5.3, 0.11</td>
+<td headers="p.value_2" class="gt_row gt_center">0.060</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="7"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> CI = Confidence Interval</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tbl-attrition" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Attrition Across Conditions">
+
+</div>
+</section>
+<section id="implementation" class="level4" data-number="2.4.1.2">
+<h4 data-number="2.4.1.2" class="anchored" data-anchor-id="implementation"><span class="header-section-number">2.4.1.2</span> Implementation</h4>
+<p>We implemented the two cell between-subjects design by creating a csv file that contains two times twenty rows (i.e., twenty tweets for each condition). Whereas all other columns are unique, two of these rows represent one and the same sponsored post, which we simply duplicated before we assigned it to each of the two conditions. To specify the spondered posts, we set <code>sponsored</code> to 1, provided a landing page in the <code>target</code> column to which participants are directed when clicking on the ad. In addition, we set its <code>sequence</code> parameter to 5 to guarantee that it is displayed in fifth position of the feed. We did not specify that parameter for any other tweet such that DICE orders the remaining tweets randomly between-subject. Finally, we added a <code>source</code> column that provides URLs to the tweets we scraped. Even though this column is not required (as DICE does not evaluate it) we considered such a column useful for documentation purposes. The described csv file, whose structure we illustrate in <a href="#tbl-csv">Table&nbsp;<span>2.2</span></a>, was then uploaded to Github such that we can pass the corresponding URL to the DICE app.</p>
+<div id="tbl-csv" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.2: CSV Exerpt</caption>
+<colgroup>
+<col style="width: 6%">
+<col style="width: 43%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>doc_id</th>
+<th>text</th>
+<th>username</th>
+<th>condition</th>
+<th>sponsored</th>
+<th>target</th>
+<th>sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Madonna breaks the record for biggest audience…</td>
+<td>chart data</td>
+<td>appropriate</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Saudades do Rio 🫶🏼<br><br>didn’t want to leave…</td>
+<td>diplo</td>
+<td>appropriate</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>50 million people watched on TV Madonna…</td>
+<td>Madonna Daily</td>
+<td>appropriate</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Chelsea really wanted Real Madrid-bound…</td>
+<td>Nizaar Kinsella</td>
+<td>appropriate</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Brazil’s wild beauty calls! Experience nature…</td>
+<td>KLM</td>
+<td>appropriate</td>
+<td>1</td>
+<td>[KLM url]</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>Brazil’s wild beauty calls! Experience nature…</td>
+<td>KLM</td>
+<td>inappropriate</td>
+<td>1</td>
+<td>[KLM url]</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>40</td>
+<td>i mentioned this on another tweet! if you can help…</td>
+<td>Evil Scientist</td>
+<td>inappropriate</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="results" class="level4" data-number="2.4.1.3">
+<h4 data-number="2.4.1.3" class="anchored" data-anchor-id="results"><span class="header-section-number">2.4.1.3</span> Results</h4>
+<p><strong>Brand attitude.</strong> As pre-registered, we conduct a simple OLS regression where the inappropriate feed (<span class="math inline">\(M_u = 3.56\)</span>) resulted in significantly less favorable brand evaluations than the more appropriate feed for those who recalled seeing a KLM ad without a cue (<span class="math inline">\(M_s = 5.29\)</span>, <span class="math inline">\(F(1, 33) = 11.85\)</span>, <span class="math inline">\(p = 0.002\)</span>, <span class="math inline">\(\text{Cohen's d} = 1.18\)</span>).</p>
+<p>This also holds for participants who needed a cue to recall the ad (<span class="math inline">\(M_u = 3.92\)</span>, <span class="math inline">\(M_s = 4.82\)</span>, <span class="math inline">\(F(1, 61) = 4.54\)</span>, <span class="math inline">\(p = 0.037\)</span>, <span class="math inline">\(\text{Cohen's d} = 0.59\)</span>).</p>
+<p>Importantly, we also observe the effect for those participants who do not recall seeing a KLM ad at all (<span class="math inline">\(M_u = 4.05\)</span>, <span class="math inline">\(M_s = 4.49\)</span>, <span class="math inline">\(F(1, 198) = 8.51\)</span>, <span class="math inline">\(p = 0.004\)</span>, <span class="math inline">\(\text{Cohen's d} = 0.42\)</span>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-main-effects" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="project_dice_files/figure-html/fig-main-effects-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.2: Effect of Misplaced Ad on Brand Evaluations</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We illustrate all three effects in panel A, B and C of Figure <a href="#fig-main-effects">Figure&nbsp;<span>2.2</span></a>, respectively. Even though the distributions in panel C accumulate more density at the their center, there still is a significant difference between both groups, which indicates an implicit memory effect: even though participants do not recall seeing an KLM ad, the (forgotten) exposure in the inappropriate context dilluted the brand’s reputation.</p>
+<p><code>[This raises the question of whether dwell time, an implicit measure, may explain such implicit processes. What would be the theoretical argument? More attention?]</code></p>
+</section>
+<section id="legacy" class="level4" data-number="2.4.1.4">
+<h4 data-number="2.4.1.4" class="anchored" data-anchor-id="legacy"><span class="header-section-number">2.4.1.4</span> Legacy</h4>
+<p><strong>Recall.</strong> <code>[If we use this study to demonstrate the context-contribution, we don't need dwell time analyses here.]</code> A logit regression provides correlational evidence which indicates that an additional second in the viewport increases the odds of recall by about 3% holding other factors constant (<span class="math inline">\(p = 0.01\)</span>). Controlling for the experimental condition this value changes only slightly<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. The interaction’s large standard error in Model 2 presented in <a href="#tbl-recall-regressions">Table&nbsp;<span>2.3</span></a> indicates that this correlation is robust across conditions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-recall-regressions" class="anchored">
+
+<div id="cabmyhzuiw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cabmyhzuiw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cabmyhzuiw thead, #cabmyhzuiw tbody, #cabmyhzuiw tfoot, #cabmyhzuiw tr, #cabmyhzuiw td, #cabmyhzuiw th {
+  border-style: none;
+}
+
+#cabmyhzuiw p {
+  margin: 0;
+  padding: 0;
+}
+
+#cabmyhzuiw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cabmyhzuiw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cabmyhzuiw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cabmyhzuiw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cabmyhzuiw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cabmyhzuiw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cabmyhzuiw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cabmyhzuiw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cabmyhzuiw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cabmyhzuiw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cabmyhzuiw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cabmyhzuiw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cabmyhzuiw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cabmyhzuiw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cabmyhzuiw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cabmyhzuiw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cabmyhzuiw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cabmyhzuiw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cabmyhzuiw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cabmyhzuiw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cabmyhzuiw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cabmyhzuiw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cabmyhzuiw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cabmyhzuiw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cabmyhzuiw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cabmyhzuiw .gt_left {
+  text-align: left;
+}
+
+#cabmyhzuiw .gt_center {
+  text-align: center;
+}
+
+#cabmyhzuiw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cabmyhzuiw .gt_font_normal {
+  font-weight: normal;
+}
+
+#cabmyhzuiw .gt_font_bold {
+  font-weight: bold;
+}
+
+#cabmyhzuiw .gt_font_italic {
+  font-style: italic;
+}
+
+#cabmyhzuiw .gt_super {
+  font-size: 65%;
+}
+
+#cabmyhzuiw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cabmyhzuiw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cabmyhzuiw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cabmyhzuiw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cabmyhzuiw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cabmyhzuiw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cabmyhzuiw .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;2.3:  <p>Logit Results</p> </caption>
+  <thead>
+    
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="8" scope="colgroup" id="Aided Recall">
+        <span class="gt_column_spanner">Aided Recall</span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>OR</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong>"><strong>p-value</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>OR</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong>"><strong>p-value</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>OR</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong>"><strong>p-value</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>OR</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong>"><strong>p-value</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">seconds_in_viewport</td>
+<td headers="estimate_1" class="gt_row gt_center">1.03</td>
+<td headers="p.value_1" class="gt_row gt_center">0.008</td>
+<td headers="estimate_2" class="gt_row gt_center">1.05</td>
+<td headers="p.value_2" class="gt_row gt_center">0.025</td>
+<td headers="estimate_3" class="gt_row gt_center"><br></td>
+<td headers="p.value_3" class="gt_row gt_center"><br></td>
+<td headers="estimate_4" class="gt_row gt_center"><br></td>
+<td headers="p.value_4" class="gt_row gt_center"><br></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">condition</td>
+<td headers="estimate_1" class="gt_row gt_center"><br></td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center">1.72</td>
+<td headers="p.value_2" class="gt_row gt_center">0.13</td>
+<td headers="estimate_3" class="gt_row gt_center"><br></td>
+<td headers="p.value_3" class="gt_row gt_center"><br></td>
+<td headers="estimate_4" class="gt_row gt_center">1.84</td>
+<td headers="p.value_4" class="gt_row gt_center">0.12</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">seconds_in_viewport * condition</td>
+<td headers="estimate_1" class="gt_row gt_center"><br></td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center"><br></td>
+<td headers="p.value_2" class="gt_row gt_center"><br></td>
+<td headers="estimate_3" class="gt_row gt_center"><br></td>
+<td headers="p.value_3" class="gt_row gt_center"><br></td>
+<td headers="estimate_4" class="gt_row gt_center"><br></td>
+<td headers="p.value_4" class="gt_row gt_center"><br></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;seconds_in_viewport * unsafe</td>
+<td headers="estimate_1" class="gt_row gt_center"><br></td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center">0.97</td>
+<td headers="p.value_2" class="gt_row gt_center">0.2</td>
+<td headers="estimate_3" class="gt_row gt_center"><br></td>
+<td headers="p.value_3" class="gt_row gt_center"><br></td>
+<td headers="estimate_4" class="gt_row gt_center"><br></td>
+<td headers="p.value_4" class="gt_row gt_center"><br></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">relative_dwell_time</td>
+<td headers="estimate_1" class="gt_row gt_center"><br></td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center"><br></td>
+<td headers="p.value_2" class="gt_row gt_center"><br></td>
+<td headers="estimate_3" class="gt_row gt_center">24.1</td>
+<td headers="p.value_3" class="gt_row gt_center">0.091</td>
+<td headers="estimate_4" class="gt_row gt_center">268</td>
+<td headers="p.value_4" class="gt_row gt_center">0.057</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">relative_dwell_time * condition</td>
+<td headers="estimate_1" class="gt_row gt_center"><br></td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center"><br></td>
+<td headers="p.value_2" class="gt_row gt_center"><br></td>
+<td headers="estimate_3" class="gt_row gt_center"><br></td>
+<td headers="p.value_3" class="gt_row gt_center"><br></td>
+<td headers="estimate_4" class="gt_row gt_center"><br></td>
+<td headers="p.value_4" class="gt_row gt_center"><br></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;relative_dwell_time * unsafe</td>
+<td headers="estimate_1" class="gt_row gt_center"><br></td>
+<td headers="p.value_1" class="gt_row gt_center"><br></td>
+<td headers="estimate_2" class="gt_row gt_center"><br></td>
+<td headers="p.value_2" class="gt_row gt_center"><br></td>
+<td headers="estimate_3" class="gt_row gt_center"><br></td>
+<td headers="p.value_3" class="gt_row gt_center"><br></td>
+<td headers="estimate_4" class="gt_row gt_center">0.01</td>
+<td headers="p.value_4" class="gt_row gt_center">0.3</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="9"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> OR = Odds Ratio</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p><code>[Because we analyze dwell time in the next study in more detail, we should use it here to exclude participants who have not paid attention to the ad: either exclude them or control for dwell time on focal post.]</code></p>
+</section>
+</section>
+<section id="dwell-time-case" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="dwell-time-case"><span class="header-section-number">2.4.2</span> Dwell Time Case</h3>
+<p>Lorem ipsum.</p>
+</section>
+</section>
+<section id="future-opportunities-from-using-dice-in-marketing-research" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="future-opportunities-from-using-dice-in-marketing-research"><span class="header-section-number">2.5</span> Future Opportunities from using DICE in Marketing Research</h2>
+<p>The current paper proposes a novel paradigm, DICE, to conduct research that has the capacity to keep the advantages of classic vignette studies (e.g., high experimental control to maximize internal validity) and advantages of observational and online platform studies (e.g., high realism to maximize ecological validity) while eliminating their main disadvantages and methodological issues discussed in prior work (see Table 1). DICE also enables researchers to measure content engagement with maximal resolution at the individual level, which was not possible in any of the currently used social media research designs (e.g., millisecond dwell time response measures at the feed level or sequential content browsing trajectories during a session). These features allow researchers to pursue entirely new lines of inquiry in future social media research. In what follows, we discuss the methodological contributions and offer directions for future work and how DICE could be utilized to make better-informed decisions for key players in the social media ecosystem (e.g., brands, influencers, platform providers, agencies, and public policy).</p>
+<section id="methodological-implications" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="methodological-implications"><span class="header-section-number">2.5.1</span> Methodological Implications</h3>
+<p>The methodological contributions of DICE directly address several challenges in the research designs employed in prior social media research. First, DICE ensures stable group assignment by eliminating divergent delivery and issues with potentially multiple exposures in online platform studies. DICE, therefore, directly addresses the limitations of “black box” engagement algorithms on all major social media platforms and the lack of control for researchers to study truly causal effects on these platforms.</p>
+<p>Second, and as a consequence, DICE offers high ecological value that closely mimics the environments in online platform studies or observational studies but with the additional advantage of offering feed composition controls in which researchers can directly specify the mode and sequence of how content should be delivered across conditions. This researcher-controlled delivery overcomes the methodological drawbacks of typical observational studies (e.g., endogeneity) and online platform studies (e.g., divergent delivery), while offering a similar level of control as vignettes.</p>
+<p>Third, DICE offers the ability to measure content engagement with high resolution at the individual level, which was not possible before without extensive monetary and time investments. DICE allows researchers to track millisecond dwell time content engagement and sequential content trajectories at the individual level. Thus, researchers can directly measure the relative content engagement, a proxy for consumer attention, at a highly atomized level for every single post or item in a feed and the sequence of content consumption (e.g., whether users read a post, then scroll down and up again). The metrics produced from this tracking data in DICE offer a new lens to study attention-related mechanisms in future social media research (see our future research directions section).</p>
+<p>Fourth, DICE directly integrates crowdsourcing platforms for participant recruitment, such as Prolific or Amazon Mechanical Turk, to track participant identifiers across the entire duration of a study and also integrates with survey management platforms, such as Qualtrics, to follow up with post-survey measurements after exposure to different treatment conditions. Thus, our paradigm combines behavioral tracking data and traditional survey instruments within a single study. While the tracking data is theoretically available in online platform studies, it is typically inaccessible for researchers as it is used to “optimize” engagement metrics (and, in turn, jeopardizes the possibility of drawing causal inferences). Finally, we designed DICE as an easy-to-use, low-cost, open-source environment to promote replicability and transparency for all researchers. Our aim is to offer a paradigm and platform to conduct robust, high-quality social media research studies, that directly address the lack of transparency, replicability, and customization on major social media platforms.</p>
+</section>
+<section id="future-research-directions" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="future-research-directions"><span class="header-section-number">2.5.2</span> Future Research Directions</h3>
+<p>In what follows, we outline future directions for key actors and stakeholders in the social media ecosystem (i.e., marketing scholars, brands, influencers, agencies, and public policy) on how DICE offers the possibility to explore either new phenomena or to utilize the methodological advantages to deepen our understanding of previously studied phenomena. We offer a summary of selected and exemplary questions in Table 2.</p>
+</section>
+</section>
+<section id="concluding-thoughts" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="concluding-thoughts"><span class="header-section-number">2.6</span> Concluding Thoughts</h2>
+<p>In this paper, we have introduced DICE, a novel experimental paradigm, along with a user-friendly, open-source research app that resolves key methodological issues in social media research while enhancing ecological value and causal inference. DICE represents a synthesis of the advantages of high experimental control (and therefore internal validity) found in scenario-based vignette studies with the advantages of high realism (and therefore ecological validity) of observational and platform studies. Our DICE paradigm, along with the behavioral tracking possibilities to assess attention and scrolling trajectories with high resolution at the individual level, offers new avenues for rigorous, realistic, and ultimately relevant marketing research for a wide range of stakeholders within the social media ecosystem. Given DICE’s modular nature, it is also possible to further adapt the environment to just any other platform featuring scrollable content streams. <code>[Show how and under which conditions in Appendix.]</code> For example, professional networks like LinkedIn, online review platforms like Yelp or e-commerce sites like Amazon could be modeled to test messaging effects on engagement, recruitment, product search, and purchasing behavior with high resolution. This adaptability of DICE underscores its capacity for broad application across various online environments, each with its idiosyncratic user engagement dynamics and commercial and theoretical implications <span class="citation" data-cites="SwaminathanEtAl_2023">(see also <a href="references.html#ref-SwaminathanEtAl_2023" role="doc-biblioref">Swaminathan et al. 2023</a>)</span>. In summary, DICE presents a novel research paradigm to examine important marketing questions in social media and other digital contexts.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-AhmadEtAl_2024" class="csl-entry" role="listitem">
+Ahmad, Wajeeha, Ananya Sen, Charles Eesley, and Erik Brynjolfsson. 2024. <span>“Companies Inadvertently Fund Online Misinformation Despite Consumer Backlash.”</span> <em>Nature</em> 630: 123–31. <a href="https://doi.org/10.1038/s41586-024-07404-1">https://doi.org/10.1038/s41586-024-07404-1</a>.
+</div>
+<div id="ref-AllcottGentzkowSong_2022" class="csl-entry" role="listitem">
+Allcott, Hunt, Matthew Gentzkow, and Lena Song. 2022. <span>“Digital Addiction.”</span> <em>American Economic Review</em> 112 (7): 2424–63. <a href="https://doi.org/10.1257/aer.20210867">https://doi.org/10.1257/aer.20210867</a>.
+</div>
+<div id="ref-AndersonWood_2021" class="csl-entry" role="listitem">
+Anderson, Ian A., and Wendy Wood. 2021. <span>“Habits and the Electronic Herd: The Psychology Behind Social Media’s Successes and Failures.”</span> Journal Article. <em>Consumer Psychology Review</em> 4 (1): 83–99. <a href="https://doi.org/10.1002/arcp.1063">https://doi.org/10.1002/arcp.1063</a>.
+</div>
+<div id="ref-AngristPischke_2009" class="csl-entry" role="listitem">
+Angrist, Joshua D., and Jörn-Steffen Pischke. 2009. <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton university press.
+</div>
+<div id="ref-AppelEtAl_2020" class="csl-entry" role="listitem">
+Appel, Gil, Lauren Grewal, Rhonda Hadi, and Andrew T. Stephen. 2020. <span>“The Future of Social Media in Marketing.”</span> Journal Article. <em>Journal of the Academy of Marketing Science</em> 48 (1): 79–95. <a href="https://doi.org/10.1007/s11747-019-00695-1">https://doi.org/10.1007/s11747-019-00695-1</a>.
+</div>
+<div id="ref-AppelMarkerGnambs_2020" class="csl-entry" role="listitem">
+Appel, Markus, Caroline Marker, and Timo Gnambs. 2020. <span>“Are Social Media Ruining Our Lives? A Review of Meta-Analytic Evidence.”</span> Journal Article. <em>Review of General Psychology</em> 24 (1): 60–74. <a href="https://doi.org/10.1177/1089268019880891">https://doi.org/10.1177/1089268019880891</a>.
+</div>
+<div id="ref-Aridor_2024" class="csl-entry" role="listitem">
+Aridor, Guy. 2024. <span>“Measuring Substitution Patterns in the Attention Economy: An Experimental Approach.”</span> <em>SSRN Electronic Journal</em>. <a href="https://doi.org/10.2139/ssrn.4069567">https://doi.org/10.2139/ssrn.4069567</a>.
+</div>
+<div id="ref-AridorEtAl_2024" class="csl-entry" role="listitem">
+Aridor, Guy, Rafael Jiménez-Durán, Ro’ee Levy, and Lena Song. 2024. <span>“The Economics of Social Media.”</span> <em>Journal of Economic Literature</em>. <a href="https://doi.org/10.2139/ssrn.4723727">https://doi.org/10.2139/ssrn.4723727</a>.
+</div>
+<div id="ref-BaumesiterVohsFunder_2007" class="csl-entry" role="listitem">
+Baumeister, Roy F., Kathleen D. Vohs, and David C. Funder. 2007. <span>“Psychology as the Science of Self-Reports and Finger Movements: Whatever Happened to Actual Behavior?”</span> <em>Perspectives on Psychological Science</em> 2 (4): 396–403. <a href="https://doi.org/10.1111/j.1745-6916.2007.00051.x">https://doi.org/10.1111/j.1745-6916.2007.00051.x</a>.
+</div>
+<div id="ref-BellmanEtAl_2018" class="csl-entry" role="listitem">
+Bellman, Steven, Ziad H. S. Abdelmoety, Jamie Murphy, Shruthi Arismendez, and Duane Varan. 2018. <span>“Brand Safety: The Effects of Controversial Video Content on Pre-Roll Advertising.”</span> <em>Heliyon</em> 4 (12): e01041. <a href="https://doi.org/10.1016/j.heliyon.2018.e01041">https://doi.org/10.1016/j.heliyon.2018.e01041</a>.
+</div>
+<div id="ref-BergerMilkman_2016" class="csl-entry" role="listitem">
+Berger, Jonah, and Katherine L. Milkman. 2012. <span>“What Makes Online Content Viral?”</span> <em>Journal of Marketing Research</em> 49 (2): 192–205. <a href="https://doi.org/10.1509/jmr.10.0353">https://doi.org/10.1509/jmr.10.0353</a>.
+</div>
+<div id="ref-BergerMoeSchweidel_2023" class="csl-entry" role="listitem">
+Berger, Jonah, Wendy W. Moe, and David A. Schweidel. 2023. <span>“What Holds Attention? Linguistic Drivers of Engagement.”</span> <em>Journal of Marketing</em> 87 (5): 793–809. <a href="https://doi.org/10.1177/00222429231152880">https://doi.org/10.1177/00222429231152880</a>.
+</div>
+<div id="ref-BoegershausenEtAl_2022" class="csl-entry" role="listitem">
+Boegershausen, Johannes, Hannes Datta, Abhishek Borah, and Andrew T. Stephen. 2022. <span>“Fields of Gold: Scraping Web Data for Marketing Insights.”</span> <em>Journal of Marketing</em> 86 (5): 1–20. <a href="https://doi.org/10.1177/00222429221100750">https://doi.org/10.1177/00222429221100750</a>.
+</div>
+<div id="ref-BraunEtAl_2024" class="csl-entry" role="listitem">
+Braun, Michael, Bart de Langhe, Stefano Puntoni, and Eric M Schwartz. 2024. <span>“Leveraging Digital Advertising Platforms for Consumer Research.”</span> <em>Journal of Consumer Research</em> 51 (1): 119–28. <a href="https://doi.org/10.1093/jcr/ucad058">https://doi.org/10.1093/jcr/ucad058</a>.
+</div>
+<div id="ref-BraunSchwartz_2023" class="csl-entry" role="listitem">
+Braun, Michael, and Eric M Schwartz. 2023. <span>“Where AB Testing Goes Wrong: What Online Experiments Cannot (and Can) Tell You about How Customers Respond to Advertising.”</span> <em>SMU Cox School of Business Research Paper</em>, no. 21-10. <a href="https://doi.org/10.2139/ssrn.3896024">https://doi.org/10.2139/ssrn.3896024</a>.
+</div>
+<div id="ref-Buschschlueter_2024" class="csl-entry" role="listitem">
+Buschschlüter, Vanessa. 2024. <span>“Brazil Floods: ’We’ve Never Experienced Anything Like It’.”</span> BBC News. <a href="https://web.archive.org/web/20240805170342/https://www.bbc.com/news/articles/cle07g0zzqeo">https://web.archive.org/web/20240805170342/https://www.bbc.com/news/articles/cle07g0zzqeo</a>.
+</div>
+<div id="ref-oTree" class="csl-entry" role="listitem">
+Chen, Daniel L., Martin Schonger, and Chris Wickens. 2016. <span>“oTree—an Open-Source Platform for Laboratory, Online, and Field Experiments.”</span> <em>Journal of Behavioral and Experimental Finance</em> 9: 88–97. <a href="https://doi.org/doi.org/10.1016/j.jbef.2015.12.001">https://doi.org/doi.org/10.1016/j.jbef.2015.12.001</a>.
+</div>
+<div id="ref-CornilEtAl_2023" class="csl-entry" role="listitem">
+Cornil, Yann, Shanwen Yi, Johannes Boegershausen, and David J. Hardisty. 2023. <span>“Testing the Digital Frontier: Validity Tradeoffs in Online Platform a/b Tests.”</span> Unpublished Work. University of British Columbia, working paper.
+</div>
+<div id="ref-Cramer_2015" class="csl-entry" role="listitem">
+Cramer, Henriette. 2015. <span>“Effects of Ad Quality &amp; Content-Relevance on Perceived Content Quality.”</span> In <em>Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems</em>, 2231–34. CHI ’15. New York, NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/2702123.2702360">https://doi.org/10.1145/2702123.2702360</a>.
+</div>
+<div id="ref-Davidson_2023" class="csl-entry" role="listitem">
+Davidson, Brittany I., Darja Wischerath, Daniel Racek, Douglas A. Parry, Emily Godwin, Joanne Hinds, Dirk van der Linden, Jonathan F. Roscoe, Laura Ayravainen, and Alicia G. Cork. 2023. <span>“Platform-Controlled Social Media APIs Threaten Open Science.”</span> Journal Article. <em>Nature Human Behaviour</em> 7 (12): 2054–57. <a href="https://doi.org/10.1038/s41562-023-01750-2">https://doi.org/10.1038/s41562-023-01750-2</a>.
+</div>
+<div id="ref-EcklesGordonJohnson_2018" class="csl-entry" role="listitem">
+Eckles, Dean, Brett R. Gordon, and Garrett A. Johnson. 2018. <span>“Field Studies of Psychologically Targeted Ads Face Threats to Internal Validity.”</span> <em>Proceedings of the National Academy of Sciences</em> 115 (23): E5254–55. <a href="https://doi.org/10.1073/pnas.1805363115">https://doi.org/10.1073/pnas.1805363115</a>.
+</div>
+<div id="ref-FarronatoFradkin_2022" class="csl-entry" role="listitem">
+Farronato, Chiara, and Andrey Fradkin. 2022. <span>“The Welfare Effects of Peer Entry: The Case of Airbnb and the Accommodation Industry.”</span> <em>American Economic Review</em> 112 (6): 1782–1817. <a href="https://doi.org/10.1257/aer.20180260">https://doi.org/10.1257/aer.20180260</a>.
+</div>
+<div id="ref-FarronatoFradkinKarr_2024" class="csl-entry" role="listitem">
+Farronato, Chiara, Andrey Fradkin, and Chris Karr. 2024. <span>“Webmunk: A New Tool for Studying Online Behavior and Digital Platforms.”</span> 32694. National Bureau of Economic Research. <a href="https://doi.org/10.3386/w32694">https://doi.org/10.3386/w32694</a>.
+</div>
+<div id="ref-Ferber_1977" class="csl-entry" role="listitem">
+Ferber, Robert. 1977. <span>“Research by Convenience.”</span> Journal Article. <em>Journal of Consumer Research</em> 4 (1): 57–58. <a href="https://doi.org/10.1086/208679">https://doi.org/10.1086/208679</a>.
+</div>
+<div id="ref-GoldfarbTuckerWang_2022" class="csl-entry" role="listitem">
+Goldfarb, Avi, Catherine Tucker, and Yanwen Wang. 2022. <span>“Conducting Research in Marketing with Quasi-Experiments.”</span> Journal Article. <em>Journal of Marketing</em> 86 (3): 1–20. <a href="https://doi.org/10.1177/00222429221082977">https://doi.org/10.1177/00222429221082977</a>.
+</div>
+<div id="ref-GordonMoaklerZettelmeyer_2022" class="csl-entry" role="listitem">
+Gordon, Brett R, Robert Moakler, and Florian Zettelmeyer. 2022. <span>“Close Enough? A Large-Scale Exploration of Non-Experimental Approaches to Advertising Measurement.”</span> <em>Marketing Science</em> 42 (4): 768–93. <a href="https://doi.org/10.1287/mksc.2022.1413">https://doi.org/10.1287/mksc.2022.1413</a>.
+</div>
+<div id="ref-GroszEtAl_2024" class="csl-entry" role="listitem">
+Grosz, Michael P., Adam Ayaita, Ruben C. Arslan, Susanne Buecker, Tobias Ebert, Paul Hünermund, Sandrine R. Müller, Sven Rieger, Alexandra Zapko-Willmes, and Julia M. Rohrer. 2024. <span>“Natural Experiments: Missed Opportunities for Causal Inference in Psychology.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 7 (1): 1–15. <a href="https://doi.org/10.1177/25152459231218610">https://doi.org/10.1177/25152459231218610</a>.
+</div>
+<div id="ref-GumGum_2017" class="csl-entry" role="listitem">
+GumGum Inc. 2017. <span>“The New Brand Safety Crisis: A Fractured Environment.”</span> GumGum. <a href="https://web.archive.org/web/20220317063148/https://insights.gumgum.com/hubfs/Brand_Safety_GumGum.pdf">https://web.archive.org/web/20220317063148/https://insights.gumgum.com/hubfs/Brand_Safety_GumGum.pdf</a>.
+</div>
+<div id="ref-vanHeerdeEtAl_2021" class="csl-entry" role="listitem">
+Heerde, Harald J. van, Christine Moorman, C. Page Moreau, and Robert W. Palmatier. 2021. <span>“Reality Check: Infusing Ecological Value into Academic Marketing Research.”</span> <em>Journal of Marketing</em> 85 (2): 1–13. <a href="https://doi.org/10.1177/0022242921992383">https://doi.org/10.1177/0022242921992383</a>.
+</div>
+<div id="ref-Hemmings_2021" class="csl-entry" role="listitem">
+Hemmings, Mike. 2021. <span>“Ethical Online Advertising: Choosing the Right Tools for Online Brand Safety.”</span> <em>Journal of Brand Strategy</em> 10 (2): 109–20. <a href="https://www.ingentaconnect.com/content/hsp/jbs/2021/00000010/00000002/art00003">https://www.ingentaconnect.com/content/hsp/jbs/2021/00000010/00000002/art00003</a>.
+</div>
+<div id="ref-InmanEtAl_2018" class="csl-entry" role="listitem">
+Inman, J. Jeffrey, Margaret C. Campbell, Amna Kirmani, and Linda L. Price. 2018. <span>“Our Vision for the Journal of Consumer Research: It’s All about the Consumer.”</span> Journal Article. <em>Journal of Consumer Research</em> 44 (5): 955–59. <a href="https://doi.org/10.1093/jcr/ucx123">https://doi.org/10.1093/jcr/ucx123</a>.
+</div>
+<div id="ref-Jacoby_1978" class="csl-entry" role="listitem">
+Jacoby, Jacob. 1978. <span>“Consumer Research: How Valid and Useful Are All Our Consumer Behavior Research Findings?: A State of the Art Review.”</span> Journal Article. <em>Journal of Marketing</em> 42 (2): 87–96. <a href="https://doi.org/10.1177/002224297804200213">https://doi.org/10.1177/002224297804200213</a>.
+</div>
+<div id="ref-JedidiEtAl_2021" class="csl-entry" role="listitem">
+Jedidi, Kamel, Bernd H. Schmitt, Malek Ben Sliman, and Yanyan Li. 2021. <span>“R2M Index 1.0: Assessing the Practical Relevance of Academic Marketing Articles.”</span> Journal Article. <em>Journal of Marketing</em> 85 (5): 22–41. <a href="https://doi.org/10.1177/00222429211028145">https://doi.org/10.1177/00222429211028145</a>.
+</div>
+<div id="ref-Johnson_2023" class="csl-entry" role="listitem">
+Johnson, Garrett A. 2023. <span>“Inferno: A Guide to Field Experiments in Online Display Advertising.”</span> Journal Article. <em>Journal of Economics &amp; Management Strategy</em> 32 (3): 469–90. <a href="https://doi.org/10.1111/jems.12513">https://doi.org/10.1111/jems.12513</a>.
+</div>
+<div id="ref-Kemp_2023" class="csl-entry" role="listitem">
+Kemp, Simon. 2023. <span>“Digital 2023: Global Overview Report.”</span>
+</div>
+<div id="ref-DeLanghePuntoni_2021" class="csl-entry" role="listitem">
+Langhe, Bart de, and Stefano Puntoni. 2021. <span>“Are Personalized Ads a Waste of Money?”</span> Journal Article. <em>Harvard Business Review Digital Articles</em>. <a href="https://hbr.org/2021/12/are-personalized-ads-a-waste-of-money">https://hbr.org/2021/12/are-personalized-ads-a-waste-of-money</a>.
+</div>
+<div id="ref-LeeKimLim_2021" class="csl-entry" role="listitem">
+Lee, Chunsik, Junga Kim, and Joon Soo Lim. 2021. <span>“Spillover Effects of Brand Safety Violations in Social Media.”</span> <em>Journal of Current Issues and Research in Advertising</em> 42 (4): 354–71. <a href="https://doi.org/10.1080/10641734.2021.1905572">https://doi.org/10.1080/10641734.2021.1905572</a>.
+</div>
+<div id="ref-LeungEtAl_2022" class="csl-entry" role="listitem">
+Leung, Fine F., Flora F. Gu, and Robert W. Palmatier. 2022. <span>“Online Influencer Marketing.”</span> Journal Article. <em>Journal of the Academy of Marketing Science</em> 50 (2): 226–51. <a href="https://doi.org/10.1007/s11747-021-00829-4">https://doi.org/10.1007/s11747-021-00829-4</a>.
+</div>
+<div id="ref-LynchEtAl_2024" class="csl-entry" role="listitem">
+Lynch, John G., Stijn M. J. van Osselaer, and Patricia Torres. 2024. <span>“Inside Baseball: How Our Stereotypes of <span>‘Good Theory’</span> Undermine Perceived Relevance of Marketing Scholarship.”</span> Journal Article. <em>Journal of Consumer Research</em> forthcoming.
+</div>
+<div id="ref-Lynch_1982" class="csl-entry" role="listitem">
+Lynch, Jr., John G. 1982. <span>“<span class="nocase">On the External Validity of Experiments in Consumer Research</span>.”</span> <em>Journal of Consumer Research</em> 9 (3): 225–39. <a href="https://doi.org/10.1086/208919">https://doi.org/10.1086/208919</a>.
+</div>
+<div id="ref-MatzEtAl_2018" class="csl-entry" role="listitem">
+Matz, S. C., M. Kosinski, G. Nave, and D. J. Stillwell. 2018. <span>“Reply to Eckles Et Al.: Facebook’s Optimization Algorithms Are Highly Unlikely to Explain the Effects of Psychological Targeting.”</span> <em>Proceedings of the National Academy of Sciences</em> 115 (23): E5256–57. <a href="https://doi.org/10.1073/pnas.1806854115">https://doi.org/10.1073/pnas.1806854115</a>.
+</div>
+<div id="ref-MoralesAmirLee_2017" class="csl-entry" role="listitem">
+Morales, Andrea C, On Amir, and Leonard Lee. 2017. <span>“<span class="nocase">Keeping It Real in Experimental Research—Understanding When, Where, and How to Enhance Realism and Measure Consumer Behavior</span>.”</span> <em>Journal of Consumer Research</em> 44 (2): 465–76. <a href="https://doi.org/10.1093/jcr/ucx048">https://doi.org/10.1093/jcr/ucx048</a>.
+</div>
+<div id="ref-OraziJohnston_2020" class="csl-entry" role="listitem">
+Orazi, Davide C., and Allen C. Johnston. 2020. <span>“Running Field Experiments Using Facebook Split Test.”</span> Journal Article. <em>Journal of Business Research</em> 118: 189–98. <a href="https://doi.org/10.1016/j.jbusres.2020.06.053">https://doi.org/10.1016/j.jbusres.2020.06.053</a>.
+</div>
+<div id="ref-OrbenPrzybylski_2019" class="csl-entry" role="listitem">
+Orben, Amy, and Andrew K. Przybylski. 2019. <span>“The Association Between Adolescent Well-Being and Digital Technology Use.”</span> Journal Article. <em>Nature Human Behaviour</em> 3 (2): 173–82. <a href="https://doi.org/10.1038/s41562-018-0506-1">https://doi.org/10.1038/s41562-018-0506-1</a>.
+</div>
+<div id="ref-Pham_2013" class="csl-entry" role="listitem">
+Pham, Michel Tuan. 2013. <span>“The Seven Sins of Consumer Psychology.”</span> <em>Journal of Consumer Psychology</em> 23 (4): 411–23. <a href="https://doi.org/10.1016/j.jcps.2013.07.004">https://doi.org/10.1016/j.jcps.2013.07.004</a>.
+</div>
+<div id="ref-RutzWatson_2019" class="csl-entry" role="listitem">
+Rutz, Oliver J., and George F. Watson. 2019. <span>“Endogeneity and Marketing Strategy Research: An Overview.”</span> <em>Journal of the Academy of Marketing Science</em> 47 (3): 479–98. <a href="https://doi.org/10.1007/s11747-019-00630-4">https://doi.org/10.1007/s11747-019-00630-4</a>.
+</div>
+<div id="ref-Schmitt_1994" class="csl-entry" role="listitem">
+Schmitt, Bernd H. 1994. <span>“Contextual Priming of Visual Information in Advertisements.”</span> <em>Psychology &amp; Marketing</em> 11 (1): 1–14. <a href="https://doi.org/10.1002/mar.4220110103">https://doi.org/10.1002/mar.4220110103</a>.
+</div>
+<div id="ref-SchmittEtAl_2022" class="csl-entry" role="listitem">
+Schmitt, Bernd H., June Cotte, Markus Giesler, Andrew T. Stephen, and Stacy Wood. 2022. <span>“Relevance—Reloaded and Recoded.”</span> Journal Article. <em>Journal of Consumer Research</em> 48 (5): 753–55. <a href="https://doi.org/10.1093/jcr/ucab074">https://doi.org/10.1093/jcr/ucab074</a>.
+</div>
+<div id="ref-ShadishCookCampbell_2002" class="csl-entry" role="listitem">
+Shadish, William, Thomas D Cook, and Donald Thomas Campbell. 2002. <em>Experimental and Quasi-Experimental Designs for Generalized Causal Inference</em>. Book. Boston: Houghton Mifflin.
+</div>
+<div id="ref-ShankarEtAl_2022" class="csl-entry" role="listitem">
+Shankar, Venkatesh, Dhruv Grewal, Sarang Sunder, Beth Fossen, Kay Peters, and Amit Agarwal. 2022. <span>“Digital Marketing Communication in Global Marketplaces: A Review of Extant Research, Future Directions, and Potential Approaches.”</span> Journal Article. <em>International Journal of Research in Marketing</em> 39 (2): 541–65. <a href="https://doi.org/10.1016/j.ijresmar.2021.09.005">https://doi.org/10.1016/j.ijresmar.2021.09.005</a>.
+</div>
+<div id="ref-SimonsohnMontealegreEvangelidis_2024" class="csl-entry" role="listitem">
+Simonsohn, Uri, Andres Montealegre, and Ioannis Evangelidis. 2024. <span>“Stimulus Sampling Reimagined: Designing Experiments with Mix-and-Match, Analyzing Results with Stimulus Plots.”</span> <em>SSRN Electronic Journal</em>. <a href="https://doi.org/10.2139/ssrn.4716832">https://doi.org/10.2139/ssrn.4716832</a>.
+</div>
+<div id="ref-ShrihariEtAl_2022" class="csl-entry" role="listitem">
+Sridhar, Shrihari, Cait Lamberton, Detelina Marinova, and Vanitha Swaminathan. 2022. <span>“JM: Promoting Catalysis in Marketing Scholarship.”</span> Journal Article. <em>Journal of Marketing</em> 87 (1): 1–9. <a href="https://doi.org/10.1177/00222429221131517">https://doi.org/10.1177/00222429221131517</a>.
+</div>
+<div id="ref-Stephen_2016" class="csl-entry" role="listitem">
+Stephen, Andrew T. 2016. <span>“The Role of Digital and Social Media Marketing in Consumer Behavior.”</span> Journal Article. <em>Current Opinion in Psychology</em> 10 (1): 17–21. https://doi.org/<a href="https://doi.org/10.1016/j.copsyc.2015.10.016">https://doi.org/10.1016/j.copsyc.2015.10.016</a>.
+</div>
+<div id="ref-SwaminathanEtAl_2023" class="csl-entry" role="listitem">
+Swaminathan, Vanitha, Cait Lamberton, Shrihari Sridhar, and Detelina Marinova. 2023. <span>“Paradigms for Progress: An Anomaly-First Framework for Paradigm Development.”</span> Journal Article. <em>Journal of Marketing</em> 87 (6): 816–25. <a href="https://doi.org/10.1177/00222429231201959">https://doi.org/10.1177/00222429231201959</a>.
+</div>
+<div id="ref-SwaminathanEtAl_2020" class="csl-entry" role="listitem">
+Swaminathan, Vanitha, Alina Sorescu, J. B. E. M. Steenkamp, Thomas C. O’Guinn, and Bernd H. Schmitt. 2020. <span>“Branding in a Hyperconnected World: Refocusing Theories and Rethinking Boundaries.”</span> <em>Journal of Marketing Research</em>. <a href="https://doi.org/10.1177/0022242919899905">https://doi.org/10.1177/0022242919899905</a>.
+</div>
+<div id="ref-WiesBeierEdeling_2023" class="csl-entry" role="listitem">
+Wies, Simone, Alexander Bleier, and Alexander Edeling. 2023. <span>“Finding Goldilocks Influencers: How Follower Count Drives Social Media Engagement.”</span> Journal Article. <em>Journal of Marketing</em> 87 (3): 383–405. <a href="https://doi.org/10.1177/00222429221125131">https://doi.org/10.1177/00222429221125131</a>.
+</div>
+<div id="ref-XuZhangZhou_2020" class="csl-entry" role="listitem">
+Xu, Heng, Nan Zhang, and Le Zhou. 2020. <span>“Validity Concerns in Research Using Organic Data.”</span> <em>Journal of Management</em> 46 (7): 1257–74. <a href="https://doi.org/10.1177/0149206319862027">https://doi.org/10.1177/0149206319862027</a>.
+</div>
+<div id="ref-YiEtAl_2014" class="csl-entry" role="listitem">
+Yi, Xing, Liangjie Hong, Erheng Zhong, Nanthan Nan Liu, and Suju Rajan. 2014. <span>“Beyond Clicks: Dwell Time for Personalization.”</span> In <em>Proceedings of the 8th ACM Conference on Recommender Systems</em>, 113–20. RecSys ’14. New York, NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/2645710.2645724">https://doi.org/10.1145/2645710.2645724</a>.
+</div>
+<div id="ref-ZhouEtAl_2022" class="csl-entry" role="listitem">
+Zhou, Lingrui, Katherine M. Du, and Keisha M. Cutright. 2022. <span>“Befriending the Enemy: The Effects of Observing Brand-to-Brand Praise on Consumer Evaluations and Choices.”</span> Journal Article. <em>Journal of Marketing</em> 86 (4): 57–72. <a href="https://doi.org/10.1177/00222429211053002">https://doi.org/10.1177/00222429211053002</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The authors used three seven-point scales (i.e., “negative/positive” “dislikeable/likeable” and “unfavorable/favorable”).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You can browse the flooding-related feed <a href="https://web.archive.org/web/20240509200732/https://ibt-hsg.herokuapp.com/p/6ni2o3bv/DICE/C_Feed/3">here</a> and the more general feed <a href="https://web.archive.org/web/20240509200758/https://ibt-hsg.herokuapp.com/p/97fable0/DICE/C_Feed/3">here.</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>An additional second in the viewport increases the odds of recall by about 1.05% (<span class="math inline">\(p = 0.02\)</span>)<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./projects.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">INDIVIDUAL PROJECTS</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./project_civility.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Price of Civility: Economic and Social Returns on Investment in Toxicity Moderation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

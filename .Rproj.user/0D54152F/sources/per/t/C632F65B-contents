@@ -1,0 +1,49 @@
+---
+title: 'Vorstudie'
+subtitle: "How Much Is Enough? Exploring Frequency Capping in Social Media Advertising"
+author:
+- name: Hauke Roggenkamp
+  email: Hauke.Roggenkamp@unisg.ch
+  orcid: 0009-0005-5176-4718
+  corresponding: true
+  affiliations:
+    - name: Institute of Behavioral Science and Technology, University of St. Gallen
+      address: Torstrasse 25
+      city: St. Gallen
+      country: Switzerland
+      postal-code: 9000
+date: now
+date-format: dddd MMM D, YYYY, HH:mm z
+# format:
+#   html:
+#     embed-resources: true
+#     theme: cosmo
+# format: pdf
+format: icml
+toc: false
+number-sections: false
+fig-cap-location: top
+execute:
+  echo: false
+bibliography: ../literature/references.bib
+---
+
+
+# Abstract
+
+In recent years, online interactions have become increasingly complex and multifaceted. Consumers now engage across a plethora of platforms, each serving diverse functions ranging from and news consumption and social networking to e-commerce, often blurring the lines between these purposes. This evolution has expanded the range of stakeholders in the digital space [@SwaminathanEtAl_2020]. Users frequently encounter seamlessly integrated native advertisements within news platforms[@AribargSchwartz_2020], influencer-created product lines developed in cooperation with shopping platforms [source, ask Reto], as well as content curated and funded by social media firms [@HuaEtAl_2022]. These shifts have significant implications for business models, mental health, and regulatory practices, presenting a host of unanswered questions about digital consumer behavior and marketing efficacy.
+As the digital environment continues to evolve at a rapid pace, the methodologies employed to study it have lagged behind. With the exception of recent advancements in large language models that can mimic consumers [@MeiEtAl_2024], the toolkit available to marketing researchers has remained relatively unchanged over the past decade. Traditionally, researchers have relied on vignette-, observational-, and platform studies to triangulate consumer behavior. While these methodologies offer valuable insights and have undergone continuous refinement, they may not fully capture the complexity of today’s digital interactions [@BaumeisterEtAl_2007; @FischerEtAl_2023; @XuZhangZhou_2020; @BoegershausenEtAl_2022].
+
+Recognizing the individual strengths of the existing research tools, we introduce Digital In-Context Experiments (DICE) as a complementary paradigm designed to enrich our understanding of digital consumer behavior. Furthermore, we developed a simple and easy-to-use open-source web app that applies this paradigm and makes it accessible to marketing scholars. Specifically, the app transforms csv files into news-, social media, or shopping feeds that closely mimic real-world applications' user interface and user experience. Researchers can not only define single items such as news articles, tweets or products but design a whole feed composed of a series of these items. Importantly, these mimicked feeds can be randomized and manipulated between-subjects. 
+Hence, DICE create realistic, context-rich experimental environments that surpass the constraints of simplistic vignette studies [@MoralesAmirLee_2017]. In addition, DICE ensure stable treatment assignment and thus, provide a level of experimental control and internal validity not typically achievable in platform or observational studies due to divergent delivery [@BraunEtAl_2023; @GordonMoaklerZettelmeyer_2022] and endogeneity [@RutzWatson_2019; @GroszEtAl_2024], respectively. 
+
+Similar to _Mouselab_ studies [@PayneEtAl_1988], DICE facilitate the collection of granular implicit measures that extend beyond what can be obtained (or scraped) from digital platforms, enabling researchers to capture detailed browsing patterns and intuitive decision-making processes [@NormanSchulte-Mecklenbeck_2010]. Unlike Mouselab studies, which often feel artificial due to their high degree of control, DICE offers a context-rich setting that more accurately reflects real-world digital interactions. Complementing these measures with self-reports, can, for instance, capture consumer attention and explain which content (fails) to cut through the digital clutter [@Ordenes_2019]. Whereas insights into processes can also be achieved with eye-tracking technology, DICE are unobtrusive and more cost-effective as the barriers to employing it are often substantial, requiring costly equipment and complex data analysis procedures [@BielekeDohmenGollwitzer_2020].
+
+In contrast, applying DICE using our app resembles the standard workflow for designing static vignette studies, that is, stimuli design, survey design, participant recruitment, and data analysis (for which we also offer a shiny app that pre-processes the data). The DICE app prompts the researcher to provide content (what shall be displayed?) as well as some configurations (how and to whom shall the content be displayed?) in addition to a Qualtrics link for a post-experiment questionnaire. The DICE app then generates a study-specific link that researchers can post on crowdsourcing platforms, such as Prolific. The app’s underlying architecture ensures that researchers can easily merge the DICE data with additional post-experiment data via unique respondent IDs.
+
+Importantly, the DICE paradigm stands not as a replacement but as an addition to the existing repertoire of research tools, enhancing our ability to interpret the complexities of digital consumer behavior. Researchers can, for instance, create stimuli using our DICE app for eye tracking studies to get a rich combination of implicit measures. To further enhance the realism of these stimuli, they can use observational data (e.g., scrape social media posts) and feed them into our DICE app.
+ 
+
+This approach allows to experimentally test observations such as the finding by @RobertsonEtAl2023 regarding the impact of negativity on news consumption. By leveraging actual news headlines provided by @MatiasEtAl2021, researchers can analyze the sentiment of each headline, input the data into our DICE application, and compare the engagement metrics—such as individual dwell times and the trajectory of these dwell times as well as reactions such as likes or comments—between news items with positive versus negative sentiment. This not only illustrates the versatility of DICE but also highlights its capacity to bring a closer approximation of real-world interactions into the research environment.
+
+Taken together, the stable treatment assignment, the realistic stimuli that capture real-world contexts, the ability to collect implicit data as well as the ability to easily combine these features of DICE with existing research paradigms allows researchers to pursue entirely new lines of inquiry: beyond analyzing isolated items, brands can manipulate compositions of entire feeds to better understand spillover effects and threats to brand safety; marketing strategists can test which ad formats capture attention and recall; marketing researchers can simulate different ranking algorithms to better understand their implications; policy makers can investigate the dwell-time measure to better understand how platforms can leverage these proprietary data. In summary, our DICE paradigm offers new avenues for rigorous, realistic, and ultimately relevant marketing research for a wide range of stakeholders within the modern digital ecosystem.

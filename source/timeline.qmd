@@ -1,0 +1,28 @@
+# Work Plan
+
+```{r install_packages}
+#| echo: false
+#| warning: false
+#| output: false
+
+pkgs <- c("github::giocomai/ganttrify")
+
+groundhog::groundhog.library(pkg = pkgs,
+                             date = "2024-01-01")
+
+rm(pkgs)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+ganttrify(
+  project = ganttrify::test_project,
+  project_start_date = "2021-04",
+  alpha_wp = 0.9,
+  alpha_activity = 0.6,
+  line_end_wp = "round", # alternative values: "butt" or "square"
+  line_end_activity = "round" # alternative values: "butt" or "square"
+)
+```
+

@@ -1,0 +1,318 @@
+
+## The Sound of Certainty
+
+## Pre-Test {#sec-sound-pre-test}
+
+The document processes and analyzes data generated in a pre-test. The pre-test aimed to identify pairs of model headshots between which participants found it hard (easy) to decide. The identified pairs of two serve as stimuli for the high (low) conflict condition in _Study I_.
+
+
+```{r install_packages}
+#| echo: false
+#| warning: false
+#| output: false
+
+options(repos = c(CRAN = "https://cran.r-project.org")) 
+
+
+if (!requireNamespace("groundhog", quietly = TRUE)) {
+    install.packages("groundhog")
+    library("groundhog")
+}
+
+pkgs <- c("magrittr", "data.table", "Rmisc", "stringr", "ggplot2", "rcartocolor")
+
+groundhog::groundhog.library(pkg = pkgs,
+                             date = "2024-01-01")
+
+rm(pkgs)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+set.seed(42)
+```
+
+```{r layout}
+#| echo: false
+#| warning: false
+layout <- theme(panel.background = element_rect(fill = "white"),
+                legend.key = element_rect(fill = "white"),
+                panel.grid.major.y = element_line(colour = "grey", 
+                                                  linewidth = 0.25),
+                axis.ticks.y = element_blank(),
+                panel.grid.major.x = element_blank(),
+                axis.line.x.bottom = element_line(colour = "#000000", 
+                                                  linewidth = 0.5),
+                axis.line.y.left = element_blank(),
+                plot.title = element_text(size = rel(1))
+)
+```
+
+```{r colors}
+#| echo: false
+#| warning: false
+c_coral     <- "#f27981"
+c_yellow    <- "#F2EA79"
+c_turquoise <- "#79f2ea"
+c_purple    <- "#7981f2"
+
+scale_color_custom_d <- function() {
+  scale_color_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))
+}
+scale_fill_custom_d <- function() {
+  scale_fill_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))
+}
+```
+
+```{r read_data}
+#| echo: false
+#| warning: false
+female <- fread('../../preference_expression/data/pre_test/2022-10-30.csv')
+male <- fread('../../preference_expression/data/pre_test/2023-08-22.csv')
+```
+
+```{r delete_label_row}
+#| echo: false
+#| warning: false
+dt_1 <- female[-1]
+dt_1 <- female[Finished == '1']
+dt_1[, id := paste0("female_", 1:.N)]
+
+
+dt_2 <- male[-1]
+dt_2 <- male[Finished == '1']
+dt_2[, id := paste0("male_", 1:.N)]
+
+rm(list = c("female", "male"))
+```
+
+```{r demographics}
+#| echo: false
+#| warning: false
+pretest_demographics <- rbindlist(l = list(dt_1[, .(set = "female",
+                                                    age = as.numeric(Q485),
+                                                    female = ifelse(test = gender == 1,
+                                                                    yes = 1, no = 0))],
+                                           dt_2[, .(set = "male",
+                                                    age = as.numeric(Q485),
+                                                    female = ifelse(test = gender == 1,
+                                                                    yes = 1, no = 0))]),
+                              idcol = FALSE)
+```
+
+```{r wide_to_long}
+#| echo: false
+#| warning: false
+vars <- c('choice', 'conflict', 'difficulty')
+HC_f <- data.table::melt(dt_1,
+                       id.vars       = c('id'),
+                       measure.vars  = patterns('HC\\d_choice', 'HC\\d_Conf', 'HC\\d_Diff'),
+                       variable.name = 'pair',
+                       value.name    = vars)
+
+LC_f <- data.table::melt(dt_1,
+                       id.vars       = c('id'),
+                       measure.vars  = patterns('LC\\d_Choice', 'LC\\d_Conf', 'LC\\d_Diff'),
+                       variable.name = 'pair',
+                       value.name    = vars)
+
+female <- data.table::rbindlist(l = list(HC_f,  LC_f),
+                                idcol = TRUE)
+
+HC_m <- data.table::melt(dt_2,
+                       id.vars       = c('id'),
+                       measure.vars  = patterns('HC\\d_choice', 'HC\\d_Conf', 'HC\\d_Diff'),
+                       variable.name = 'pair',
+                       value.name    = vars)
+
+LC_m <- data.table::melt(dt_2,
+                       id.vars       = c('id'),
+                       measure.vars  = patterns('LC\\d_Choice', 'LC\\d_Conf', 'LC\\d_Diff'),
+                       variable.name = 'pair',
+                       value.name    = vars)
+
+male <- data.table::rbindlist(l = list(HC_m,  LC_m),
+                              idcol = TRUE)
+
+# DT <- data.table::rbindlist(l = list(female,  male),
+#                             idcol = TRUE)
+
+female[.id == 1, condition := as.factor('HC')]
+female[.id == 2, condition := as.factor('LC')]
+female[, paste0(vars) := lapply(.SD, as.numeric), .SDcols = vars]
+female[, decision := paste0(condition, pair)]
+female[!is.na(choice), choice := choice - 1]
+
+male[.id == 1, condition := as.factor('HC')]
+male[.id == 2, condition := as.factor('LC')]
+male[, paste0(vars) := lapply(.SD, as.numeric), .SDcols = vars]
+male[, decision := paste0(condition, pair)]
+male[!is.na(choice), choice := choice - 1]
+
+rm(list = c('dt', 'HC', 'LC', 'vars'))
+```
+
+
+```{r summarize}
+#| echo: false
+#| warning: false
+conflict_f <- summarySE(data = female,
+                      measurevar = "conflict",
+                      groupvars=c('decision', 'condition'),
+                      na.rm = FALSE,
+                      conf.interval = 0.95,
+                      .drop = TRUE) %>%
+  data.table()
+setorder(conflict_f, conflict)
+
+conflict_m <- summarySE(data = male,
+                      measurevar = "conflict",
+                      groupvars=c('decision', 'condition'),
+                      na.rm = FALSE,
+                      conf.interval = 0.95,
+                      .drop = TRUE) %>%
+  data.table()
+setorder(conflict_m, conflict)
+
+# difficulty <- summarySE(data = DT,
+#                         measurevar = "difficulty",
+#                         groupvars=c('decision', 'condition'),
+#                         na.rm = FALSE,
+#                         conf.interval = 0.95,
+#                         .drop = TRUE) %>%
+#   data.table()
+# 
+# choice <- summarySE(data = DT,
+#                         measurevar = "choice",
+#                         groupvars=c('decision', 'condition'),
+#                         na.rm = FALSE,
+#                         conf.interval = 0.95,
+#                         .drop = TRUE) %>%
+#   data.table()
+```
+
+```{r conflict_f}
+#| warning: false
+#| error: false
+#| echo: false
+
+plot_f <- ggplot(data = conflict_f,
+       mapping = aes(x = conflict, 
+                     y = reorder(decision, -conflict),
+                     col = condition)) +
+  layout +
+  geom_line(show.legend=FALSE, lty=2) +
+  geom_errorbar(aes(xmin=conflict-ci, xmax=conflict+ci), width=.25, alpha = 0.5) +
+  scale_x_continuous(limits = c(1, 7), breaks = 1:7) +
+  geom_point() +
+  scale_color_manual(values = carto_pal(name = "Safe")) +
+  labs(x = 'Conflict',
+       y = 'Female Headshot Pairs',
+       caption = 'Bars indicate 95% confidence intervals.') +
+  theme(legend.position = 'None')
+```
+
+```{r conflict_m}
+#| warning: false
+#| error: false
+#| echo: false
+
+plot_m <- ggplot(data = conflict_m,
+       mapping = aes(x = conflict, 
+                     y = reorder(decision, -conflict),
+                     col = condition)) +
+  layout +
+  geom_line(show.legend=FALSE, lty=2) +
+  geom_errorbar(aes(xmin=conflict-ci, xmax=conflict+ci), width=.25, alpha = 0.5) +
+  scale_x_continuous(limits = c(1, 7), breaks = 1:7) +
+  geom_point() +
+  scale_color_manual(values = carto_pal(name = "Safe")) +
+  labs(x = 'Conflict',
+       y = 'Male Headshot Pairs',
+       caption = 'Bars indicate 95% confidence intervals.') +
+  theme(legend.position = 'None')
+
+```
+
+**Procedure:**
+We conducted two online experiments to pre-test eighteen pairs of female headshots as well as eleven pairs of male headshots in October 2022 and August 2023, respectively. Both pre-tests followed the same procedure and led participants through a series of decisions in which they were exposed to two model headshots. For each of these pairs of headshots their task was to indicate which they find more attractive and how difficult they found the decision to be.
+
+**Participants:**
+`r pretest_demographics[set == "female", .N]` Prolific panelists 
+($M_{age} =$ `r pretest_demographics[set == "female", round(mean(age, na.rm = TRUE), digits = 2)]`, 
+$SD_{age} =$ `r pretest_demographics[set == "female", round(sd(age, na.rm = TRUE), digits = 2)]`; 
+`r round(pretest_demographics[set == "female", mean(female, na.rm = TRUE)*100])`% female) completed the pre-test studying female headshots whereas 
+`r pretest_demographics[set == "male", .N]` Prolific panelists 
+($M_{age} =$ `r pretest_demographics[set == "male", round(mean(age, na.rm = TRUE), digits = 2)]`, 
+$SD_{age} =$ `r pretest_demographics[set == "male", round(sd(age, na.rm = TRUE), digits = 2)]`; 
+`r round(pretest_demographics[set == "male", mean(female, na.rm = TRUE)*100])`% female) completed the pre-test studying male headshots.
+
+```{r}
+#| warning: false
+#| error: false
+#| echo: false
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Pre-Test Female Headshots"
+#|   - "Pre-Test Male Headshots"
+
+plot_f
+plot_m
+```
+
+The visualizations show on two accounts that the low conflict pairs (abbreviated with `LC` and colored in red) are perceived significantly different than the high conflict (`HC`, blue) pairs.
+
+The visualizations also show that there is some variation within these two conditions. We'll choose the pairs that are the most extreme: e.g. we pick the pairs that represent the highest (lowest) `conflict` for the `HC` (`LC`) condition. 
+
+
+Hence, we implement the pairs listed in the following table. The first column refers to the codes used in this analysis (displayed in the visualizations). The second column refers to the gender of the models shown in each pair and the last columns displays the file names implemented in oTree. 
+
+
+| Code | Gender | File Names   |
+|------|--------|--------------|
+| HC3  | female | HCP1A, HCP1B |
+| HC9  | female | HCP2A, HCP2B |
+| HC4  | male   | HCP3A, HCP3B |
+| HC5  | male   | HCP4A, HCP4B |
+| LC8  | female | LCP1A, LCP1B |
+| LC9  | female | LCP2A, LCP2B |
+| LC5  | male   | LCP3A, LCP3B |
+| LC4  | male   | LCP4A, LCP4B |
+
+## Stimuli {#sec-sound-stimuli}
+
+All stimuli can be found in our [Github repository](https://github.com/Howquez/vocalized-preferences/tree/main/software/pilots/preferences/static/models).
+
+<!--
+::: {layout-nrow=8}
+![HC3](../../preference_expression/software/pilots/preferences/static/models/HCP1A.png)
+
+![HC3](../../preference_expression/software/pilots/preferences/static/models/HCP1B.png)
+
+![HC9](../../preference_expression/software/pilots/preferences/static/models/HCP2A.png)
+
+![HC9](../../preference_expression/software/pilots/preferences/static/models/HCP2B.png)
+![HC4](../../preference_expression/software/pilots/preferences/static/models/HCP3A.png)
+
+![HC4](../../preference_expression/software/pilots/preferences/static/models/HCP3B.png)
+
+![HC5](../../preference_expression/software/pilots/preferences/static/models/HCP4A.png)
+
+![HC5](../../preference_expression/software/pilots/preferences/static/models/HCP4B.png)
+![LC8](../../preference_expression/software/pilots/preferences/static/models/LCP1A.png)
+
+![LC8](../../preference_expression/software/pilots/preferences/static/models/LCP1B.png)
+![LC9](../../preference_expression/software/pilots/preferences/static/models/LCP2A.png)
+
+![LC9](../../preference_expression/software/pilots/preferences/static/models/LCP2B.png)
+
+![LC5](../../preference_expression/software/pilots/preferences/static/models/LCP3A.png)
+
+![LC5](../../preference_expression/software/pilots/preferences/static/models/LCP3B.png)
+
+![LC4](../../preference_expression/software/pilots/preferences/static/models/LCP4A.png)
+
+![LC4](../../preference_expression/software/pilots/preferences/static/models/LCP4B.png)
+:::
+-->

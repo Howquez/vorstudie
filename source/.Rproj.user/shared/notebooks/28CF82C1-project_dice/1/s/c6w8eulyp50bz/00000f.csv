@@ -1,0 +1,8 @@
+"0","tmp <- data.table::merge.data.table(x = dice_plus[,"
+"0","                                                    .(condition = unique(condition),"
+"0","                                                      time_spent_on_page = unique(time_spent_on_page)),"
+"0","                                               by = participant_label],"
+"0","                                      y = qualtrics,"
+"0","                                      by = ""participant_label"")"
+"0",""
+"0","# short <- short[complete.cases(short[, .SD, .SDcols = 21:ncol(short)])]"

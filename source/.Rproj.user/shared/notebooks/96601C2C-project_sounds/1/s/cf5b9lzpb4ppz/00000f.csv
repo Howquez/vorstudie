@@ -1,0 +1,10 @@
+"0","#| echo: false"
+"0","#| warning: false"
+"0","#| eval: false"
+"0",""
+"0","# Histogram of Switch Points"
+"0","switch_points <- sapply(1:num_participants, function(i) {"
+"0","  dt[participant_label == participant_labels[i] & choice == ""A"", min(decision)]"
+"0","})"
+"2","Error: object 'num_participants' not found
+"

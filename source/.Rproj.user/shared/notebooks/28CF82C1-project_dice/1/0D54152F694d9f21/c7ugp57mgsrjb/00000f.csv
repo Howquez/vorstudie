@@ -1,0 +1,5 @@
+"0","raw    <- data.table::fread(file = ""../../oFeeds/studies/brand_safety/data/raw/all_apps_wide-2024-05-10.csv"")"
+"0","input  <- data.table::fread(file = ""../../oFeeds/studies/brand_safety/stimuli/brazil.csv"")"
+"0","dice   <- data.table::fread(file = ""../../oFeeds/studies/brand_safety/data/processed/DICE-processed-2024-05-10.csv"")"
+"0","qualtrics  <- data.table::fread(file = ""../../oFeeds/studies/brand_safety/data/raw/DICE_Validation_Brand_Safety_Brazil_May+10,+2024_07.51.csv"")"
+"0","page_times <- data.table::fread(file = ""../../oFeeds/studies/brand_safety/data/raw/PageTimes-2024-05-13.csv"")"

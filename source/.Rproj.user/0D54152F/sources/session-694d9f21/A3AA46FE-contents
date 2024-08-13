@@ -1,0 +1,216 @@
+---
+title: "Vocalized Preferences: Predictions"
+format:
+    html:
+      fig-width: 7
+      fig-height: 7
+bibliography: ../literature/_references.bib
+number-sections: true
+toc: false
+author:
+  - name: Hauke Roggenkamp
+    email: Hauke.Roggenkamp@unisg.ch
+    corresponding: true
+    affiliations:
+      - name: Institute of Behavioral Science and Technology, University of St. Gallen
+        address: Torstrasse 25
+        city: St. Gallen
+        state: Switzerland
+        postal-code: 9000
+---
+
+
+
+```{r clear_memory}
+#| include: false
+rm(list = ls())
+gc()
+```
+
+```{r packages}
+# install.packages("pacman")
+if (!requireNamespace("pacman", quietly = TRUE)) {
+    install.packages("pacman")
+    library("pacman")
+}
+
+pacman::p_load(knitr, rmarkdown,
+               magrittr, data.table, stringr,
+               randomForest, caret,
+               lme4, sjPlot)
+```
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+options(scipen = 14)
+set.seed(42)
+```
+
+
+# Read Data, Subset & Rename {#sec-transform}
+
+```{r read_data}
+DT <- fread(file = '../data/processed/2023-08-23_processed.csv', 
+            integer64 = 'numeric',
+            stringsAsFactors = TRUE)
+
+```
+
+```{r binary_outcome}
+# create a numeric outcome variable
+DT[conflict == 'high', conflict_high := 1]
+DT[conflict == 'low',  conflict_high := 0]
+```
+
+After having read the data, I'll split it to a training (60% of participants) and test (40%) data set for the training of a random forest and its evaluation, respectively. Furthermore, some variables are removed that cannot be used for random forests.
+
+```{r split_data}
+
+# split data based on participant code
+participants <- DT[, unique(participant_code)]
+
+relevant_cols <- names(DT) %>% 
+  str_subset(pattern = 'participant_label|decision|strength|choice|fmPurity|conflict$|OTF$|IP$',
+             negate = TRUE)
+
+TRAIN <- DT[participant_code %in% participants[sample.int(n = length(participants),
+                                                          size = round(0.6 * length(participants)),
+                                                          replace = FALSE,
+                                                          )],
+            ..relevant_cols]
+
+
+TEST <- DT[!(participant_code %in% TRAIN$participant_code),
+           ..relevant_cols]
+
+# remove NAs for the random forest
+TEST <- TEST[which(complete.cases(TEST))]
+TRAIN <- TRAIN[which(complete.cases(TRAIN))]
+
+# remove participant code to make training of random forest easier
+TRAIN[, participant_code := NULL]
+
+```
+
+
+# Create Subsets for Horse Race
+
+I now subset the training data even more to compare the performance of voice features alone (`VOICE`) with conventional measures (`CONVE`) such as time stamps and self-reports.
+
+```{r}
+conventional <- names(TRAIN)[c(135, 1, 3:5, 123:134)]
+voice <- names(TRAIN)[c(135, 1, 2, 7:114)]
+
+CONVE <- TRAIN[, ..conventional]
+VOICE <- TRAIN[, ..voice]
+```
+
+
+# Train Model
+
+I use these three data sets to train three models utilizing each variable the respective data sets contain. Throughout this document I'll refer to these models using suffixes `_a` for all variables, `_c` for conventional measures and `_v` for voice features alone.
+
+```{r random_forest}
+rf_model_a <- randomForest(conflict_high ~ ., data = TRAIN, ntree = 500)
+rf_model_c <- randomForest(conflict_high ~ ., data = CONVE, ntree = 500)
+rf_model_v <- randomForest(conflict_high ~ ., data = VOICE, ntree = 500)
+```
+
+
+# Prediction
+
+Using these models, I make three binary predictions of a conflict dummy (`conflict_high`).
+
+```{r}
+predictions_a <- ifelse(test = predict(rf_model_a, newdata = TEST) > 0.5,
+                        yes  = 1,
+                        no   = 0) %>% as.factor()
+
+predictions_c <- ifelse(test = predict(rf_model_c, newdata = TEST) > 0.5,
+                        yes  = 1,
+                        no   = 0) %>% as.factor()
+
+predictions_v <- ifelse(test = predict(rf_model_v, newdata = TEST) > 0.5,
+                        yes  = 1,
+                        no   = 0) %>% as.factor()
+```
+
+
+## Conventional Variables
+
+```{r}
+
+actual <- TEST$conflict_high %>% as.factor()
+c <- confusionMatrix(predictions_c, actual)
+c
+```
+
+## Voice Variables Alone
+
+```{r}
+v <- confusionMatrix(predictions_v, actual)
+v
+```
+
+## All Variables (Conventional + Voice)
+
+```{r}
+a <- confusionMatrix(predictions_a, actual)
+a
+```
+
+# What are the most important predictors in each model?
+
+```{r}
+varImpPlot(x = rf_model_c, n.var = 10)
+varImpPlot(x = rf_model_v, n.var = 10)
+varImpPlot(x = rf_model_a, n.var = 10)
+```
+
+# Summary
+
+We have seen that the conventional training data (and the corresponding model) does not yield an accuracy better than a random draw (`r round(100 * c$overall[1])`%). We have also seen that the voice data and the combination of both lead to better accuracies 
+(`r round(100 * v$overall[1])`% and `r round(100 * a$overall[1])`%, respectively). However, they are not too far off 50% either.
+
+Furthermore, we have seen that duration measures are among the most important predictors in each model.
+
+
+# Regressions
+
+To sum up, `first_voiced` is the best predictor for the `conflict` factor we have. How does this compare to our pre-specified regression (`model_1`)? To put it differently, does `conflict` have a causal effect on `first_voiced`? Not surprisingly: Yes.
+
+```{r}
+model_1 <- lme4::lmer(formula = first_voiced ~ 
+                                conflict + 
+                                (1 | participant_code) + 
+                                round, 
+                      data = DT)
+
+model_2 <- lme4::lmer(formula = first_voiced ~ 
+                                conflict + 
+                                (1 | participant_code) + 
+                                round +
+                                round*conflict, 
+                      data = DT)
+
+model_3 <- lme4::lmer(formula = first_voiced ~ 
+                                strength + 
+                                (1 | participant_code) + 
+                                round, 
+                      data = DT)
+
+model_4 <- lme4::lmer(formula = first_voiced ~ 
+                                strength + 
+                                (1 | participant_code) + 
+                                round +
+                                round*strength, 
+                      data = DT)
+```
+
+```{r}
+tab_model(model_1, model_2, model_3, model_4,
+          show.ci = FALSE,
+          show.se = FALSE,
+          show.p  = TRUE)
+```
+

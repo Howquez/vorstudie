@@ -1,0 +1,38 @@
+"0","#| echo: false"
+"0","#| warning: false"
+"0","#| output: false"
+"0",""
+"0","options(repos = c(CRAN = ""https://cran.r-project.org"")) "
+"0",""
+"0",""
+"0","if (!requireNamespace(""groundhog"", quietly = TRUE)) {"
+"0","    install.packages(""groundhog"")"
+"0","    library(""groundhog"")"
+"0","}"
+"0",""
+"0","pkgs <- c(""magrittr"", ""data.table"", ""knitr"", ""stringr"", ""stringi"", ""ggplot2"", ""scales"")"
+"0",""
+"0","groundhog::groundhog.library(pkg = pkgs,"
+"0","                             date = ""2024-01-01"")"
+"2","data.table 1.14.10 using 1 threads (see ?getDTthreads).  Latest news: r-datatable.com
+"
+"2","**********
+This installation of data.table has not detected OpenMP support. It should still work but in single-threaded mode.
+This is a Mac. Please read https://mac.r-project.org/openmp/. Please engage with Apple and ask them for support. Check r-datatable.com for updates, and our Mac instructions here: https://github.com/Rdatatable/data.table/wiki/Installation. After several years of many reports of installation problems on Mac, it's time to gingerly point out that there have been no similar problems on Windows or Linux.
+**********
+"
+"2","[36mSuccessfully attached 'magrittr_2.0.3'[0m
+"
+"2","[36mSuccessfully attached 'data.table_1.14.10'[0m
+"
+"2","[36mSuccessfully attached 'knitr_1.45'[0m
+"
+"2","[36mSuccessfully attached 'stringr_1.5.1'[0m
+"
+"2","[36mSuccessfully attached 'stringi_1.8.3'[0m
+"
+"2","[36mSuccessfully attached 'ggplot2_3.4.4'[0m
+"
+"2","[36mSuccessfully attached 'scales_1.3.0'[0m
+"
+"0","rm(pkgs)"

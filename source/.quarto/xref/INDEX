@@ -1,0 +1,41 @@
+{
+  "index.qmd": {
+    "index.html": "c8eb9a8d"
+  },
+  "intro.qmd": {
+    "intro.html": "c4e67217"
+  },
+  "summary.qmd": {
+    "summary.html": "6d051460"
+  },
+  "references.qmd": {
+    "references.html": "9d4f938a"
+  },
+  "projects.qmd": {
+    "projects.html": "38ea6e81"
+  },
+  "overview.qmd": {
+    "overview.html": "cd52d712"
+  },
+  "timeline.qmd": {
+    "timeline.html": "fa3a3a7d"
+  },
+  "project_sounds.qmd": {
+    "project_sounds.html": "967f3d70"
+  },
+  "project_dice.qmd": {
+    "project_dice.html": "40605910"
+  },
+  "project_civility.qmd": {
+    "project_civility.html": "3b5cc323"
+  },
+  "REFERENCES.qmd": {
+    "references.html": "1efd7ac3"
+  },
+  "outcomes.qmd": {
+    "outcomes.html": "dc95d113"
+  },
+  "appendix_sounds.qmd": {
+    "appendix_sounds.html": "2993aa0e"
+  }
+}

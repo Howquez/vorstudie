@@ -1,0 +1,7 @@
+"0","long <- data.table::merge.data.table(x = output,"
+"0","                          y = input,"
+"0","                          by = c(""doc_id"", ""condition""))"
+"0",""
+"0","setorder(long, participant_code, displayed_sequence)"
+"0",""
+"0","long <- long[complete.cases(long[, .SD, .SDcols = 34:56])]"

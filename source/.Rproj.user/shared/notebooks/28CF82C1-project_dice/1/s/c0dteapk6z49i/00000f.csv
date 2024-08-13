@@ -1,0 +1,6 @@
+"0","qualtrics[, "
+"0","      binary_flood_awareness := ifelse(test = str_detect(string = flood_awareness,"
+"0","                                                         pattern = ""Yes,""),"
+"0","                                       yes  = 1,"
+"0","                                       no   = 0) %>% "
+"0","        as.logical()]"

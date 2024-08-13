@@ -1,0 +1,1657 @@
+@article{knuth84,
+  author = {Knuth, Donald E.},
+  title = {Literate Programming},
+  year = {1984},
+  issue_date = {May 1984},
+  publisher = {Oxford University Press, Inc.},
+  address = {USA},
+  volume = {27},
+  number = {2},
+  issn = {0010-4620},
+  url = {https://doi.org/10.1093/comjnl/27.2.97},
+  doi = {10.1093/comjnl/27.2.97},
+  journal = {Comput. J.},
+  month = may,
+  pages = {97–111},
+  numpages = {15}
+}
+
+@article{oTree,
+title = {oTree—An open-source platform for laboratory, online, and field experiments},
+journal = {Journal of Behavioral and Experimental Finance},
+volume = {9},
+pages = {88-97},
+year = {2016},
+issn = {2214-6350},
+doi = {doi.org/10.1016/j.jbef.2015.12.001},
+url = {https://www.sciencedirect.com/science/article/pii/S2214635016000101},
+author = {Daniel L. Chen and Martin Schonger and Chris Wickens}
+}
+
+@misc{Roggenkamp_2023,
+  title={oFeeds},
+  url={osf.io/jcxvk},
+  publisher={OSF},
+  author={Roggenkamp, Hauke C},
+  year={2023},
+  month={Sep}
+}
+
+@article{AngristImbensRubin_1996,
+author = {Angrist, Joshua D. and Imbens, Guido W. and Rubin, Donald B.},
+title = {Identification of Causal Effects Using Instrumental Variables},
+journal = {Journal of the American Statistical Association},
+volume = {91},
+number = {434},
+pages = {444-455},
+year = {1996},
+publisher = {Taylor & Francis},
+doi = {10.1080/01621459.1996.10476902},
+URL = {https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476902},
+eprint = {https://www.tandfonline.com/doi/pdf/10.1080/01621459.1996.10476902}
+}
+
+@article{BraunSchwartz_2023,
+  title={Where AB Testing Goes Wrong: What Online Experiments Cannot (and Can) Tell You About How Customers Respond to Advertising},
+  author={Braun, Michael and Schwartz, Eric M},
+  journal={SMU Cox School of Business Research Paper},
+  number={21-10},
+  year={2023},
+  doi={10.2139/ssrn.3896024},
+  eprint={https://ssrn.com/abstract=3896024}
+}
+
+@article{Johnson_2023,
+   author = {Johnson, Garrett A.},
+   title = {Inferno: A guide to field experiments in online display advertising},
+   journal = {Journal of Economics & Management Strategy},
+   volume = {32},
+   number = {3},
+   pages = {469-490},
+   ISSN = {1058-6407},
+   DOI = {10.1111/jems.12513},
+   url = {https://doi.org/10.1111/jems.12513},
+   year = {2023},
+   type = {Journal Article}
+}
+
+@unpublished{CornilEtAl_2023,
+   author = {Cornil, Yann and Yi, Shanwen and Boegershausen, Johannes and Hardisty, David J.},
+   title = {Testing the Digital Frontier: Validity Tradeoffs in Online Platform A/B Tests},
+   publisher = {University of British Columbia, working paper},
+   year = {2023},
+   type = {Unpublished Work}
+}
+
+@article{EcklesGordonJohnson_2018,
+author = {Dean Eckles  and Brett R. Gordon  and Garrett A. Johnson },
+title = {Field studies of psychologically targeted ads face threats to internal validity},
+journal = {Proceedings of the National Academy of Sciences},
+volume = {115},
+number = {23},
+pages = {E5254-E5255},
+year = {2018},
+doi = {10.1073/pnas.1805363115},
+URL = {https://www.pnas.org/doi/abs/10.1073/pnas.1805363115},
+eprint = {https://www.pnas.org/doi/pdf/10.1073/pnas.1805363115}}
+
+@article{AliEtAl_2019,
+author = {Ali, Muhammad and Sapiezynski, Piotr and Bogen, Miranda and Korolova, Aleksandra and Mislove, Alan and Rieke, Aaron},
+title = {Discrimination through Optimization: How Facebook's Ad Delivery Can Lead to Biased Outcomes},
+year = {2019},
+issue_date = {November 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {3},
+number = {CSCW},
+url = {https://doi.org/10.1145/3359301},
+doi = {10.1145/3359301},
+journal = {Proc. ACM Hum.-Comput. Interact.},
+month = {nov},
+articleno = {199},
+numpages = {30},
+keywords = {fairness, policy, bias, online advertising, ad delivery}
+}
+
+@article{MoralesAmirLee_2017,
+    author = {Morales, Andrea C and Amir, On and Lee, Leonard},
+    title = "{Keeping It Real in Experimental Research—Understanding When, Where, and How to Enhance Realism and Measure Consumer Behavior}",
+    journal = {Journal of Consumer Research},
+    volume = {44},
+    number = {2},
+    pages = {465-476},
+    year = {2017},
+    month = {03},
+    issn = {0093-5301},
+    doi = {10.1093/jcr/ucx048},
+    url = {https://doi.org/10.1093/jcr/ucx048},
+    eprint = {https://academic.oup.com/jcr/article-abstract/44/2/465/3067044},
+}
+
+@article{Lynch_1982,
+    author = {Lynch, John G., Jr.},
+    title = "{On the External Validity of Experiments in Consumer Research}",
+    journal = {Journal of Consumer Research},
+    volume = {9},
+    number = {3},
+    pages = {225-239},
+    year = {1982},
+    month = {12},
+    abstract = "{This paper is concerned with generalizability issues in experimental consumer research. In particular, it discusses how the usefulness of experimental results is affected by a consumer researcher's treatment of unmanipulated “background” factors in designing and analyzing the experiment.}",
+    issn = {0093-5301},
+    doi = {10.1086/208919},
+    url = {https://doi.org/10.1086/208919},
+    eprint = {https://academic.oup.com/jcr/article-pdf/9/3/225/5081800/9-3-225.pdf},
+}
+
+@article{vanHeerdeEtAl_2021,
+author = {Harald J. van Heerde and Christine Moorman and C. Page Moreau and Robert W. Palmatier},
+title ={Reality Check: Infusing Ecological Value into Academic Marketing Research},
+journal = {Journal of Marketing},
+volume = {85},
+number = {2},
+pages = {1-13},
+year = {2021},
+doi = {10.1177/0022242921992383},
+URL = {https://doi.org/10.1177/0022242921992383},
+eprint = {https://doi.org/10.1177/0022242921992383}
+}
+
+@article{AndraszewiczEtAl_2023,
+title = {Zurich Trading Simulator (ZTS) — A dynamic trading experimental tool for oTree},
+journal = {Journal of Behavioral and Experimental Finance},
+volume = {37},
+pages = {100762},
+year = {2023},
+issn = {2214-6350},
+doi = {10.1016/j.jbef.2022.100762},
+url = {https://www.sciencedirect.com/science/article/pii/S2214635022000843},
+author = {Sandra Andraszewicz and Jason Friedman and Dániel Kaszás and Christoph Hölscher},
+keywords = {oTree, Dynamic trading software, Experimental finance app, Trading behaviour},
+abstract = {Recent literature on the intersection of economics, finance and psychology indicates the benefits of simulated experience in tools measuring decision making. Here, we present the Zurich Trading Simulator (ZTS) first used by Andraszewicz et al. (2022) to test the impact of upward social comparison on trading activity. ZTS is a free application for oTree designed to create dynamic investment experiments suitable for measuring trading activity and risk taking. The software is ready-to-use applying the default settings. It can also be freely adapted in the source code depending on the experimenter’s needs. Price paths developed for experiments with the ZTS are freely available online. We also outline recommendations and possibilities for future studies and extensions.}
+}
+
+@Article{ButlerEtAl_2023,
+author={Butler, Lucy H.
+and Lamont, Padraig
+and Wan, Dean Law Yim
+and Prike, Toby
+and Nasim, Mehwish
+and Walker, Bradley
+and Fay, Nicolas
+and Ecker, Ullrich K. H.},
+title={The (Mis)Information Game: A social media simulator},
+journal={Behavior Research Methods},
+year={2023},
+issn={1554-3528},
+doi={10.3758/s13428-023-02153-x},
+url={https://doi.org/10.3758/s13428-023-02153-x}
+}
+
+@article{HarrisonList_2004,
+Author = {Harrison, Glenn W. and List, John A.},
+Title = {Field Experiments},
+Journal = {Journal of Economic Literature},
+Volume = {42},
+Number = {4},
+Year = {2004},
+Month = {December},
+Pages = {1009-1055},
+DOI = {10.1257/0022051043004577},
+URL = {https://www.aeaweb.org/articles?id=10.1257/0022051043004577}}
+
+@article{LevittList_2007,
+Author = {Levitt, Steven D. and List, John A.},
+Title = {What Do Laboratory Experiments Measuring Social Preferences Reveal About the Real World?},
+Journal = {Journal of Economic Perspectives},
+Volume = {21},
+Number = {2},
+Year = {2007},
+Month = {June},
+Pages = {153-174},
+DOI = {10.1257/jep.21.2.153},
+URL = {https://www.aeaweb.org/articles?id=10.1257/jep.21.2.153}}
+
+@article{GalizziNavarroMartinez_2019,
+author = {Galizzi, Matteo M. and Navarro-Martinez, Daniel},
+title = {On the External Validity of Social Preference Games: A Systematic Lab-Field Study},
+journal = {Management Science},
+volume = {65},
+number = {3},
+pages = {976-1002},
+year = {2019},
+doi = {10.1287/mnsc.2017.2908},
+URL = {https://doi.org/10.1287/mnsc.2017.2908},
+eprint = {https://doi.org/10.1287/mnsc.2017.2908}
+}
+
+@article{GoeschlEtAl_2020,
+title = {How much can we learn about voluntary climate action from behavior in public goods games?},
+journal = {Ecological Economics},
+volume = {171},
+pages = {106591},
+year = {2020},
+issn = {0921-8009},
+doi = {10.1016/j.ecolecon.2020.106591},
+url = {https://www.sciencedirect.com/science/article/pii/S0921800919302745},
+author = {Timo Goeschl and Sara Elisa Kettner and Johannes Lohse and Christiane Schwieren},
+keywords = {Climate change mitigation, Generalizability, Lab experiments, Public goods game, Voluntary cooperation}}
+
+@article{XuZhangZhou_2020,
+  author = {Heng Xu and Nan Zhang and Le Zhou},
+  title ={Validity Concerns in Research Using Organic Data},
+  journal = {Journal of Management},
+  volume = {46},
+  number = {7},
+  pages = {1257-1274},
+  year = {2020},
+  doi = {10.1177/0149206319862027},
+  URL = {https://doi.org/10.1177/0149206319862027},
+  eprint = {https://doi.org/10.1177/0149206319862027}
+}
+
+@unpublished{MorozovTuchman_2023,
+  author       = {Morozov, Ilya and Tuchman, Anna},
+  title        = {Where Does Advertising Content Lead You? We Created a Bookstore to Find Out},
+  year         = {2023},
+  month        = {September 8},
+  url          = {https://ssrn.com/abstract=4308400},
+  doi          = {10.2139/ssrn.4308400}
+}
+
+@article{Loewenstein_1999,
+    author = {Loewenstein, George},
+    title = "{Experimental Economics From the Vantage‐point of Behavioural Economics}",
+    journal = {The Economic Journal},
+    volume = {109},
+    number = {453},
+    pages = {25-34},
+    year = {2001},
+    month = {12},
+    issn = {0013-0133},
+    doi = {10.1111/1468-0297.00400},
+    url = {https://doi.org/10.1111/1468-0297.00400},
+    eprint = {https://academic.oup.com/ej/article-pdf/109/453/25/26639363/ej0025.pdf},
+}
+
+@article{FisherWoolley_2023,
+author = {Geoffrey Fisher and Kaitlin Woolley},
+title ={How Consumers Resolve Conflict over Branded Products: Evidence from Mouse Cursor Trajectories},
+journal = {Journal of Marketing Research},
+volume = {0},
+number = {Ahead of print},
+year = {2023},
+doi = {10.1177/00222437231170838},
+URL = {https://doi.org/10.1177/00222437231170838},
+eprint = {https://doi.org/10.1177/00222437231170838}
+}
+
+@article{Schmitt_1994,
+author = {Schmitt, Bernd H.},
+title = {Contextual priming of visual information in advertisements},
+journal = {Psychology \& Marketing},
+volume = {11},
+number = {1},
+pages = {1-14},
+doi = {10.1002/mar.4220110103},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/mar.4220110103},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/mar.4220110103},
+year = {1994}
+}
+
+@Article{TrisovicEtAl_2022,
+author={Trisovic, Ana
+and Lau, Matthew K.
+and Pasquier, Thomas
+and Crosas, Merc{\`e}},
+title={A large-scale study on research code quality and execution},
+journal={Scientific Data},
+year={2022},
+month={Feb},
+day={21},
+volume={9},
+number={1},
+pages={60},
+issn={2052-4463},
+doi={10.1038/s41597-022-01143-6},
+url={https://doi.org/10.1038/s41597-022-01143-6}
+}
+
+@article{Lindsey_2023,
+  title={A Plea to Psychology Professional Societies that Publish Journals: Assess Computational Reproducibility},
+  author={Lindsay, D Stephen},
+  journal={Meta-Psychology},
+  volume={7},
+  year={2023},
+  doi={10.15626/MP.2023.4020}
+}
+
+@article{BraunEtAl_2024,
+    author = {Braun, Michael and de Langhe, Bart and Puntoni, Stefano and Schwartz, Eric M},
+    title = {Leveraging Digital Advertising Platforms for Consumer Research},
+    journal = {Journal of Consumer Research},
+    volume = {51},
+    number = {1},
+    pages = {119-128},
+    year = {2024},
+    month = {05},
+    issn = {0093-5301},
+    doi = {10.1093/jcr/ucad058},
+    url = {https://doi.org/10.1093/jcr/ucad058},
+    eprint = {https://academic.oup.com/jcr/article-pdf/51/1/119/57655198/ucad058.pdf},
+}
+
+@article{BoegershausenEtAl_2022,
+author = {Johannes Boegershausen and Hannes Datta and Abhishek Borah and Andrew T. Stephen},
+title ={Fields of Gold: Scraping Web Data for Marketing Insights},
+journal = {Journal of Marketing},
+volume = {86},
+number = {5},
+pages = {1-20},
+year = {2022},
+doi = {10.1177/00222429221100750},
+URL = {https://doi.org/10.1177/00222429221100750},
+eprint = {https://doi.org/10.1177/00222429221100750}}
+
+
+@article{WangEtAl_2022,
+  title={Frontiers: How support for Black Lives Matter impacts consumer responses on social media},
+  author={Wang, Yang and Qin, Marco Shaojun and Luo, Xueming and Kou, Yu},
+  journal={Marketing Science},
+  volume={41},
+  number={6},
+  pages={1029--1044},
+  year={2022},
+  publisher={INFORMS},
+  doi={https://doi.org/10.1287/mksc.2022.1372}
+}
+
+@Article{RutzWatson_2019,
+author={Rutz, Oliver J.
+and Watson, George F.},
+title={Endogeneity and marketing strategy research: an overview},
+journal={Journal of the Academy of Marketing Science},
+year={2019},
+month={May},
+day={01},
+volume={47},
+number={3},
+pages={479-498},
+issn={1552-7824},
+doi={10.1007/s11747-019-00630-4},
+url={https://doi.org/10.1007/s11747-019-00630-4}
+}
+
+@book{AngristPischke_2009,
+  title={Mostly harmless econometrics: An empiricist's companion},
+  author={Angrist, Joshua D. and Pischke, J{\"o}rn-Steffen},
+  year={2009},
+  publisher={Princeton university press}
+}
+
+@article{CafarellaEtAl_2009,
+author = {Cafarella, Michael J. and Madhavan, Jayant and Halevy, Alon},
+title = {Web-Scale Extraction of Structured Data},
+year = {2009},
+issue_date = {December 2008},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {37},
+number = {4},
+issn = {0163-5808},
+url = {https://doi.org/10.1145/1519103.1519112},
+doi = {10.1145/1519103.1519112},
+abstract = {A long-standing goal of Web research has been to construct a unified Web knowledge base. Information extraction techniques have shown good results on Web inputs, but even most domain-independent ones are not appropriate for Web-scale operation. In this paper we describe three recent extraction systems that can be operated on the entire Web (two of which come from Google Research). The TextRunner system focuses on raw natural language text, the WebTables system focuses on HTML-embedded tables, and the deep-web surfacing system focuses on "hidden" databases. The domain, expressiveness, and accuracy of extracted data can depend strongly on its source extractor; we describe differences in the characteristics of data produced by the three extractors. Finally, we discuss a series of unique data applications (some of which have already been prototyped) that are enabled by aggregating extractedWeb information.},
+journal = {SIGMOD Rec.},
+month = {mar},
+pages = {55–61},
+numpages = {7}
+}
+
+@article{FischerEtAl_2023,
+title = {Leadership science beyond questionnaires},
+journal = {The Leadership Quarterly},
+volume = {34},
+number = {6},
+pages = {101752},
+year = {2023},
+note = {Beyond the ritualized use of questionnaires: Toward a science of actual behaviors and psychological states},
+issn = {1048-9843},
+doi = {10.1016/j.leaqua.2023.101752},
+url = {https://www.sciencedirect.com/science/article/pii/S1048984323000784},
+author = {Thomas Fischer and Donald C. Hambrick and Gwendolin B. Sajons and Niels {Van Quaquebeke}},
+abstract = {Our field has lost its way. Leadership is what people do in order to influence others so that the others can and will contribute to the objectives of the collective. And yet, when looking at recent leadership research, the “what people do” – the behavioral elements as shown in true actions and choices – are almost completely absent. They have been replaced by evaluative surveys that tend to have tenuous links to reality and correspondingly limited policy implications. If our discipline is to advance as a science and achieve impact, we need to move beyond the ritualized use of questionnaires and become true behavioral scientists, with behaviors as the fundamental units of our understanding. Against this background, in this editorial we discuss the theoretical, operational, and empirical limitations of questionnaires for studying leadership. We then highlight examples of how researchers can better measure leadership as behaviors, as well as antecedents and consequences of those behaviors. We synthesize the discussion and offer concrete recommendations to help our discipline become what it is supposed to be: A science that people look to in order to find actionable guidance for improving their leadership.}
+}
+
+@article{AmanoChengElie_2023,
+  title={Interdependent Creators of Engagement: The Role of Co-Followership Patterns and Content Similarity in Selecting Influencers},
+  author={Amano, Tomomichi and Cheng, Mengjie Magie and Ofek, Elie},
+  journal={SSRN},
+  year={2023}
+}
+
+@article{BergerMoeSchweidel_2023,
+author = {Jonah Berger and Wendy W. Moe and David A. Schweidel},
+title ={What Holds Attention? Linguistic Drivers of Engagement},
+journal = {Journal of Marketing},
+volume = {87},
+number = {5},
+pages = {793-809},
+year = {2023},
+doi = {10.1177/00222429231152880},
+URL = {https://doi.org/10.1177/00222429231152880},
+eprint = {https://doi.org/10.1177/00222429231152880}
+}
+
+@inproceedings{Cramer_2015,
+author = {Cramer, Henriette},
+title = {Effects of Ad Quality \& Content-Relevance on Perceived Content Quality},
+year = {2015},
+isbn = {9781450331456},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2702123.2702360},
+doi = {10.1145/2702123.2702360},
+abstract = {Native advertising, ads that are highly cohesive with actual content in format and style, is a pervasive online trend. We report on a two-stage Mechanical Turk experiment exploring the effects of perceived quality of native ads on perceptions of site quality. First, a set of native ads was rated (N=98) for perceived annoyance and trust. Second, we compare four conditions of an aggregation of news headlines (N=237): 'no ads', 'low quality ads', 'high quality ads + content-relevant', 'high-quality ads + not content-relevant'. Our results indicate that native ads, which in isolation have been rated as high quality, could still have a negative effect on perceived site credibility and perceived site quality if they are too content-relevant. In addition to the effect of ad quality alone (e.g. non-annoying, trustworthy ads), there is an additional impact for ads that are too similar to content; avoiding confusion is important for quality perceptions.},
+booktitle = {Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems},
+pages = {2231–2234},
+numpages = {4},
+keywords = {ads, content relevance, quality, advertising},
+location = {Seoul, Republic of Korea},
+series = {CHI '15}
+}
+
+@inproceedings{YiEtAl_2014,
+author = {Yi, Xing and Hong, Liangjie and Zhong, Erheng and Liu, Nanthan Nan and Rajan, Suju},
+title = {Beyond Clicks: Dwell Time for Personalization},
+year = {2014},
+isbn = {9781450326681},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2645710.2645724},
+doi = {10.1145/2645710.2645724},
+abstract = {Many internet companies, such as Yahoo, Facebook, Google and Twitter, rely on content recommendation systems to deliver the most relevant content items to individual users through personalization. Delivering such personalized user experiences is believed to increase the long term engagement of users. While there has been a lot of progress in designing effective personalized recommender systems, by exploiting user interests and historical interaction data through implicit (item click) or explicit (item rating) feedback, directly optimizing for users' satisfaction with the system remains challenging. In this paper, we explore the idea of using item-level dwell time as a proxy to quantify how likely a content item is relevant to a particular user. We describe a novel method to compute accurate dwell time based on client-side and server-side logging and demonstrate how to normalize dwell time across different devices and contexts. In addition, we describe our experiments in incorporating dwell time into state-of-the-art learning to rank techniques and collaborative filtering models that obtain competitive performances in both offline and online settings.},
+booktitle = {Proceedings of the 8th ACM Conference on Recommender Systems},
+pages = {113–120},
+numpages = {8},
+keywords = {learning to rank, dwell time, collaborative filtering, content recommendation, personalization},
+location = {Foster City, Silicon Valley, California, USA},
+series = {RecSys '14}
+}
+
+@article{Cooper_2021,
+  title={How the Facebook Algorithm Works in 2021 and How to Make it Work for You},
+  author={Paige Cooper},
+  year={2021},
+  month={Feb},
+  day={10},
+  journal={Hootsuite Blog},
+  url={https://web.archive.org/web/20220228185331/https://blog.hootsuite.com/facebook-algorithm/}
+}
+
+@article{GordonMoaklerZettelmeyer_2022,
+  title={Close enough? a large-scale exploration of non-experimental approaches to advertising measurement},
+  author={Gordon, Brett R and Moakler, Robert and Zettelmeyer, Florian},
+  journal={Marketing Science},
+  volume={42},
+  number={4},
+  pages={768--793},
+  year={2022},
+  publisher={INFORMS},
+  doi={10.1287/mksc.2022.1413}
+}
+
+@article{FarronatoFradkin_2022,
+  title = {The Welfare Effects of Peer Entry: The Case of Airbnb and the Accommodation Industry},
+  author = {Chiara Farronato and Andrey Fradkin},
+  journal = {American Economic Review},
+  volume = {112},
+  number = {6},
+  pages = {1782--1817},
+  year = {2022},
+  doi = {10.1257/aer.20180260}
+}
+
+
+@article{HoweMonin_2017,
+  title={Healthier than thou?“Practicing what you preach” backfires by increasing anticipated devaluation.},
+  author={Howe, Lauren C and Monin, Beno{\^\i}t},
+  journal={Journal of personality and social psychology},
+  volume={112},
+  number={5},
+  pages={718},
+  year={2017},
+  publisher={American Psychological Association},
+  doi={10.1037/pspi0000085}
+}
+
+@article{LuffarelliMukeshMahmood_2019,
+author = {Jonathan Luffarelli and Mudra Mukesh and Ammara Mahmood},
+title ={Let the Logo Do the Talking: The Influence of Logo Descriptiveness on Brand Equity},
+journal = {Journal of Marketing Research},
+volume = {56},
+number = {5},
+pages = {862-878},
+year = {2019},
+doi = {10.1177/0022243719845000},
+URL = {https://doi.org/10.1177/0022243719845000},
+eprint = {https://doi.org/10.1177/0022243719845000}
+}
+
+@article{Stolte_2021,
+  title={Measurement and social desirability response bias in experimental vignette resarch: A test of Fazio’s mode theory},
+  author={Stolte, John},
+  year={2021},
+  publisher={PsyArXiv}
+}
+
+
+@article{SwaminathanEtAl_2020,
+  title={Branding in a Hyperconnected World: Refocusing Theories and Rethinking Boundaries},
+  author={Vanitha Swaminathan and Alina Sorescu and J.B.E.M. Steenkamp and Thomas C. O’Guinn and Bernd H. Schmitt},
+  journal={Journal of Marketing Research},
+  year={2020},
+  doi={10.1177/0022242919899905}
+}
+
+@article{MeiEtAl_2024,
+  author = {Qiaozhu Mei  and Yutong Xie  and Walter Yuan  and Matthew O. Jackson },
+  title = {A Turing test of whether AI chatbots are behaviorally similar to humans},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume = {121},
+  number = {9},
+  pages = {e2313925121},
+  year = {2024},
+  doi = {10.1073/pnas.2313925121},
+  URL = {https://www.pnas.org/doi/abs/10.1073/pnas.2313925121},
+  eprint = {https://www.pnas.org/doi/pdf/10.1073/pnas.2313925121}
+}
+
+@article{BaumeisterEtAl_2007,
+  title={Psychology as the Science of Self-Reports and Finger Movements: Whatever Happened to Actual Behavior?},
+  author={Roy F. Baumeister and Kathleen D. Vohs and David C. Funder},
+  journal={Perspectives on Psychological Science},
+  volume={2},
+  number={4},
+  pages={396-403},
+  year={2007},
+  doi={10.1111/j.1745-6916.2007.00051.x}
+}
+
+@article{Ordenes_2019,
+  title={Cutting through Content Clutter: How Speech and Image Acts Drive Consumer Sharing of Social Media Brand Messages},
+  author={Ordenes, Francisco Villarroel and Grewal, Dhruv and Ludwig, Stephan and De Ruyter, Ko and Mahr, Dominik and Wetzels, Martin},
+  journal={Journal of Consumer Research},
+  volume={45},
+  number={5},
+  pages={988--1012},
+  year={2019},
+  publisher={Oxford University Press},
+  doi={10.1093/jcr/ucy032}
+}
+
+@inbook{NormanSchulte-Mecklenbeck_2010,
+  title={Take a quick click at that! Mouselab and eye-tracking as tools to measure intuition},
+  author={Norman, Elisabeth and Schulte-Mecklenbeck, Michael},
+  booktitle={Foundations for tracing intuition: Challenges and methods},
+  pages={24--44},
+  year={2010},
+  publisher={Psychology Press}
+}
+
+@article{SchulteMecklenbeck2021ProcessData,
+  title={The role of process data in the development and testing of process models of judgment and decision making},
+  author={Schulte-Mecklenbeck, Michael and Kühberger, Anton and Ranyard, Rob},
+  journal={Judgment and Decision Making},
+  volume={16},
+  number={5},
+  pages={1037--1059},
+  year={2021},
+  publisher={Society for Judgment and Decision Making}
+}
+
+@article{PayneEtAl_1988,
+  title={Adaptive strategy selection in decision making},
+  author={Payne, John W and Bettman, James R and Johnson, Eric J},
+  journal={Journal of Experimental Psychology: Learning, Memory, and Cognition},
+  volume={14},
+  number={3},
+  pages={534--552},
+  year={1988},
+  doi={10.1037/0278-7393.14.3.534}
+}
+
+@article{BielekeDohmenGollwitzer_2020,
+title = {Effects of social value orientation (SVO) and decision mode on controlled information acquisition—A Mouselab perspective},
+journal = {Journal of Experimental Social Psychology},
+volume = {86},
+pages = {103896},
+year = {2020},
+issn = {0022-1031},
+doi = {10.1016/j.jesp.2019.103896},
+url = {https://www.sciencedirect.com/science/article/pii/S0022103119300745},
+author = {Maik Bieleke and David Dohmen and Peter M. Gollwitzer},
+keywords = {Mouselab, Process tracing, Social value orientation (SVO), Intuitive and reflective decision modes, Mental contrasting with implementation intentions (MCII)}
+}
+
+@article{AribargSchwartz_2020,
+  author = {Aribarg, Anocha and Schwartz, Eric M.},
+  title = {Native Advertising in Online News: Trade-Offs Among Clicks, Brand Recognition, and Website Trustworthiness},
+  journal = {Journal of Marketing Research},
+  volume = {57},
+  number = {1},
+  pages = {20--34},
+  year = {2020},
+  doi = {10.1177/0022243719879711},
+  url = {https://doi.org/10.1177/0022243719879711}
+}
+
+@article{HuaEtAl_2022,
+author = {Hua, Yiqing and Horta Ribeiro, Manoel and Ristenpart, Thomas and West, Robert and Naaman, Mor},
+title = {Characterizing Alternative Monetization Strategies on YouTube},
+year = {2022},
+issue_date = {November 2022},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {6},
+number = {CSCW2},
+url = {https://doi.org/10.1145/3555174},
+doi = {10.1145/3555174},
+abstract = {One of the key emerging roles of the YouTube platform is providing creators the ability to generate revenue from their content and interactions. Alongside tools provided directly by the platform, such as revenue-sharing from advertising, creators co-opt the platform to use a variety of off-platform monetization opportunities. In this work, we focus on studying and characterizing these alternative monetization strategies. Leveraging a large longitudinal YouTube dataset of popular creators, we develop a taxonomy of alternative monetization strategies and a simple methodology to detect their usage automatically. We then proceed to characterize the adoption of these strategies. First, we find that the use of external monetization is expansive and increasingly prevalent, used in 18\% of all videos, with 61\% of channels using one such strategy at least once. Second, we show that the adoption of these strategies varies substantially among channels of different kinds and popularity, and that channels that establish these alternative revenue streams often become more productive on the platform. Lastly, we investigate how potentially problematic channels -- those that produce Alt-lite, Alt-right, and Manosphere content -- leverage alternative monetization strategies, finding that they employ a more diverse set of such strategies significantly more often than a carefully chosen comparison set of channels. This finding complicates YouTube's role as a gatekeeper, since the practice of excluding policy-violating content from its native on-platform monetization may not be effective. Overall, this work provides an important step toward broadening the understanding of the monetary incentives behind content creation on YouTube.},
+journal = {Proc. ACM Hum.-Comput. Interact.},
+month = {nov},
+articleno = {283},
+numpages = {30},
+keywords = {YouTube, monetization, platform, problematic content}
+}
+
+@article{GroszEtAl_2024,
+  author = {Grosz, Michael P. and Ayaita, Adam and Arslan, Ruben C. and Buecker, Susanne and Ebert, Tobias and Hünermund, Paul and Müller, Sandrine R. and Rieger, Sven and Zapko-Willmes, Alexandra and Rohrer, Julia M.},
+  title = {Natural Experiments: Missed Opportunities for Causal Inference in Psychology},
+  journal = {Advances in Methods and Practices in Psychological Science},
+  volume = {7},
+  number = {1},
+  pages = {1--15},
+  year = {2024},
+  doi = {10.1177/25152459231218610},
+  url = {https://doi.org/10.1177/25152459231218610}
+}
+
+@article{RobertsonEtAl2023,
+  title={Negativity drives online news consumption},
+  author={Robertson, Claire E. and Pröllochs, Nicolas and Schwarzenegger, Kaoru and Pärnamets, Philip and Van Bavel, Jay J. and Feuerriegel, Stefan},
+  journal={Nature Human Behaviour},
+  volume={7},
+  pages={812--822},
+  year={2023},
+  doi={10.1038/s41562-023-01538-4},
+  url={https://www.nature.com/articles/s41562-023-01538-4}
+}
+
+@article{MatiasEtAl2021,
+  title={The Upworthy Research Archive, a time series of 32,487 experiments in U.S. media},
+  author={Matias, J. Nathan and Munger, Kevin and Aubin Le Quere, Marianne and others},
+  journal={Scientific Data},
+  volume={8},
+  article={195},
+  year={2021},
+  doi={10.1038/s41597-021-00934-7},
+  url={https://www.nature.com/articles/s41597-021-00934-7}
+}
+
+
+@misc{Statista_2024,
+  author = {{Statista}},
+  title = {Digital population worldwide},
+  year = {2024},
+  note = {Archived from the original on January 4, 2024},
+  url = {https://web.archive.org/web/20240104160716/https://www.statista.com/statistics/617136/digital-population-worldwide/},
+  urldate = {2024-01-04}
+}
+
+@article{AndersonWood_2021,
+author = {Anderson, Ian A. and Wood, Wendy},
+title = {Habits and the electronic herd: The psychology behind social media’s successes and failures},
+journal = {Consumer Psychology Review},
+volume = {4},
+number = {1},
+pages = {83-99},
+keywords = {contexts, goals, habits, reward, social media, technology},
+doi = {10.1002/arcp.1063},
+url = {https://myscp.onlinelibrary.wiley.com/doi/abs/10.1002/arcp.1063},
+eprint = {https://myscp.onlinelibrary.wiley.com/doi/pdf/10.1002/arcp.1063},
+abstract = {Abstract If platforms such as Facebook, Instagram, and Twitter are the engines of social media use, what is the gasoline? The answer can be found in the psychological dynamics behind consumer habit formation and performance. In fact, the financial success of different social media sites is closely tied to the daily-use habits they create among users. We explain how the rewards of social media sites motivate user habit formation, how social media design provides cues that automatically activate habits and nudge continued use, and how strong habits hinder quitting social media. Demonstrating that use habits are tied to cues, we report a novel test of a 2008 change in Facebook design, showing that it impeded posting only of frequent, habitual users, suggesting that the change disrupted habit automaticity. Finally, we offer predictions about the future of social media sites, highlighting the features most likely to promote user habits.},
+year = {2021}
+}
+
+@article{OrbenPrzybylski_2019,
+  author = {Orben, A. and Przybylski, A.K.},
+  title = {The association between adolescent well-being and digital technology use},
+  journal = {Nature Human Behavior},
+  volume = {3},
+  pages = {173--182},
+  year = {2019},
+  doi = {10.1038/s41562-018-0506-1},
+  url = {https://www.nature.com/articles/s41562-018-0506-1}
+}
+
+@article{Pham_2013,
+title = {The seven sins of consumer psychology},
+journal = {Journal of Consumer Psychology},
+volume = {23},
+number = {4},
+pages = {411-423},
+year = {2013},
+issn = {1057-7408},
+doi = {10.1016/j.jcps.2013.07.004},
+url = {https://www.sciencedirect.com/science/article/pii/S1057740813000624},
+author = {Michel Tuan Pham}
+}
+
+@article{CascioRizzoEtAl_2024,
+  author = {Giovanni Luca Cascio-Rizzo and Francisco Villarroel Ordenes and Rumen Pozharliev and Matteo De Angelis and Michele Costabile},
+  title ={How High-Arousal Language Shapes Micro- Versus Macro-Influencers’ Impact},
+  journal = {Journal of Marketing},
+  volume = {(forthcoming)},
+  year = {2024},
+  doi = {10.1177/00222429231207636},
+  URL = {https://doi.org/10.1177/00222429231207636},
+  eprint = {https://doi.org/10.1177/00222429231207636}
+}
+
+@article{BorahTellis_2016,
+  author = {Abhishek Borah and Gerard J. Tellis},
+  title ={Halo (Spillover) Effects in Social Media: Do Product Recalls of One Brand Hurt or Help Rival Brands?},
+  journal = {Journal of Marketing Research},
+  volume = {53},
+  number = {2},
+  pages = {143-160},
+  year = {2016},
+  doi = {10.1509/jmr.13.0009},
+  URL = {https://doi.org/10.1509/jmr.13.0009},
+  eprint = {https://doi.org/10.1509/jmr.13.0009}
+}
+
+
+@article{CuskleySulik_2024,
+author = {Christine Cuskley and Justin Sulik},
+title ={The Burden for High-Quality Online Data Collection Lies With Researchers, Not Recruitment Platforms},
+journal = {Perspectives on Psychological Science},
+volume = {0},
+number = {0},
+pages = {17456916241242734},
+year = {0},
+doi = {10.1177/17456916241242734},
+note ={PMID: 38648556},
+URL = {https://doi.org/10.1177/17456916241242734},
+eprint = {https://doi.org/10.1177/17456916241242734}
+}
+
+@misc{Detoxify,
+  title={Detoxify},
+  author={Hanu, Laura and {Unitary team}},
+  howpublished={Github. https://github.com/unitaryai/detoxify},
+  year={2020}
+}
+
+@article{AridorEtAl_2024,
+  title = {The Economics of Social Media},
+  author = {Aridor, Guy and Jiménez-Durán, Rafael and Levy, Ro'ee and Song, Lena},
+  journal = {Journal of Economic Literature},
+  year = {2024},
+  note = {Forthcoming},
+  doi = {10.2139/ssrn.4723727}
+}
+
+@techreport{BeknazarYuzbashevEtAl_2022,
+  title = {Toxic Content and User Engagement on Social Media: Evidence from a Field Experiment},
+  author = {Beknazar-Yuzbashev, George and Jiménez Durán, Rafael and McCrosky, Jesse and Stalinski, Mateusz},
+  year = {2022},
+  month = {November 1},
+  institution = {SSRN},
+  type = {SSRN Working Paper},
+  doi = {10.2139/ssrn.4307346},
+  url = {https://ssrn.com/abstract=4307346}
+}
+
+@article{AhmadEtAl_2024,
+  title={Companies inadvertently fund online misinformation despite consumer backlash},
+  author={Wajeeha Ahmad and Ananya Sen and Charles Eesley and Erik Brynjolfsson},
+  journal={Nature},
+  volume={630},
+  pages={123--131},
+  year={2024},
+  doi={10.1038/s41586-024-07404-1}
+}
+
+@inproceedings{SilbersteinShohamKlein_2023,
+author = {Silberstein, Natalia and Shoham, Or and Klein, Assaf},
+title = {Combating Ad Fatigue via Frequency-Recency Features in Online Advertising Systems},
+year = {2023},
+isbn = {9798400701245},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3583780.3615461},
+doi = {10.1145/3583780.3615461},
+booktitle = {Proceedings of the 32nd ACM International Conference on Information and Knowledge Management},
+pages = {4822–4828},
+numpages = {7},
+keywords = {CTR prediction, ad fatigue, frequency, online advertising, recency, recommender systems},
+location = {<conf-loc>, <city>Birmingham</city>, <country>United Kingdom</country>, </conf-loc>},
+series = {CIKM '23}
+}
+
+@article{BraunMoe_2013,
+  title = {Online Display Advertising: Modeling the Effects of Multiple Creatives and Individual Impression Histories},
+  author = {Michael Braun and Wendy W. Moe},
+  journal = {Marketing Science},
+  volume = {32},
+  number = {5},
+  pages = {753--767},
+  year = {2013},
+  doi = {10.1287/mksc.2013.0802}
+}
+
+@article{MaierChunWongFeldman_2023,
+  title = {Revisiting and Rethinking the Identifiable Victim Effect: Replication and Extension of Small, Loewenstein, and Slovic (2007)},
+  author = {Maximilian Maier and Yik Chun Wong and Gilad Feldman},
+  journal = {Collabra: Psychology},
+  volume = {9},
+  number = {1},
+  pages = {90203},
+  year = {2023},
+  doi = {10.1525/collabra.90203}
+}
+
+
+@article{JenniLoewenstein_1997,
+  title = {Explaining the Identifiable Victim Effect},
+  author = {Karen E. Jenni and George Loewenstein},
+  journal = {Journal of Risk and Uncertainty},
+  volume = {14},
+  number = {3},
+  pages = {235--257},
+  year = {1997},
+  doi = {10.1023/A:1007740225484}
+}
+
+@article{SmallLoewenstein_2003,
+  title = {Helping a Victim or Helping the Victim: Altruism and Identifiability},
+  author = {Deborah A. Small and George Loewenstein},
+  journal = {Journal of Risk and Uncertainty},
+  volume = {26},
+  number = {1},
+  pages = {5--16},
+  year = {2003},
+  doi = {10.1023/A:1022299422219}
+}
+
+@article{SmallLoewensteinSlovic_2006,
+  title = {Sympathy and Callousness: The Impact of Deliberative Thought on Donations to Identifiable and Statistical Victims},
+  author = {Deborah A. Small and George Loewenstein and Paul Slovic},
+  journal = {Organizational Behavior and Human Decision Processes},
+  volume = {102},
+  number = {2},
+  pages = {143--153},
+  year = {2007},
+  doi = {10.1016/j.obhdp.2006.01.005}
+}
+
+@Article{ParkerLehmannXie_2016,
+  author  = {Parker, Jeffrey R. and Lehmann, Donald R. and Xie, Yi},
+  title   = {Decision Comfort},
+  journal = {Journal of Consumer Research},
+  year    = {2016},
+  volume  = {43},
+  number  = {1},
+  pages   = {113--133},
+  doi     = {10.1093/jcr/ucw010},
+}
+
+@article{RocklageEtAl_2023,
+author = {Matthew D. Rocklage and Sharlene He and Derek D. Rucker and Loran F. Nordgren},
+title ={Beyond Sentiment: The Value and Measurement of Consumer Certainty in Language},
+journal = {Journal of Marketing Research},
+volume = {60},
+number = {5},
+pages = {870-888},
+year = {2023},
+doi = {10.1177/00222437221134802},
+URL = {https://doi.org/10.1177/00222437221134802},
+eprint = {https://doi.org/10.1177/00222437221134802}
+}
+
+@article{MelznerBonezziMeyvis_2023,
+author = {Johann Melzner and Andrea Bonezzi and Tom Meyvis},
+title ={Information Disclosure in the Era of Voice Technology},
+journal = {Journal of Marketing},
+volume = {87},
+number = {4},
+pages = {491-509},
+year = {2023},
+doi = {10.1177/00222429221138286},
+URL = {https://doi.org/10.1177/00222429221138286},
+eprint = {https://doi.org/10.1177/00222429221138286}
+}
+
+@article{AndersenEtAl_2006,
+author={Andersen, Steffen and Harrison, Glenn W. and Lau, Morten Igel and Rutstr{\"o}m, E. Elisabet},
+title={Elicitation using multiple price list formats},
+journal={Experimental Economics},
+year={2006},
+month={Dec},
+day={01},
+volume={9},
+number={4},
+pages={383-405},
+issn={1573-6938},
+doi={10.1007/s10683-006-7055-6},
+url={https://doi.org/10.1007/s10683-006-7055-6}
+}
+
+@article{ZierauEtAl_2023,
+  author    = {Naim Zierau and Christian Hildebrand and Anouk Bergner and Francesc Busquet and Anuschka Schmitt and Jan Marco Leimeister},
+  title     = {Voice bots on the frontline: Voice-based interfaces enhance flow-like consumer experiences \& boost service outcomes},
+  journal   = {Journal of the Academy of Marketing Science},
+  year      = {2023},
+  volume    = {51},
+  number    = {4},
+  pages     = {823--842},
+  doi       = {10.1007/s11747-022-00868-5},
+  url       = {https://doi.org/10.1007/s11747-022-00868-5}
+}
+
+@article{HildebrandEtAl_2020,
+  title = {Voice analytics in business research: Conceptual foundations, acoustic feature extraction, and applications},
+  journal = {Journal of Business Research},
+  volume = {121},
+  pages = {364-374},
+  year = {2020},
+  issn = {0148-2963},
+  doi = {https://doi.org/10.1016/j.jbusres.2020.09.020},
+  url = {https://www.sciencedirect.com/science/article/pii/S0148296320306044},
+  author = {Christian Hildebrand and Fotis Efthymiou and Francesc Busquet and William H. Hampton and Donna L. Hoffman and Thomas P. Novak},
+  keywords = {Voice Analytics, Natural language processing, Voice-controlled interfaces, Emotion detection, Acoustic markers of emotion}
+}
+
+@software{McKenna_2024,
+author = {McKenna, Clint},
+month = jun,
+title = {{oTree Whisper}},
+url = {https://github.com/clintmckenna/oTree-Whisper},
+year = {2024}
+}
+
+@article{CascioRizzo_2024,
+  author = {Cascio Rizzo, Giovanni Luca and Berger, Jonah A. and Rocklage, Matthew},
+  title = {How Speaking and Writing Shape Certainty},
+  year = {2024},
+  note = {Available at SSRN: \url{https://ssrn.com/abstract=4854650} or \url{http://dx.doi.org/10.2139/ssrn.4854650}},
+  doi = {10.2139/ssrn.4854650}
+}
+
+@misc{Kemp_2023,
+  author = {Kemp, Simon},
+  title = {Digital 2023: Global Overview Report},
+  year = {2023},
+  note = {Available at \url{https://datareportal.com/reports/digital-2023-global-overview-report}}
+}
+
+@article{AndersonWood_2021,
+   author = {Anderson, Ian A. and Wood, Wendy},
+   title = {Habits and the electronic herd: The psychology behind social media’s successes and failures},
+   journal = {Consumer Psychology Review},
+   volume = {4},
+   number = {1},
+   pages = {83-99},
+   ISSN = {2476-1273},
+   DOI = {10.1002/arcp.1063},
+   url = {https://doi.org/10.1002/arcp.1063},
+   year = {2021},
+   type = {Journal Article}
+}
+
+@article{AppelMarkerGnambs_2020,
+   author = {Appel, Markus and Marker, Caroline and Gnambs, Timo},
+   title = {Are Social Media Ruining Our Lives? A Review of Meta-Analytic Evidence},
+   journal = {Review of General Psychology},
+   volume = {24},
+   number = {1},
+   pages = {60-74},
+   ISSN = {1089-2680},
+   DOI = {10.1177/1089268019880891},
+   url = {https://doi.org/10.1177/1089268019880891},
+   year = {2020},
+   type = {Journal Article}
+}
+
+@article{AppelEtAl_2020,
+   author = {Appel, Gil and Grewal, Lauren and Hadi, Rhonda and Stephen, Andrew T.},
+   title = {The future of social media in marketing},
+   journal = {Journal of the Academy of Marketing Science},
+   volume = {48},
+   number = {1},
+   pages = {79-95},
+   ISSN = {1552-7824},
+   DOI = {10.1007/s11747-019-00695-1},
+   url = {https://doi.org/10.1007/s11747-019-00695-1},
+   year = {2020},
+   type = {Journal Article}
+}
+
+@article{OrbenPrzybylski_2019,
+   author = {Orben, Amy and Przybylski, Andrew K.},
+   title = {The association between adolescent well-being and digital technology use},
+   journal = {Nature Human Behaviour},
+   volume = {3},
+   number = {2},
+   pages = {173-182},
+   ISSN = {2397-3374},
+   DOI = {10.1038/s41562-018-0506-1},
+   url = {https://doi.org/10.1038/s41562-018-0506-1},
+   year = {2019},
+   type = {Journal Article}
+}
+
+@article{Stephen_2016,
+   author = {Stephen, Andrew T.},
+   title = {The role of digital and social media marketing in consumer behavior},
+   journal = {Current Opinion in Psychology},
+   volume = {10},
+   number = {1},
+   pages = {17-21},
+   ISSN = {2352-250X},
+   DOI = {https://doi.org/10.1016/j.copsyc.2015.10.016},
+   url = {http://www.sciencedirect.com/science/article/pii/S2352250X15300014},
+   year = {2016},
+   type = {Journal Article}
+}
+
+@article{AridorEtAl_2024,
+  title = {The Economics of Social Media},
+  author = {Aridor, Guy and Jiménez-Durán, Rafael and Levy, Ro'ee and Song, Lena},
+  journal = {Journal of Economic Literature},
+  year = {2024},
+  note = {Forthcoming},
+  doi = {10.2139/ssrn.4723727}
+}
+
+@article{LambertonStephen_2016,
+   author = {Lamberton, Cait and Stephen, Andrew T.},
+   title = {A Thematic Exploration of Digital, Social Media, and Mobile Marketing Research's Evolution from 2000 to 2015 and an Agenda for Future Research},
+   journal = {Journal of Marketing},
+   volume = {80},
+   number = {6},
+   pages = {146-172},
+   ISSN = {0022-2429},
+   DOI = {10.1509/jm.15.0415},
+   url = {http://dx.doi.org/10.1509/jm.15.0415},
+   year = {2016},
+   type = {Journal Article}
+}
+
+@article{LeungEtAl_2022,
+   author = {Leung, Fine F. and Gu, Flora F. and Palmatier, Robert W.},
+   title = {Online influencer marketing},
+   journal = {Journal of the Academy of Marketing Science},
+   volume = {50},
+   number = {2},
+   pages = {226-251},
+   ISSN = {1552-7824},
+   DOI = {10.1007/s11747-021-00829-4},
+   url = {https://doi.org/10.1007/s11747-021-00829-4},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@article{ShankarEtAl_2022,
+   author = {Shankar, Venkatesh and Grewal, Dhruv and Sunder, Sarang and Fossen, Beth and Peters, Kay and Agarwal, Amit},
+   title = {Digital marketing communication in global marketplaces: A review of extant research, future directions, and potential approaches},
+   journal = {International Journal of Research in Marketing},
+   volume = {39},
+   number = {2},
+   pages = {541-565},
+   ISSN = {0167-8116},
+   DOI = {10.1016/j.ijresmar.2021.09.005},
+   url = {https://www.sciencedirect.com/science/article/pii/S0167811621000720},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@techreport{FarronatoFradkinKarr_2024,
+  title={Webmunk: A New Tool for Studying Online Behavior and Digital Platforms},
+  author={Chiara Farronato and Andrey Fradkin and Chris Karr},
+  year={2024},
+  number={32694},
+  institution={National Bureau of Economic Research},
+  doi={10.3386/w32694},
+  url={https://www.nber.org/papers/w32694}
+}
+
+@article{SimonsohnMontealegreEvangelidis_2024,
+  title={Stimulus Sampling Reimagined: Designing Experiments with Mix-and-Match, Analyzing Results with Stimulus Plots},
+  author={Uri Simonsohn and Andres Montealegre and Ioannis Evangelidis},
+  year={2024},
+  journal={SSRN Electronic Journal},
+  doi={10.2139/ssrn.4716832},
+  url={https://ssrn.com/abstract=4716832}
+}
+
+@article{GoldfarbTuckerWang_2022,
+   author = {Goldfarb, Avi and Tucker, Catherine and Wang, Yanwen},
+   title = {Conducting Research in Marketing with Quasi-Experiments},
+   journal = {Journal of Marketing},
+   volume = {86},
+   number = {3},
+   pages = {1-20},
+   ISSN = {0022-2429},
+   DOI = {10.1177/00222429221082977},
+   url = {https://doi.org/10.1177/00222429221082977},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@article{AllcottGentzkowSong_2022,
+  title={Digital Addiction},
+  author={Hunt Allcott and Matthew Gentzkow and Lena Song},
+  year={2022},
+  journal={American Economic Review},
+  volume={112},
+  number={7},
+  pages={2424-2463},
+  doi={10.1257/aer.20210867},
+  url={https://www.aeaweb.org/articles?id=10.1257/aer.20210867}
+}
+
+@article{Aridor_2024,
+  title={Measuring Substitution Patterns in the Attention Economy: An Experimental Approach},
+  author={Guy Aridor},
+  year={2024},
+  journal={SSRN Electronic Journal},
+  doi={10.2139/ssrn.4069567},
+  url={https://ssrn.com/abstract=4069567}
+}
+
+@article{Levy_2021,
+  title={Social Media, News Consumption, and Polarization: Evidence from a Field Experiment},
+  author={Ro'ee Levy},
+  year={2021},
+  journal={American Economic Review},
+  volume={111},
+  number={3},
+  pages={831-870},
+  doi={10.1257/aer.20191777},
+  url={https://www.aeaweb.org/articles?id=10.1257/aer.20191777}
+}
+
+@techreport{DeisenrothEtAl_2024,
+  title = {Digital Advertising and Market Structure: Implications for Privacy Regulation},
+  author = {Daniel Deisenroth and Utsav Manjeer and Zarak Sohail and Steven Tadelis and Nils Wernerfelt},
+  year = {2024},
+  month = {July},
+  institution = {National Bureau of Economic Research},
+  type = {NBER Working Paper},
+  number = {w32726},
+  doi = {10.3386/w32726},
+  url = {https://www.nber.org/papers/w32726}
+}
+
+
+@article{BergerMilkman_2016,
+  author = {Jonah Berger and Katherine L. Milkman},
+  title ={What Makes Online Content Viral?},
+  journal = {Journal of Marketing Research},
+  volume = {49},
+  number = {2},
+  pages = {192-205},
+  year = {2012},
+  doi = {10.1509/jmr.10.0353},
+  URL = {https://doi.org/10.1509/jmr.10.0353},
+  eprint = {https://doi.org/10.1509/jmr.10.0353}
+}
+
+
+
+@article{ShaddyFishbachSimonson_2021,
+   author = "Shaddy, Franklin and Fishbach, Ayelet and Simonson, Itamar",
+   title = "Trade-Offs in Choice", 
+   journal= "Annual Review of Psychology",
+   year = "2021",
+   volume = "72",
+   number = "Volume 72, 2021",
+   pages = "181-206",
+   doi = "10.1146/annurev-psych-072420-125709",
+   url = "https://www.annualreviews.org/content/journals/10.1146/annurev-psych-072420-125709",
+   publisher = "Annual Reviews",
+   issn = "1545-2085",
+   type = "Journal Article"
+}
+
+
+@article{AmirLevav_2008,
+  author = {On Amir and Jonathan Levav},
+  title ={Choice Construction versus Preference Construction: The Instability of Preferences Learned in Context},
+  journal = {Journal of Marketing Research},
+  volume = {45},
+  number = {2},
+  pages = {145-158},
+  year = {2008},
+  doi = {10.1509/jmkr.45.2.145},
+  URL = {https://doi.org/10.1509/jmkr.45.2.145},
+  eprint = {https://doi.org/10.1509/jmkr.45.2.145}
+}
+
+@article{YoonSimonson_2008,
+    author = {Yoon, Song-Oh and Simonson, Itamar},
+    title = "{Choice Set Configuration as a Determinant of Preference Attribution and Strength}",
+    journal = {Journal of Consumer Research},
+    volume = {35},
+    number = {2},
+    pages = {324-336},
+    year = {2008},
+    month = {06},
+    issn = {0093-5301},
+    doi = {10.1086/587630},
+    url = {https://doi.org/10.1086/587630},
+    eprint = {https://academic.oup.com/jcr/article-pdf/35/2/324/5112564/35-2-324.pdf}
+}
+
+@article{KonovalovKrajbich_2019, 
+  title={Revealed strength of preference: Inference from response times}, 
+  volume={14}, 
+  DOI={10.1017/S1930297500006082}, 
+  number={4}, 
+  journal={Judgment and Decision Making}, 
+  author={Konovalov, Arkady and Krajbich, Ian}, 
+  year={2019}, 
+  pages={381–394}
+} 
+
+@article{BergertNosofsky_2007,
+  author = {Bergert, F. B. and Nosofsky, R. M.},
+  title = {A Response-Time Approach to Comparing Generalized Rational and Take-the-Best Models of Decision Making},
+  journal = {Journal of Experimental Psychology: Learning, Memory, and Cognition},
+  volume = {33},
+  number = {1},
+  pages = {107--129},
+  year = {2007},
+  doi = {10.1037/0278-7393.33.1.107}
+}
+
+@article{BhatiaMullet_2018,
+  author = {Bhatia, S. and Mullett, T. L.},
+  title = {Similarity and Decision Time in Preferential Choice},
+  journal = {Quarterly Journal of Experimental Psychology},
+  volume = {71},
+  number = {6},
+  pages = {1276--1280},
+  year = {2018},
+  doi = {10.1177/1747021818763054}
+}
+
+@book{Luce_1991,
+  title={Response times: Their role in inferring elementary mental organization},
+  author={Luce, R Duncan},
+  year={1991},
+  publisher={Oxford University Press}
+}
+
+@online{TechCrunch_2024,
+  title = {How Apple Intelligence is Changing the Way You Use Siri on Your iPhone},
+  author = {Aisha Malik},
+  year = {2024},
+  month = {July},
+  url = {https://web.archive.org/web/20240727192450/https://techcrunch.com/2024/07/11/how-apple-intelligence-is-changing-the-way-you-use-siri-on-your-iphone/?guccounter=1},
+  note = {Accessed: 2024-07-27}
+}
+
+@online{Vox_2022,
+  title = {Amazon Employees Will Be in Layoff Limbo into 2023},
+  author = {Jason Del Rey},
+  year = {2022},
+  month = {November},
+  journal = {Vox},
+  url = {https://web.archive.org/web/20240727200216/https://www.vox.com/recode/2022/11/16/23463223/amazon-layoffs-2022-alexa-luna-voluntary-release-program},
+  note = {Accessed: 2024-07-27}
+}
+
+@article{Dasgupta_2017,
+  author       = {Poorna Banerjee Dasgupta},
+  title        = {Detection and Analysis of Human Emotions through Voice and Speech
+                  Pattern Processing},
+  journal      = {CoRR},
+  volume       = {abs/1710.10198},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1710.10198},
+  eprinttype    = {arXiv},
+  eprint       = {1710.10198},
+  timestamp    = {Mon, 13 Aug 2018 16:49:11 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-1710-10198.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@book{Clark_2005,
+  title={Psychology of moods},
+  author={Clark, Anita V},
+  year={2005},
+  publisher={Nova Publishers}
+}
+
+@article{Juslin2Laukka_003,
+  author = {Juslin, Patrik N. and Laukka, Petri},
+  title = {Communication of Emotions in Vocal Expression and Music Performance: Different Channels, Same Code?},
+  journal = {Psychological Bulletin},
+  volume = {129},
+  number = {5},
+  pages = {770-814},
+  year = {2003},
+  doi = {10.1037/0033-2909.129.5.770},
+  url = {https://psycnet.apa.org/record/2003-99991-007}
+}
+
+@article{GorodnichenkoPhamTalavera_2023,
+Author = {Gorodnichenko, Yuriy and Pham, Tho and Talavera, Oleksandr},
+Title = {The Voice of Monetary Policy},
+Journal = {American Economic Review},
+Volume = {113},
+Number = {2},
+Year = {2023},
+Month = {February},
+Pages = {548–84},
+DOI = {10.1257/aer.20220129},
+URL = {https://www.aeaweb.org/articles?id=10.1257/aer.20220129}}
+
+@book{Mehrabian_1971,
+  author = {Mehrabian, Albert},
+  title = {Silent Messages: Implicit Communication of Emotions and Attitudes},
+  year = {1971},
+  publisher = {Wadsworth Publishing},
+  address = {Belmont, CA}
+}
+
+@article{KlesseLevavGoukens_2015,
+  title = {The Effect of Preference Expression Modality on Self-Control},
+  author = {Anne-Kathrin Klesse and Jonathan Levav and Caroline Goukens},
+  journal = {Journal of Consumer Research},
+  volume = {42},
+  number = {4},
+  pages = {535--550},
+  year = {2015},
+  month = {December},
+  doi = {10.1093/jcr/ucv043},
+  url = {https://doi.org/10.1093/jcr/ucv043}
+}
+
+@article{BaumesiterVohsFunder_2007,
+  author = {Roy F. Baumeister and Kathleen D. Vohs and David C. Funder},
+  title ={Psychology as the Science of Self-Reports and Finger Movements: Whatever Happened to Actual Behavior?},
+  journal = {Perspectives on Psychological Science},
+  volume = {2},
+  number = {4},
+  pages = {396-403},
+  year = {2007},
+  doi = {10.1111/j.1745-6916.2007.00051.x},
+  note ={PMID: 26151975},
+  URL = {https://doi.org/10.1111/j.1745-6916.2007.00051.x},
+  eprint = {https://doi.org/10.1111/j.1745-6916.2007.00051.x}
+}
+
+@article{Jacoby_1978,
+   author = {Jacoby, Jacob},
+   title = {Consumer Research: How valid and useful are all our consumer behavior research findings?: A State of the Art Review},
+   journal = {Journal of Marketing},
+   volume = {42},
+   number = {2},
+   pages = {87-96},
+   ISSN = {0022-2429},
+   DOI = {10.1177/002224297804200213},
+   url = {https://doi.org/10.1177/002224297804200213},
+   year = {1978},
+   type = {Journal Article}
+}
+
+@article{LynchEtAl_2024,
+   author = {Lynch, John G. and van Osselaer, Stijn M.J. and Torres, Patricia},
+   title = {Inside Baseball: How Our Stereotypes of “Good Theory” Undermine Perceived Relevance of Marketing Scholarship},
+   journal = {Journal of Consumer Research},
+   volume = {forthcoming},
+   year = {2024},
+   type = {Journal Article}
+}
+
+@article{ShrihariEtAl_2022,
+   author = {Sridhar, Shrihari and Lamberton, Cait and Marinova, Detelina and Swaminathan, Vanitha},
+   title = {JM: Promoting Catalysis in Marketing Scholarship},
+   journal = {Journal of Marketing},
+   volume = {87},
+   number = {1},
+   pages = {1-9},
+   ISSN = {0022-2429},
+   DOI = {10.1177/00222429221131517},
+   url = {https://doi.org/10.1177/00222429221131517},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@book{ShadishCookCampbell_2002,
+   author = {Shadish, William and Cook, Thomas D and Campbell, Donald Thomas},
+   title = {Experimental and quasi-experimental designs for generalized causal inference},
+   publisher = {Houghton Mifflin},
+   address = {Boston},
+   ISBN = {0395615569},
+   year = {2002},
+   type = {Book}
+}
+
+@article{SchmittEtAl_2022,
+   author = {Schmitt, Bernd H. and Cotte, June and Giesler, Markus and Stephen, Andrew T. and Wood, Stacy},
+   title = {Relevance—Reloaded and Recoded},
+   journal = {Journal of Consumer Research},
+   volume = {48},
+   number = {5},
+   pages = {753-755},
+   ISSN = {0093-5301},
+   DOI = {10.1093/jcr/ucab074},
+   url = {https://doi.org/10.1093/jcr/ucab074},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@article{JedidiEtAl_2021,
+   author = {Jedidi, Kamel and Schmitt, Bernd H. and Ben Sliman, Malek and Li, Yanyan},
+   title = {R2M Index 1.0: Assessing the Practical Relevance of Academic Marketing Articles},
+   journal = {Journal of Marketing},
+   volume = {85},
+   number = {5},
+   pages = {22-41},
+   ISSN = {0022-2429},
+   DOI = {10.1177/00222429211028145},
+   url = {https://doi.org/10.1177/00222429211028145},
+   year = {2021},
+   type = {Journal Article}
+}
+
+@article{ZhouEtAl_2022,
+   author = {Zhou, Lingrui and Du, Katherine M. and Cutright, Keisha M.},
+   title = {Befriending the Enemy: The Effects of Observing Brand-to-Brand Praise on Consumer Evaluations and Choices},
+   journal = {Journal of Marketing},
+   volume = {86},
+   number = {4},
+   pages = {57-72},
+   ISSN = {0022-2429},
+   DOI = {10.1177/00222429211053002},
+   url = {https://doi.org/10.1177/00222429211053002},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@article{Ferber_1977,
+   author = {Ferber, Robert},
+   title = {Research By Convenience},
+   journal = {Journal of Consumer Research},
+   volume = {4},
+   number = {1},
+   pages = {57-58},
+   ISSN = {0093-5301},
+   DOI = {10.1086/208679},
+   url = {https://doi.org/10.1086/208679},
+   year = {1977},
+   type = {Journal Article}
+}
+
+@article{DeLanghePuntoni_2021,
+   author = {de Langhe, Bart and Puntoni, Stefano},
+   title = {Are Personalized Ads a Waste of Money?},
+   journal = {Harvard Business Review Digital Articles},
+   url = {https://hbr.org/2021/12/are-personalized-ads-a-waste-of-money},
+   year = {2021},
+   type = {Journal Article}
+}
+
+@article{OraziJohnston_2020,
+   author = {Orazi, Davide C. and Johnston, Allen C.},
+   title = {Running field experiments using Facebook split test},
+   journal = {Journal of Business Research},
+   volume = {118},
+   pages = {189-198},
+   ISSN = {0148-2963},
+   DOI = {10.1016/j.jbusres.2020.06.053},
+   url = {http://www.sciencedirect.com/science/article/pii/S014829632030429X},
+   year = {2020},
+   type = {Journal Article}
+}
+
+@article{MatzEtAl_2018,
+  author = {S. C. Matz  and M. Kosinski  and G. Nave  and D. J. Stillwell },
+  title = {Reply to Eckles et al.: Facebook’s optimization algorithms are highly unlikely to explain the effects of psychological targeting},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume = {115},
+  number = {23},
+  pages = {E5256-E5257},
+  year = {2018},
+  doi = {10.1073/pnas.1806854115},
+  URL = {https://www.pnas.org/doi/abs/10.1073/pnas.1806854115},
+  eprint = {https://www.pnas.org/doi/pdf/10.1073/pnas.1806854115}
+}
+
+@article{WiesBeierEdeling_2023,
+   author = {Wies, Simone and Bleier, Alexander and Edeling, Alexander},
+   title = {Finding Goldilocks Influencers: How Follower Count Drives Social Media Engagement},
+   journal = {Journal of Marketing},
+   volume = {87},
+   number = {3},
+   pages = {383-405},
+   ISSN = {0022-2429},
+   DOI = {10.1177/00222429221125131},
+   url = {https://doi.org/10.1177/00222429221125131},
+   year = {2023},
+   type = {Journal Article}
+}
+
+@article{InmanEtAl_2018,
+   author = {Inman, J. Jeffrey and Campbell, Margaret C. and Kirmani, Amna and Price, Linda L.},
+   title = {Our Vision for the Journal of Consumer Research: It’s All about the Consumer},
+   journal = {Journal of Consumer Research},
+   volume = {44},
+   number = {5},
+   pages = {955-959},
+   ISSN = {0093-5301},
+   DOI = {10.1093/jcr/ucx123},
+   url = {http://dx.doi.org/10.1093/jcr/ucx123},
+   year = {2018},
+   type = {Journal Article}
+}
+
+@article{Davidson_2023,
+   author = {Davidson, Brittany I. and Wischerath, Darja and Racek, Daniel and Parry, Douglas A. and Godwin, Emily and Hinds, Joanne and van der Linden, Dirk and Roscoe, Jonathan F. and Ayravainen, Laura and Cork, Alicia G.},
+   title = {Platform-controlled social media APIs threaten open science},
+   journal = {Nature Human Behaviour},
+   volume = {7},
+   number = {12},
+   pages = {2054-2057},
+   ISSN = {2397-3374},
+   DOI = {10.1038/s41562-023-01750-2},
+   url = {https://doi.org/10.1038/s41562-023-01750-2},
+   year = {2023},
+   type = {Journal Article}
+}
+
+@article{LeeKimLim_2021,
+  title = {Spillover Effects of Brand Safety Violations in Social Media},
+  author = {Chunsik Lee and Junga Kim and Joon Soo Lim},
+  journal = {Journal of Current Issues and Research in Advertising},
+  volume = {42},
+  number = {4},
+  pages = {354-371},
+  year = {2021},
+  doi = {10.1080/10641734.2021.1905572}
+}
+
+@article{Hemmings_2021,
+  title = {Ethical Online Advertising: Choosing the Right Tools for Online Brand Safety},
+  author = {Mike Hemmings},
+  journal = {Journal of Brand Strategy},
+  volume = {10},
+  number = {2},
+  pages = {109-120},
+  year = {2021},
+  publisher = {Henry Stewart Publications},
+  url = {https://www.ingentaconnect.com/content/hsp/jbs/2021/00000010/00000002/art00003}
+}
+
+@article{aguirre-joya2018physicochemical,
+  title = {The Physicochemical, Antifungal and Antioxidant Properties of a Mixed Polyphenol Based Bioactive Film},
+  author = {Jorge A. Aguirre-Joya and Lorenzo Pastrana-Castro and Diana Nieto-Oropeza and Janeth Ventura-Sobrevilla and Romeo Rojas-Molina and Cristobal N. Aguilar},
+  journal = {Heliyon},
+  volume = {4},
+  number = {12},
+  pages = {e00942},
+  year = {2018},
+  doi = {10.1016/j.heliyon.2018.e00942},
+  url = {https://www.cell.com/heliyon/fulltext/S2405-8440(18)35992-9}
+}
+
+@article{BellmanEtAl_2018,
+  title = {Brand Safety: The Effects of Controversial Video Content on Pre-Roll Advertising},
+  author = {Steven Bellman and Ziad H. S. Abdelmoety and Jamie Murphy and Shruthi Arismendez and Duane Varan},
+  journal = {Heliyon},
+  volume = {4},
+  number = {12},
+  pages = {e01041},
+  year = {2018},
+  doi = {10.1016/j.heliyon.2018.e01041}
+}
+
+@article{SwaminathanEtAl_2023,
+   author = {Swaminathan, Vanitha and Lamberton, Cait and Sridhar, Shrihari and Marinova, Detelina},
+   title = {Paradigms for Progress: An Anomaly-First Framework for Paradigm Development},
+   journal = {Journal of Marketing},
+   volume = {87},
+   number = {6},
+   pages = {816-825},
+   ISSN = {0022-2429},
+   DOI = {10.1177/00222429231201959},
+   url = {https://doi.org/10.1177/00222429231201959},
+   year = {2023},
+   type = {Journal Article}
+}
+
+
+@misc{Buschschlueter_2024,
+  title = {Brazil Floods: 'We've Never Experienced Anything Like It'},
+  author = {Buschschlüter, Vanessa},
+  year = {2024},
+  month = {May},
+  howpublished = {BBC News},
+  url = {https://web.archive.org/web/20240805170342/https://www.bbc.com/news/articles/cle07g0zzqeo},
+  note = {Accessed: 2024-08-05}
+}
+
+@report{GumGum_2017,
+  title = {The New Brand Safety Crisis: A Fractured Environment},
+  author = {{GumGum Inc.}},
+  year = {2017},
+  institution = {GumGum},
+  url = {https://web.archive.org/web/20220317063148/https://insights.gumgum.com/hubfs/Brand_Safety_GumGum.pdf},
+  note = {Accessed: 2024-08-09},
+}

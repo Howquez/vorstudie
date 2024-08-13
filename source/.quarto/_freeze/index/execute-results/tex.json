@@ -1,0 +1,18 @@
+{
+  "hash": "3cd7b3c7f5a595d947c677e3ff140854",
+  "result": {
+    "markdown": "# Abstract {.unnumbered}\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc malesuada massa eget sem fringilla vehicula. Donec pulvinar diam dolor, sed egestas sem fringilla quis. Integer vitae gravida ante. Sed mauris nisl, luctus a mi ut, hendrerit dapibus tortor. Sed maximus consectetur metus sit amet aliquam. Donec eu orci sit amet neque pretium euismod. Donec egestas aliquam ex, ac dapibus nunc maximus quis. Pellentesque in accumsan purus, dignissim interdum turpis. Etiam sed dignissim ex, quis congue nulla. Phasellus accumsan ullamcorper leo ac iaculis. Vivamus tempor sapien tortor, in tincidunt lorem imperdiet in. Ut convallis imperdiet nisl at eleifend. Fusce tincidunt nunc ut metus fermentum vestibulum. Suspendisse vel molestie arcu. Curabitur eu diam vitae tortor placerat gravida eget ac urna. Sed quis leo a augue dapibus aliquet ac ac metus. Mauris sit amet convallis felis, nec ullamcorper velit. Aliquam congue est sed augue porttitor, pellentesque ullamcorper lacus fermentum. Nunc metus mi, consectetur et est sed, vulputate dignissim risus. Nulla et nibh lacus. Praesent commodo metus ut tellus aliquet, ut vehicula augue elementum.\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\noptions(repos = c(CRAN = \"https://cran.r-project.org\")) \n\n\nif (!requireNamespace(\"groundhog\", quietly = TRUE)) {\n    install.packages(\"groundhog\")\n    library(\"groundhog\")\n}\n\npkgs <- c(\"magrittr\", \"data.table\", \"knitr\", \"stringr\", \"stringi\", \"ggplot2\", \"scales\")\n\ngroundhog::groundhog.library(pkg = pkgs,\n                             date = \"2024-01-01\")\n\nrm(pkgs)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nset.seed(42)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlayout <- theme(panel.background = element_rect(fill = \"white\"),\n                legend.key = element_rect(fill = \"white\"),\n                panel.grid.major.y = element_line(colour = \"grey\", \n                                                  linewidth = 0.25),\n                axis.ticks.y = element_blank(),\n                panel.grid.major.x = element_blank(),\n                axis.line.x.bottom = element_line(colour = \"#000000\", \n                                                  linewidth = 0.5),\n                axis.line.y.left = element_blank(),\n                plot.title = element_text(size = rel(1))\n)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nc_coral     <- \"#f27981\"\nc_yellow    <- \"#F2EA79\"\nc_turquoise <- \"#79f2ea\"\nc_purple    <- \"#7981f2\"\n\nscale_color_custom_d <- function() {\n  scale_color_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))\n}\nscale_fill_custom_d <- function() {\n  scale_fill_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))\n}\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

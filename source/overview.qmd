@@ -1,0 +1,14 @@
+# Research Overview
+
+Throughout this research proposal, I will refer to my research projects either using their title or a descriptive acronym. @tbl-project-overview lists my three dissertation projects and reports the respective authors, the title, the target journal alongside their submission- or publication status as well as the said acronym. Each acronym is a hyperlink that directs the interested reader to the corresponding OSF repository. The repositories contain anonymized raw data, code, and experimental stimuli. If not stated otherwise, we pre-registered the sample size, predictions, analysis strategy, and data-exclusion criteria for each study of each project.
+
+This section outlines the projects briefly to then describe how the sum of these projects relates to the overall goal of the dissertation. The subsequent sections then describe the individual projects on a more granular level.
+
+| Acronym/OSF  | Authors                                    | Title                                                                                                              | Target Journal                | Status | OSF                   |
+|----------|--------------------------------------------|-------------------------------------------------------------------------------------|---------------------------------------|------------------------|
+| [DICE](https://osf.io/jcxvk/)     | Roggenkamp, Boegershausen &amp; Hildebrand | Digital In-Context Experiments (DICE): Enhancing Ecological Validity and Causal Inference in Social Media Research | Journal of Marketing | RR     |
+| [CIVILITY](https://osf.io/jcxvk/) | Roggenkamp                                 | The Price of Civility: Economic and Social Returns on Investment in Toxicity Moderation                            | Marketing Letters             |        |
+| [SOUND](https://osf.io/qswrz/)     | Gaerth, Roggenkamp &amp; Hildebrand        | The Sound of Certainty: Assessing Paralinguistic Indicators of Decision Confidence                                 | Journal of Marketing Research          |        |
+
+: Project Overview {#tbl-project-overview}
+

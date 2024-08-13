@@ -1,0 +1,3 @@
+"0","qualtrics[, "
+"0","          brand_attitude := mean(c(as.numeric(brand_att_1), as.numeric(brand_att_2), as.numeric(brand_att_3)), na.rm = TRUE),"
+"0","          by = participant_label]"

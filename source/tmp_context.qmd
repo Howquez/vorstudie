@@ -1,0 +1,520 @@
+---
+title: 'Digital In-Context Experiments (DICE)'
+subtitle: "We need a new subtitle that does not exclusively focus on validity."
+author:
+- name: Hauke Roggenkamp
+  email: Hauke.Roggenkamp@unisg.ch
+  orcid: 0009-0005-5176-4718
+  corresponding: true
+  affiliations:
+    - name: Institute of Behavioral Science and Technology, University of St. Gallen
+      address: Torstrasse 25
+      city: St. Gallen
+      country: Switzerland
+      postal-code: 9000
+- name: Johannes Boegershausen
+  email: boegershausen@rsm.nl
+  orcid: 0000-0002-1429-9344
+  corresponding: false
+  affiliations:
+    - name: Rotterdam School of Management, Erasmus University 
+      address: Burgemeester Oudlaan 50
+      city: Rotterdam
+      country: Netherlands
+      postal-code: 3062
+- name: Christian Hildebrand
+  email: Christian.Hildebrand@unisg.ch
+  orcid: 0000-0003-4366-3093
+  corresponding: false
+  affiliations:
+    - name: Institute of Behavioral Science and Technology, University of St. Gallen
+      address: Torstrasse 25
+      city: St. Gallen
+      country: Switzerland
+      postal-code: 9000
+date: now
+date-format: dddd MMM D, YYYY, HH:mm z
+format:
+  html:
+    embed-resources: true
+    theme: cosmo
+# format: pdf
+toc: false
+number-sections: false
+fig-cap-location: top
+execute:
+  echo: false
+bibliography: ../literature/references.bib
+
+---
+
+```{r install_packages}
+#| warning: false
+#| output: false
+
+options(repos = c(CRAN = "https://cran.r-project.org")) 
+
+
+if (!requireNamespace("groundhog", quietly = TRUE)) {
+    install.packages("groundhog")
+    library("groundhog")
+}
+
+pkgs <- c("magrittr", "data.table", "knitr", "stringr", "jsonlite", 
+          "ggplot2", "patchwork", "ghibli", "sjPlot", "gtsummary", "psych", "effectsize")
+
+groundhog::groundhog.library(pkg = pkgs,
+                             date = "2024-01-01")
+
+rm(pkgs)
+```
+
+```{r layout}
+layout <- theme(panel.background = element_rect(fill = "white"),
+                legend.key = element_rect(fill = "white"),
+                panel.grid.major.y = element_line(colour = "grey", 
+                                                  linewidth = 0.25),
+                axis.ticks.y = element_blank(),
+                panel.grid.major.x = element_blank(),
+                axis.line.x.bottom = element_line(colour = "#000000", 
+                                                  linewidth = 0.5),
+                axis.line.y.left = element_blank(),
+                plot.title = element_text(size = rel(1))
+)
+```
+
+```{r colors}
+c_coral     <- "#f27981"
+c_yellow    <- "#F2EA79"
+c_turquoise <- "#79f2ea"
+c_purple    <- "#7981f2"
+
+scale_color_custom_d <- function() {
+  scale_color_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))
+}
+scale_fill_custom_d <- function() {
+  scale_fill_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))
+}
+```
+
+# Case Studies {#sec-dice-case-studies}
+
+The following case studies demonstrate the practical application and novel capabilities of DICE. They not only showcase the tool in action but also highlight its key contributions, particularly by manipulating entire feed contexts and in measuring dwell time. By presenting these studies, we aim to provide a blueprint for researchers interested in adopting DICE for their own studies The first case study illustrates the tool's capacity for manipulating and controlling entire feed contexts whereas the second focuses on measuring participant engagement through dwell times. Together, these studies exemplify how our tool can enhance ecological validity while maintaining high levels of internal validity as discussed above.
+
+
+## Context Matters: Evaluating Brand Safety in Social Media Advertising
+
+```{r read_data}
+raw    <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/raw/all_apps_wide-2024-05-10.csv")
+input  <- data.table::fread(file = "../../oFeeds/studies/brand_safety/stimuli/brazil.csv")
+dice   <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/processed/DICE-processed-2024-05-10.csv")
+qualtrics  <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/raw/DICE_Validation_Brand_Safety_Brazil_May+10,+2024_07.51.csv")
+page_times <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/raw/PageTimes-2024-05-13.csv")
+```
+
+```{r set_names}
+setnames(old = "tweet",
+         new = "doc_id",
+         x = dice)
+
+setnames(old = "PROLIFIC_PID",
+         new = "participant_label",
+         x = qualtrics)
+
+qualtrics <- qualtrics[-1]
+qualtrics <- qualtrics[-1]
+```
+
+```{r demographics}
+# female
+qualtrics[, female := FALSE]
+qualtrics[gender == "Female", female := TRUE]
+
+# age
+qualtrics[, age := as.numeric(age)]
+
+# condition dummy
+dice[, safe := FALSE]
+dice[condition == "safe", safe := TRUE]
+dice[, condition := as.factor(condition)]
+```
+
+```{r brand_attitude}
+qualtrics[, 
+          brand_attitude := mean(c(as.numeric(brand_att_1), as.numeric(brand_att_2), as.numeric(brand_att_3)), na.rm = TRUE),
+          by = participant_label]
+```
+
+```{r initial_recall}
+qualtrics[, klm_initial_recall := ifelse(test = str_detect(string = str_to_lower(initial_recall),
+                                                        pattern = "klm"),
+                                     yes = TRUE,
+                                     no = FALSE)]
+
+qualtrics[, klm_second_recall := ifelse(test = str_detect(string = str_to_lower(second_recall),
+                                                       pattern = "klm"),
+                                     yes = TRUE,
+                                     no = FALSE)]
+
+qualtrics[, klm_aided_recall := ifelse(test = str_detect(string = aided_recall, pattern = "KLM"),
+                                    yes  = TRUE,
+                                    no   = FALSE)]
+
+qualtrics[, klm_final_recall := ifelse(test = final_recall == "Yes",
+                                    yes  = TRUE,
+                                    no   = FALSE)]
+
+```
+
+```{r flood_awareness}
+qualtrics[, 
+      binary_flood_awareness := ifelse(test = str_detect(string = flood_awareness,
+                                                         pattern = "Yes,"),
+                                       yes  = 1,
+                                       no   = 0) %>% 
+        as.logical()]
+```
+
+```{r page_times}
+times <- page_times[session_code == dice[, unique(session_code)] & participant_code %in% dice[, unique(participant_code)]]
+
+setorderv(x = times, cols = c("session_code", "participant_id_in_session", "page_index"))
+
+times[, 
+      time_spent_on_page := epoch_time_completed - shift(epoch_time_completed, n = 1, fill = NA, type = "lag"),
+      by = c("session_code", "participant_id_in_session")]
+```
+
+```{r merge_0}
+dice_plus <- data.table::merge.data.table(x = dice,
+                                          y = times[page_name == "C_Feed",
+                                                    .(participant_code, time_spent_on_page)],
+                                          by = "participant_code")
+```
+
+```{r merge_1}
+output <- data.table::merge.data.table(x = dice_plus,
+                                       y = qualtrics,
+                                       by = "participant_label")
+
+```
+
+```{r merge_2}
+long <- data.table::merge.data.table(x = output,
+                          y = input,
+                          by = c("doc_id", "condition"))
+
+setorder(long, participant_code, displayed_sequence)
+
+long <- long[complete.cases(long[, .SD, .SDcols = 34:56])]
+```
+
+```{r}
+tmp <- data.table::merge.data.table(x = dice_plus[,
+                                                    .(condition = unique(condition),
+                                                      time_spent_on_page = unique(time_spent_on_page)),
+                                               by = participant_label],
+                                      y = qualtrics,
+                                      by = "participant_label")
+
+# short <- short[complete.cases(short[, .SD, .SDcols = 21:ncol(short)])]
+```
+
+```{r relative_dwell_time}
+long[, 
+     relative_dwell_time := seconds_in_viewport / time_spent_on_page, 
+     by = participant_label]
+
+# To do: How comes, the following code also returns values smaller than 1? Refreshs? Page loading time?
+# long[, sum(relative_dwell_time, na.rm = TRUE), by = participant_label]
+```
+
+```{r}
+short <- data.table::merge.data.table(x = tmp,
+                                      y = long[displayed_sequence == 5, 
+                                               .(participant_label,
+                                                 relative_dwell_time,
+                                                 seconds_in_viewport)],
+                                      by = "participant_label")
+```
+
+
+Brand safety refers to strategies and measures ensuring that a brand's content, particularly advertisements, does not appear in contexts that could harm the brand's reputation [see, e.g., @BellmanEtAl_2018; @LeeKimLim_2021; @Hemmings_2021]. These measures are especially crucial in social media, where platforms use automated systems to place ads in dynamic, rapidly changing, and user-generated content environments. Such automated systems often lack the nuanced understanding that humans possess, which can lead to ad placements in contexts that seem appropriate at first glance but are ultimately unsuitable.
+In our hyper-connected world, such of misplacement can rapidly propagate, potentially magnifying reputational damage beyond the initial exposure [@SwaminathanEtAl_2020]. Accordingly, @AhmadEtAl_2024 found that most brand managers have a strong preference to avoid misplacement and @Schmitt_1994 [p. 1986] quotes an expert saying _"Advertisers [do] not want to display their products between battle scenes."_ This is also reflected in an industry report that not only states that about 70% of brands take brand safety seriously but also that 75% of the interviewed brands report brand-unsafe exposures [@GumGum_2017].
+
+Brands typically consider juxtapositions with hate speech, pornography, and violence as the most egregious violations of brand safety. To mitigate such risks, brands and platforms commonly employ blacklists and negative targeting strategies, defining keywords and publishers associated with these topics to avoid undesirable ad placements. On X (formerly Twitter), for instance, brand managers can utilize adjacency controls, allowing them to specify up to 1,000 negative keywords to regulate the content appearing above and below their ads in users' timelines. While these measures have proven relatively effective in preventing placements alongside the most _brand-unsafe_ content, misplacements adjacent to disasters, tragedies, divisive political content, and misinformation remain prevalent and, in part, unnoticed: @AhmadEtAl_2024 find that most decision-makers are unaware that their companies’ advertising appears on misinformation websites. This persistent challenge may be attributed to the inherent difficulty in accurately classifying and identifying fake news, subtle forms of divisive content, and emerging crisis situations in real-time. @GumGum_2017 reported that 39% of sampled brands experienced their content being displayed adjacent to at least one of these problematic topics. 
+
+To illustrate the unique capabilities of DICE, we propose a simple study that extends beyond altering individual posts to modifying entire feeds: Unlike traditional online platform studies, we hold the ad copy and creative constant while manipulating the surrounding context between-subjects. 
+Importantly, this study design is uniquely feasible within the DICE paradigm due to its precise control over the contextual environment—a capability not available in other research methodologies such as vignette studies. This level of control is crucial when examining brand safety, a phenomenon inherently defined by an advertisement's context. By manipulating the surrounding content while keeping the ad constant, we can directly investigate how context impacts brand perceptions, offering insights into brand safety that would be challenging to obtain through alternative research approaches.
+
+We test the intuitive hypothesis that an inappropriate (compared to a more general) context negatively affects brand attitudes. To better understand whether the effect is also driven by implicit memory effects [@Schmitt_1994], we control for cued and uncued recall.
+
+<!--
+
+This study directly relates to the topic of brand safety by highlighting how _malgorithms_ that place advertisements in insensitive or inappropriate contexts can impact consumer perception [see, e.g., @BellmanEtAl_2018; @LeeKimLim_2021; @Hemmings_2021].
+
+Anecdotal evidence of algorithmic misplacement is exemplified by the juxtaposition of an Apple iPad advertisement with a headline reporting the disappearance of Malaysia Airlines flight 370, as illustrated in @fig-misplaced-ad. This instance demonstrates how algorithmic ad placement can result in content juxtapositions that potentially undermine the advertiser's intended message and brand positioning.
+
+![Programmatic Advertising Misplacement During Sensitive News Coverage](https://i.insider.com/552318f2ecad04737e059937?width=1300&format=jpeg&auto=webp){#fig-misplaced-ad}
+
+Our case study sought to examine whether such misaligned contexts significantly influence consumer brand perceptions. Specifically, we investigated if misaligned ad placements generate unintended associations between brands and sensitive content, potentially eroding brand equity. We believe that this question is salient given the viral nature of digital content in today's interconnected media landscape [@SwaminathanEtAl_2020], where instances of misplaced advertisements can rapidly propagate, potentially magnifying reputational damage beyond the initial exposure.
+-->
+
+
+### Experimental Design
+
+Our study focuses on scenarios where airlines promote travel destinations through targeted advertising, placing ads in contexts that align with specific destinations. Given that major airlines serve numerous destinations globally, these ad placements are typically managed through automated programmatic systems. We leverage this automated placement approach to create two hypothetical scenarios featuring KLM Royal Dutch Airlines (KLM) promoting flights to Brazil. At the time of the study, Brazil was experiencing severe flooding that claimed at least 95 lives [@Buschschlueter_2024]. To simulate real-world conditions, we scraped real tweets and assembled them to two distinct Twitter feeds: one covering the natural disaster and another featuring more general content, including coverage of Madonna's free concert in Rio de Janeiro.
+This experimental design allows us to examine the impact of contextual advertising in varying circumstances, including during times of crisis.
+
+<!--
+
+inadvertently promotes a travel destination recently impacted by a natural disaster.^[This approach mirrors real-world practices; for instance, the German airline Lufthansa actively monitors news coverage and maintains a blacklist of affected travel destinations to avoid such misplacements.]
+More specifically, we exposed participants in the treatment group to a simulated Twitter feed that consisted of real tweets describing the [severe flooding](https://www.bbc.com/news/articles/cle07g0zzqeo) affecting Brazil in 2024. 
+
+Assuming that the automated placement systems focus on the keyword "Brazil" without any further nuance, the social media platform should display one and the same ad in both contexts. Accordingly, we placed the same fictitious sponsored post by KLM advertising flights to Brazil in both feeds. Clearly, both the creative (displayed in @fig-ad) and the copy saying _"Brazil's wild beauty calls! Experience nature like never before. Book your breathtaking adventure with KLM."_ appear inappropriate in light of the natural disaster (but would have appeared normal without the flooding). 
+
+-->
+
+For the illustrative character of this study, we assumed that automated placement systems primarily target the keyword "Brazil" without considering nuanced contextual factors. This assumption allowed us to simulate how the same advertisement might appear in markedly different contexts on a social media platform. Consequently, we placed an identical fictitious sponsored post by KLM, promoting flights to Brazil, into both Twitter feeds. The advertisement features a creative (as shown in @fig-ad) as well as copy that read: _"Brazil's wild beauty calls! Experience nature like never before. Book your breathtaking adventure with KLM."_ While this messaging would typically be considered appropriate for tourism promotion, it appears strikingly insensitive when juxtaposed against news of a natural disaster. `[Shall we pre-test this assumption?]`
+
+![KLM Ad Creative](https://github.com/Howquez/oFeeds/blob/main/studies/brand_safety/stimuli/brazil_wild_beauty.png?raw=true){#fig-ad}
+
+
+
+**Method:**
+Participants read instructions and browsed one of two twitter feeds (flooding-related vs. general) `[formerly called unsafe and safe, respectively]` in which we placed the KLM ad, before they were directed to a Qualtrics survey.
+Our stimuli, that is, the two feeds consisted of 20 real tweets each and placed the focal ad (by KLM) in fifth position.^[You can browse the flooding-related feed [here](https://web.archive.org/web/20240509200732/https://ibt-hsg.herokuapp.com/p/6ni2o3bv/DICE/C_Feed/3) and the more general feed [here.](https://web.archive.org/web/20240509200758/https://ibt-hsg.herokuapp.com/p/97fable0/DICE/C_Feed/3)]
+In the survey, we elicited whether participants recall a brand advertising in the feed—first uncued and then cued (i.e., participants saw a list of a diverse range of brands and had to indicate whether they recall seeing them).
+Next, participants evaluated the target brand on three seven-point scales presented in a random order (1 = "Negative/Unfavorable/Dislike" and 7 = "Positive/Favorable/Like"), which we averaged into a single measure.
+Finally, participants indicated whether they were aware of the flooding, provided demographic information, read a debriefing and were redirected to Prolific.
+
+**Participants:**
+We recruited `r qualtrics[, .N]` US-American participants ($M_{age} = `r short[, round(mean(age, na.rm = TRUE))]`$ years; `r round(short[, mean(female, na.rm = TRUE)] * 100)`% female) from Prolific.
+All participants who started the experiment and read the instructions (N=`r raw[participant._index_in_pages > 2, .N]`), submitted the social media feed. `r qualtrics[, .N]` finished the qualtrics survey. Of these `r qualtrics[, .N]` participants, `r long[condition == "unsafe" & sequence == 5 & seconds_in_viewport < 10, .N]` have been assigned to the inappropriate condition. 
+We do not observe selective attrition and are confident that the group assignment was indeed random—an assumption that is generally accepted in vignette studies, but cannot be presumed in observational studies. @tbl-balance demonstrates that the two treatment groups do not exhibit significant differences in observables. Nevertheless, the unsafe condition tends to skew slightly younger, as indicated by the second column group.
+
+
+```{r}
+#| warning: false
+#| label: tbl-balance 
+#| tbl-cap: Balance Across Conditions
+
+balance_1 <- lm(formula = female ~ condition, data = short)
+balance_2 <- lm(formula = age ~ condition, data = short)
+
+tbl_merge(tbls = list(tbl_regression(balance_1), tbl_regression(balance_2)),
+          tab_spanner = c("Female", "Age"))
+```
+
+```{r}
+#| eval: false
+#| label: tbl-attrition 
+#| tbl-cap: Attrition Across Conditions
+started <- raw[participant._index_in_pages > 2, unique(participant.label)]
+finished <- short[, participant_label]
+
+raw[participant._index_in_pages > 2 & !(participant.label %in% finished), 
+    .N,
+    by = DICE.1.player.feed_condition] %>% kable(col.names = c("condition", "N"))
+```
+
+
+### Implementation
+
+We implemented the two cell between-subjects design by creating a csv file that contains two times twenty rows (i.e., twenty tweets for each condition). Whereas all other columns are unique, two of these rows represent one and the same sponsored post, which we simply duplicated before we assigned it to each of the two conditions. To specify the spondered posts, we set `sponsored` to 1, provided a landing page in the `target` column to which participants are directed when clicking on the ad. In addition, we set its `sequence` parameter to 5 to guarantee that it is displayed in fifth position of the feed. We did not specify that parameter for any other tweet such that DICE orders the remaining tweets randomly between-subject. Finally, we added a `source` column that provides URLs to the tweets we scraped. Even though this column is not required (as DICE does not evaluate it) we considered such a column useful for documentation purposes. The described csv file, whose structure we illustrate in @tbl-csv, was then uploaded to Github such that we can pass the corresponding URL to the DICE app.
+
+| doc_id | text                                                  | username        | condition     | sponsored | target    | sequence |
+|--------|-------------------------------------------------------|-----------------|---------------|-----------|-----------|----------|
+| 1      | Madonna breaks the record for biggest audience...     | chart data      | appropriate   | 0         |           |          |
+| 2      | Saudades do Rio 🫶🏼<br><br>didn’t want to leave...     | diplo           | appropriate   | 0         |           |          |
+| 3      | 50 million people watched on TV Madonna...            | Madonna Daily   | appropriate   | 0         |           |          |
+| 4      | Chelsea really wanted Real Madrid-bound...            | Nizaar Kinsella | appropriate   | 0         |           |          |
+| 5      | Brazil's wild beauty calls! Experience nature...      | KLM             | appropriate   | 1         | [KLM url] | 5        |
+| ...    | ...                                                   | ...             | ...           | ...       |           |          |
+| 25     | Brazil's wild beauty calls! Experience nature...      | KLM             | inappropriate | 1         | [KLM url] | 5        |
+| ...    | ...                                                   | ...             | ...           | ...       |           |          |
+| 40     | i mentioned this on another tweet! if you can help... | Evil Scientist  | inappropriate | 0         |           |          |
+
+: CSV Exerpt {#tbl-csv}
+
+### Results
+
+```{r regressions_1}
+lm_1 <- lm(brand_attitude ~ condition, data = short, subset = klm_initial_recall == TRUE)
+model_summary <- summary(lm_1)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short[klm_initial_recall == TRUE], pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+**Brand attitude.** As pre-registered, we conduct a simple OLS regression where the inappropriate feed ($M_u = `r short[condition == "unsafe" & klm_initial_recall == TRUE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$) resulted in significantly less favorable brand evaluations than the more appropriate feed for those who recalled seeing a KLM ad without a cue ($M_s = `r short[condition == "safe" & klm_initial_recall == TRUE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $F(1, `r f_df2`) = `r round(f_value, 2)`$, $p = `r sprintf("%.3f", p_value)`$, $\text{Cohen's d} = `r cohensD`$).
+
+
+```{r regressions_2}
+lm_2 <- lm(brand_attitude ~ condition, data = short, subset = (klm_aided_recall == TRUE & klm_initial_recall == FALSE))
+model_summary <- summary(lm_2)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short[klm_aided_recall == TRUE & klm_initial_recall == FALSE], pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+This also holds for participants who needed a cue to recall the ad ($M_u = `r short[condition == "unsafe" & klm_aided_recall == TRUE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $M_s = `r short[condition == "safe" & klm_aided_recall == TRUE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $F(1, `r f_df2`) = `r round(f_value, 2)`$, $p = `r sprintf("%.3f", p_value)`$, $\text{Cohen's d} = `r cohensD`$).
+
+```{r regressions_3}
+lm_3 <- lm(brand_attitude ~ condition, data = short, subset = klm_aided_recall == FALSE & klm_initial_recall == FALSE)
+model_summary <- summary(lm_3)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short[klm_aided_recall == FALSE & klm_initial_recall == FALSE], pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+Importantly, we also observe the effect for those participants who do not recall seeing a KLM ad at all ($M_u = `r short[condition == "unsafe" & klm_aided_recall == FALSE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $M_s = `r short[condition == "safe" & klm_aided_recall == FALSE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $F(1, `r f_df2`) = `r round(f_value, 2)`$, $p = `r sprintf("%.3f", p_value)`$, $\text{Cohen's d} = `r cohensD`$).
+
+```{r regressions_5}
+#| eval: false
+
+lm_5 <- lm(brand_attitude ~ condition, data = short)
+model_summary <- summary(lm_5)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short, pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+
+```{r}
+#| label: fig-main-effects
+#| fig-cap: "Effect of Misplaced Ad on Brand Evaluations"
+
+# p1 <- ggplot(data = short,
+#        mapping = aes(x = brand_attitude,
+#                      fill = condition)) +
+#   geom_density(alpha = 0.5) + 
+#   scale_x_continuous(limits = c(1, 7),
+#                      breaks = 1:7) +
+#   scale_y_continuous(expand = c(0, NA)) +
+#   scale_fill_custom_d() +
+#   layout +
+#   theme(legend.position = "top",
+#         axis.text.y = element_blank(),
+#         panel.grid.major.y = element_blank()) +
+#   labs(title = "A: All paricipants.",
+#        x = "Brand Attitude",
+#        y = "Density")
+
+p1 <- ggplot(data = short[klm_initial_recall == TRUE],
+       mapping = aes(x = brand_attitude,
+                     fill = condition)) +
+  geom_density(alpha = 0.5) + 
+  scale_x_continuous(limits = c(1, 7),
+                     breaks = 1:7) +
+  scale_y_continuous(expand = c(0, NA)) +
+  scale_fill_custom_d() +
+  layout +
+  theme(legend.position = "top",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  labs(title = paste0("A: Participants with uncued recall (N=", short[klm_initial_recall == TRUE, .N],")."),
+       x = "Brand Attitude",
+       y = "")
+
+p2 <- ggplot(data = short[klm_aided_recall == TRUE & klm_initial_recall == FALSE],
+       mapping = aes(x = brand_attitude,
+                     fill = condition)) +
+  geom_density(alpha = 0.5) + 
+  scale_x_continuous(limits = c(1, 7),
+                     breaks = 1:7) +
+  scale_y_continuous(expand = c(0, NA)) +
+  scale_fill_custom_d() +
+  layout +
+  theme(legend.position = "top",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  labs(title = paste0("B: Participants without uncued but\nwith cued recall (N=", short[klm_aided_recall == TRUE  & klm_initial_recall == FALSE, .N],")."),
+       x = "Brand Attitude",
+       y = "")
+
+p3 <- ggplot(data = short[klm_aided_recall == FALSE & klm_initial_recall == FALSE],
+       mapping = aes(x = brand_attitude,
+                     fill = condition)) +
+  geom_density(alpha = 0.5, bw = 0.25) + 
+  scale_x_continuous(limits = c(1, 7),
+                     breaks = 1:7) +
+  scale_y_continuous(expand = c(0, NA)) +
+  scale_fill_custom_d() +
+  layout +
+  theme(legend.position = "top",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  labs(title = paste0("C: Participants without any recall (N=", short[klm_aided_recall == FALSE & klm_initial_recall == FALSE, .N],")."),
+       x = "Brand Attitude",
+       y = "")
+
+
+
+combined <- (p1 | p2) / (p3) & theme(legend.position = "bottom") 
+combined + plot_layout(guides = "collect")
+```
+
+We illustrate all three effects in panel A, B and C of Figure @fig-main-effects, respectively. Even though the distributions in panel C accumulate more density at the their center, there still is a significant difference between both groups, which indicates an implicit memory effect: even though participants do not recall seeing an KLM ad, the (forgotten) exposure in the inappropriate context dilluted the brand's reputation.
+
+`[This raises the question of whether dwell time, an implicit measure, may explain such implicit processes. What would be the theoretical argument? More attention?]`
+
+### Legacy
+
+
+```{r}
+glm_1 <- glm(formula = klm_aided_recall ~ seconds_in_viewport, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+
+glm_2 <- glm(formula = klm_aided_recall ~ seconds_in_viewport + condition + seconds_in_viewport*condition, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+
+glm_3 <- glm(formula = klm_aided_recall ~ relative_dwell_time, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+
+glm_4 <- glm(formula = klm_aided_recall ~ relative_dwell_time + condition + relative_dwell_time*condition, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+```
+
+**Recall.**  `[If we use this study to demonstrate the context-contribution, we don't need dwell time analyses here.]` A logit regression provides correlational evidence which indicates that an additional second in the viewport increases the odds of recall by about `r (round(exp(coef(summary(glm_1))["seconds_in_viewport", "Estimate"]), digits = 2) - 1) * 100`% holding other factors constant ($p = `r round(coef(summary(glm_1))["seconds_in_viewport", "Pr(>|z|)"], digits = 2)`$).
+Controlling for the experimental condition this value changes only slightly^[An additional second in the viewport increases the odds of recall by about `r round(exp(coef(summary(glm_2))["seconds_in_viewport", "Estimate"]), digits = 2)`% ($p = `r round(coef(summary(glm_2))["seconds_in_viewport", "Pr(>|z|)"], digits = 2)`$)]. The interaction's large standard error in Model 2 presented in @tbl-recall-regressions indicates that this correlation is robust across conditions.
+
+
+```{r}
+#| warning: false
+#| label: tbl-recall-regressions 
+#| tbl-cap: Logit Results
+tbl_merge(tbls = list(tbl_regression(glm_1, exponentiate = TRUE) %>% modify_column_hide(ci),
+                      tbl_regression(glm_2, exponentiate = TRUE, show_single_row = condition) %>% modify_column_hide(ci),
+                      tbl_regression(glm_3, exponentiate = TRUE) %>% modify_column_hide(ci),
+                      tbl_regression(glm_4, exponentiate = TRUE, show_single_row = condition) %>% modify_column_hide(ci)),
+          tab_spanner = rep("Aided Recall", 4))
+
+```
+
+`[Because we analyze dwell time in the next study in more detail, we should use it here to exclude participants who have not paid attention to the ad: either exclude them or control for dwell time on focal post.]`
+
+## Dwell Time Case
+
+Lorem ipsum.
+

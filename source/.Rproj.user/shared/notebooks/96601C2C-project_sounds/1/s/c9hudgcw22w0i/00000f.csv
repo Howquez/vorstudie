@@ -1,0 +1,3 @@
+"0","DT <- fread(file = '../../preference_expression/data/processed/2023-08-23_processed.csv', "
+"0","            integer64 = 'numeric',"
+"0","            stringsAsFactors = TRUE)"

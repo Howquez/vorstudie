@@ -1,0 +1,604 @@
+## Digital In-Context Experiments (DICE)
+
+Co-authored with Johannes Boegershausen (Rotterdam School of Management) and Christian Hildebrand (University of St. Gallen), we are finalizing the data collection and the manuscript for a re-submission at the Journal of Marketing's special issue on [_"Marketing Impact with Research-Driven Apps"_](https://www.ama.org/journal-of-marketing-call-for-papers-marketing-impact-with-research-driven-apps/).
+
+```{r install_packages}
+#| warning: false
+#| output: false
+
+options(repos = c(CRAN = "https://cran.r-project.org")) 
+
+
+if (!requireNamespace("groundhog", quietly = TRUE)) {
+    install.packages("groundhog")
+    library("groundhog")
+}
+
+pkgs <- c("rmarkdown", "magrittr", "data.table", "knitr", "stringr", "jsonlite", 
+          "ggplot2", "patchwork", "ghibli", "sjPlot", "gtsummary", "psych", "effectsize")
+
+groundhog::groundhog.library(pkg = pkgs,
+                             date = "2024-01-01")
+
+rm(pkgs)
+```
+
+```{r layout}
+layout <- theme(panel.background = element_rect(fill = "white"),
+                legend.key = element_rect(fill = "white"),
+                panel.grid.major.y = element_line(colour = "grey", 
+                                                  linewidth = 0.25),
+                axis.ticks.y = element_blank(),
+                panel.grid.major.x = element_blank(),
+                axis.line.x.bottom = element_line(colour = "#000000", 
+                                                  linewidth = 0.5),
+                axis.line.y.left = element_blank(),
+                plot.title = element_text(size = rel(1))
+)
+```
+
+```{r colors}
+c_coral     <- "#f27981"
+c_yellow    <- "#F2EA79"
+c_turquoise <- "#79f2ea"
+c_purple    <- "#7981f2"
+
+scale_color_custom_d <- function() {
+  scale_color_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))
+}
+scale_fill_custom_d <- function() {
+  scale_fill_manual(values = c(c_purple, c_coral, c_turquoise, c_yellow))
+}
+```
+
+## Introduction
+
+With 4.76 billion social media users in 2023 (i.e., approximately 60% of the world’s population) and an average daily social media usage of more than 2.5 hours [@Kemp_2023], understanding the consequences of social media use carries tremendous economic and societal weight [e.g., @AhmadEtAl_2024; @AndersonWood_2021; @AppelMarkerGnambs_2020; @OrbenPrzybylski_2019; @Stephen_2016]. Consequently, the last two decades have seen an explosive growth of research examining consumer and firm behavior on social media platforms [for recent reviews, see @AridorEtAl_2024; @LeungEtAl_2022; @ShankarEtAl_2022; @AppelEtAl_2020]. Consumer attention and engagement on social media platforms have become key assets in the digital (attention) economy, driving billion-dollar valuations of companies and leading to major investments by brands to harness these platforms effectively.
+
+To better understand attention and engagement on social media, researchers strive to get access to proprietary data directly from these platforms as they own granular data that is less susceptible to selection issues such as algorithmic interference [see, e.g., @GordonMoaklerZettelmeyer_2022; @FarronatoFradkin_2022, @XuZhangZhou_2020] than what is publicly available. However, most researchers do not have the option of using confidential data because platforms are hesitant to share these data (due to perceived regulatory, legal, or competitive risk). Even when platforms provide data another challenge may arise because researchers may be limited to studying topics that could benefit the company, or, at the very least, will not hurt it [@FarronatoFradkinKarr_2024, p. 4].
+
+To address these challenges and to provide researchers with an accessible method for studying social media behavior, this paper introduces Digital-In-Context-Experiments (DICE). DICE is an open-source tool that allows researchers to mimic and manipulate social media feeds and track study participants' interactions with that feed, offering a novel approach to understanding user behavior on social media platforms. This method complements and extends existing research paradigms in our field, which has primarily employed four approaches: scenario-based vignette studies, observational social media studies, online platform studies, and browser extensions.
+
+Scenario-based vignette studies typically use a set of static vignettes (e.g., an image or screenshot of a single or a few selected Twitter posts) and are the back bone of consumer research. They offer high levels of internal validity, yet they can be criticized for being too artificial [@MoralesAmirLee_2017]. 
+In online platform studies researchers can use social media platforms as hidden recruitment tools and disguise their stimuli as ads that are displayed to the social media platforms' real user base. Importantly, researchers can make use of "A/B testing" functionalities and expose different variants of the ads to different users. However, this approach scores low on internal validity because, unlike in experiments, the assignment of users to these ad variants is affected by a platform's algorithms [@BraunEtAl_2024] and thus, not random. 
+Observational study designs are yet another, non-experimental approach to study social media. They leverage proprietary datasets, web scraping, or application programming interfaces (API) to capture archival data from social media platforms [@BoegershausenEtAl_2022]. While such data captures actual behavior, these gains in realism typically come at the expense of construct validity, internal validity, and endogeneity issues. Jointly, these factors exacerbate the detection of causal effects and require sophisticated econometric modeling approaches [@GoldfarbTuckerWang_2022] as well as natural experiments. However, these are challenging to find, provide information about only specific causal effects, and involve assumptions that are difficult to validate empirically [@GroszEtAl_2024].
+Hence, researchers in neighboring disciplines have started to use custom software (i.e., browser extensions) to conduct experiments. Under this paradigm, recruited participants install software which can implement interventions while tracking consumer behavior online [see, e.g., @FarronatoFradkinKarr_2024; @Aridor_2024; @AllcottGentzkowSong_2022]. Whereas this approach offers experimentation in realistic environments as well as stable and random group assignment, it usually requires software development making it inaccessible for many researchers. In fact, to the best of our knowledge, there are no published studies in the field of marketing using this paradigm to date.
+
+<!--
+Scenario-based vignette studies typically use a set of static vignettes (e.g., an image or screenshot of a single or a few selected Twitter posts). They are one of the most commonly used research designs. Such vignette experiments offer high levels of internal validity, yet they can be criticized for being too artificial [@MoralesAmirLee_2017] and findings may potentially be contingent on the specific stimuli applied [@SimonsohnMontealegreEvangelidis_2024]. Accordingly, marketing scholars increasingly complement or even substitute static vignette research designs with other types of studies that promise higher levels of realism, such as observational social media studies or online platform studies.
+
+Observational social media studies leverage proprietary datasets, web scraping, or application programming interfaces (API) to capture data from social media platforms [@BoegershausenEtAl_2022]. While observational social media studies naturally offer greater ecological validity, these gains typically come at the expense of construct validity, internal validity, and endogeneity issues. Jointly, these factors exacerbate the detection of causal effects and require sophisticated econometric modeling approaches [@GoldfarbTuckerWang_2022] and natural experiments. However, these are challenging to find, provide information about only specific causal effects, and involve assumptions that are difficult to validate empirically [@GroszEtAl_2024].  
+
+The third paradigm employed in extant social media research is online platform studies [@BraunEtAl_2024]. In contrast to observational studies, online platform studies allow researchers to use their own stimuli by creating variants of advertisements that are deployed in (so-called) “A/B testing” functionalities provided by all major social media platforms, such as Meta (i.e., Facebook and Instagram), Twitter, or TikTok. Yet, by using these functionalities, researchers relinquish control over randomization to social media platforms as they employ targeting algorithms that may differ between variants. Hence, there is no random assignment of participants to different treatments [@BraunEtAl_2024] making a causal interpretation impossible [@GordonMoaklerZettelmeyer_2022].
+
+
+Copied from @FarronatoFradkinKarr_2024 [p. 2]:
+
+> Researchers of digital behavior have started to use custom software to conduct studies. Under this paradigm, recruited participants install software on a device such as a laptop or mobile phone, and this software implements a variety of interventions while tracking consumer choices online. This approach has recently been used to study social media [@AllcottGentzkowSong_2022; @Aridor_2024; @Levy_2021; @BeknazarYuzbashevEtAl_2022]). Although these studies require a similar technology, there is no software infrastructure that allows researchers to easily run such studies. Developing this type of technology is costly–both financially and time-wise–, which inevitably creates entry barriers for academics to develop online research studies with credible random variation.
+-->
+
+
+<!--
+Prior social media research has employed observational methods that often involve assumptions that are difficult to validate empirically [@GroszEtAl_2024] as well as two experimental methods: static scenario-based vignette studies and online platform studies. However, the former can be criticized for its lack of realism [@MoralesAmirLee_2017] whereas the latter fails to establish causality [@BraunEtAl_2024]. `[Add review of browser extensions.]`
+-->
+
+In summary, _accessible_ approaches to derive causal inference in realistic social media settings remain limited and none of them captures the actual context of social media experiences: vignette studies intentionally neglect contextual factors, platform studies do allow the manipulation of contexts and do not report contextual data whereas observational studies' archival data can capture these data but may be affected by algorithmic interference. Consequently, researchers are often unable to fully control, manipulate, or even observe the contextual factors that have been shown to affect consumer behavior [see, e.g., study 3 in @BergerMilkman_2016; or @Schmitt_1994]. Furthermore, none of the approaches reports granular data that describe individual browsing behavior. Instead, vignette studies often elicit self-reports whereas platform- and observational data provide behavioral data such as clicks or likes on an aggregate level. Whereas these data are important to inform (conscious) psychological processes and ecologically valid behavior, they tend to miss out on unconscious and passive user behavior, that is, internal processes that do not translate into mouse clicks [@BaumesiterVohsFunder_2007].
+
+DICE addresses these limitations by making three key contributions. First, it maintains the high internal validity characteristic of static scenario-based vignette studies while  enhancing ecological validity by creating interactive stimuli in realistic look-and-feels. Second, it provides researchers with control over context that also allows them to create interventions that manipulate it. This essentially enables them to systematically vary individual social media posts or even complete social media feeds to examine how different (contextual) factors influence user behavior. Third, it enables unobtrusive tracking of implicit behavioral data, measuring the duration and timing of a participant's interaction with each social media post. This provides metrics that are highly used by platforms internally [see, e.g., @BergerMoeSchweidel_2023; @Cramer_2015; @YiEtAl_2014] but unavailable through any accessible research paradigm.
+
+`[Taken together, DICE provides a tool to work on research questions that couldn't be answered before... and in a way that was not accessible before.]`
+
+
+We developed DICE with the aim to complement (and not replace) existing research paradigms—static scenario-based vignette studies, observational studies, and online platform studies. We also designed it to be useful to a broad range of marketing stakeholders, such as brand managers, influencers, agencies, and policy makers—with and without programming experience. For this reason, the software consists of two components. At its core, DICE is an oTree app [@oTree] that can be extended and customized by stakeholders _with_ basic programming experience. In addition, we created a web interface ([www.dice-app.org](https://www.dice-app.org/)) designed for stakeholders _without_ programming experience. To further increase its ease of use, we designed DICE as a module that can be embedded in the experimentalists' typical workflow as it is compatible with recruitment procedures in behavioral labs or Prolific and survey tools such as Qualtrics.
+
+While developing DICE, we applied principles of the Open Science movement to make research software widely available, interoperable, and reusable. We hope that by leveraging oTree, which is frequently used in incentive-compatible group experiments but, admittedly, not yet established in marketing research, other researchers can add to DICE’s functionalities. For instance, to adapt media platform or to mimic the interface of the social also mimic mass media feeds, product review platforms or web shops. 
+
+In what follows, we first provide a critical synthesis of the three dominant research paradigms employed in extant social media research and their implications for validity (see Table 1) to derive our first contribution: the enhancement of ecological validity while maintaining high internal validity. Next, we introduce DICE, its configuration, workflow, integration with existing research tools, participant and data management, and its novel behavioral tracking capabilities. Subsequently, we present two case studies that further illustrate the workflow and the obtained data. Importantly, these studies showcase how to leverage the control over context as well as the implicit behavioral data, supporting our second and third contributions respectively. The first case study demonstrates how DICE allows for precise manipulation of social media contexts, enabling researchers to examine the impact of varying environmental factors on user behavior. The second case study highlights DICE's capacity to capture fine-grained behavioral metrics, such as dwell time and scrolling patterns, providing insights unavailable through traditional methods. Finally, we conclude with a roadmap on how DICE might be leveraged to shape future social media research and offer directions for key stakeholders in the social media ecosystem (e.g., brands, influencers, and public policy).
+
+<!--
+In what follows, we first provide a critical synthesis of the three dominant research paradigms employed in extant social media research and their implications for validity (see Table 1) to derive our first contribution. Next, we introduce DICE, its configuration, workflow, integration with existing research tools, participant and data management, and its novel behavioral tracking capabilities. Subsequently, we present two case studies that further illustrate the workflow and the obtained data. Importantly, the two studies also showcase how to leverage the control over context as well as the implicit behavioral data to support our second and third contribution. Finally, we conclude with a roadmap on how DICE might be leveraged to shape future social media research and offer directions for key stakeholders in the social media ecosystem (e.g., brands, influencers, and public policy).
+-->
+
+## Research paradigms in social media research
+
+This section also discuss the implications of these paradigms for construct validity, internal validity, and ecological validity given their critical role for the quality of the inferences made in marketing research and are critical during the review process at top marketing journals [@Jacoby_1978; @LynchEtAl_2024; @ShrihariEtAl_2022]. Construct validity, with its focus on the validity of inferences about higher order constructs, and internal validity, with its focus on the validity of causal relationships [@ShadishCookCampbell_2002; @XuZhangZhou_2020], are often considered necessary but not sufficient for high-quality marketing research [e.g., @SchmittEtAl_2022; @vanHeerdeEtAl_2021]. Specifically, scholars continue to call for greater realism and external validity in marketing research [e.g., @JedidiEtAl_2021; @MoralesAmirLee_2017; @Lynch_1982]. External validity concerns whether the cause-effect relationship holds over variations in study design, setting, samples, and measurement variables [@@ShadishCookCampbell_2002]. Because every result is valid to some setting and no result is externally valid to all settings, we focus our discussion to the related, yet distinct concept of ecological validity. It refers to the extent to which research findings can be generalized to real-life settings. It focuses on how closely the study's methods, materials, and setting approximate the real-world situation under investigation. High ecological validity means the study's conditions are similar to those in the real world, making the results more likely to be applicable in natural contexts.
+When deciding between different research paradigms, scholars often face a trade-off between different types of validity, as we will detail in the following.
+
+`[Limit Scope and mention that real RCTs are impossible without the platforms' data and that browser extensions are equally inaccessible.]`
+
+### Scenario-based vignette studies
+
+Scenario-based vignette studies typically feature an image of a single social media post that varies the focal construct(s) of interest between different experimental conditions. For example, participants in Study 2 of @ZhouEtAl_2022 [see Web Appendix F for the stimuli] were randomly shown one of two images displaying only a single tweet ostensibly from the brand KitKat. The image of the tweet either praised a competitor or featured a control message. Subsequently, study participants reported their attitudes toward both Kit Kat and a competitor brand (i.e., Twix).^[The authors used three seven-point scales (i.e., "negative/positive" "dislikeable/likeable" and "unfavorable/favorable").] Among the three accessible paradigms of social media studies, scenario-based vignettes offer the highest level of internal validity as researchers have full control over the treatment (e.g., experimental manipulations), measurement of variables, and the randomization process. By carefully designing their stimuli and measures, researchers can also achieve high levels of construct validity (i.e., close alignment between the specific operationalization and the higher-order theoretical construct). These studies are generally easy to design, execute, and analyze.
+
+However, experiments with static vignettes are often criticized for their low levels of ecological validity [@MoralesAmirLee_2017] and as "research-by-convenience" [@Ferber_1977; @BaumesiterVohsFunder_2007] failing to sufficiently mimic an environment that would be informative of consumers’ actual responses observable in a real consumption setting. Static vignette studies also magnify the salience of the focal aspects of the treatment (e.g., a particular post from a brand), which increases the risk of demand effects and may overestimate the size of the observed effect compared to a more noisy field setting [see, e.g., @SimonsohnMontealegreEvangelidis_2024] `(e.g., Dubois et al. 2021)`. 
+
+A particular concern for social media research is that the prototypical vignette social media study lacks the rich context of the actual user experience on social media sites. Rather than seeing a single post, consumers browse endless feeds in which many posts compete for their attention and engagement. Thus, static vignette studies may lead participants to adopt overly analytical mindsets that diverge from how they would approach the same post while browsing social media platforms (see, e.g., @Pham_2013's 6th sin of consumer psychology).
+
+`[Also mention that this focus on single posts limits the research questions on can answer.]`
+
+### Online platform studies
+Given these limitations online platform studies have emerged as an increasingly popular third paradigm in social media research. Since 2021, more than thirty articles in the leading marketing journals have used such study designs [@CornilEtAl_2023]. Specifically, researchers use the A/B testing functionalities provided by social media platforms, such as Meta (i.e., Facebook and Instagram), Twitter, or LinkedIn to compare the effect of different ads in a naturalistic social media environment [@BraunEtAl_2024]. The A/B testing functionalities offered by these platforms are primarily intended for advertisers, fairly easy to use, and provide an opportunity to study consumer behaviors in the wild  by tracking conversion outcomes across the purchase funnel such as impressions, clicks `[or likes and comments?]`.
+
+Another benefit of these online platform studies is that online ad platforms provide some functionalities to target users based on demographics or "user interests" based on their past online behavior [@CornilEtAl_2023]. For example, in Study 1 of @ZhouEtAl_2022, 13,719 Facebook users saw an ad for the Facebook page of a fictional car wash provider. The authors use three different ads featuring either a self-promotion, an external endorsement, or a brand-to-brand praise message from the car wash company. Like other online platform studies, @ZhouEtAl_2022 leverage the aggregate summary statistics (i.e., clicks/impressions) provided by Facebook to compute and compare the clickthrough rates of these three different ad creatives. Online platform studies promise higher ecological validity as they excel in realism and naturalism, given that they are conducted directly on social media sites used by major advertisers, while still allowing researchers (limited) control of the stimuli and the users exposed to the stimuli.
+
+While the A/B testing functionalities of social media platforms might appear to be randomized controlled trials (RCTs) run in a naturalistic environment. If they were indeed RCTs, online platform studies would be the gold standard in social media research. Yet, by using the A/B testing functionalities provided by digital platforms, researchers relinquish control over critical elements of the study design to the digital platform. Specifically, online platforms employ post-randomization targeting algorithms that prevent clean random assignment of participants to different treatments. Researchers’ stimuli (i.e., ads) compete in a bidding system in the digital advertising marketplace, producing a so-called "divergent delivery" across different ads (i.e., conditions) that emerges as the platform selects users based on expected audience reaction and bid amount [@BraunSchwartz_2023; @Johnson_2023]. 
+
+Additionally, at any given point in time, social media platforms are likely to run numerous A/B tests of their own to optimize their platform that are unobservable to researchers and may comingle with their study. These concerns about construct validity and internal validity severely limit the quality of inferences from these studies [see also @GordonMoaklerZettelmeyer_2022]. Unfortunately, many social media platforms like Meta do not present the mechanisms underlying these types of studies (i.e., so-called split or A/B tests) and their limitation very transparently [@DeLanghePuntoni_2021]. 
+
+Another limitation of online platform studies is that they only provide aggregate data. While the summary data of clicks and impressions allows researchers to generate datasets for analysis, it prevents any serious individual-level analysis of the psychological processes driving consumer responses (e.g., clicking sequence, time spent on a post). At present, and despite their increasing popularity in marketing research, it is unclear whether online platform studies have sufficient levels of internal and construct validity to be informative for academic research at all [@EcklesGordonJohnson_2018; @MatzEtAl_2018; @OraziJohnston_2020@BraunSchwartz_2023; @BraunEtAl_2024]. Yet, it is already clear that online platform studies are not a panacea to offset the limited realism of typical static scenario-based vignette studies.
+
+`[Make clear that online platform studies are not necessarily social media studies. Often they just use social media as a recruitment platform that is unnoticed by its participants. Many online platform studies are as much about social media as prolific studies are about online behavior. Just because someone is recruited in an social media or online environment, it does not mean that one studies behavior in there.]`
+
+### Observational social media studies
+
+A third, non-experimental paradigm, observational social media studies, directly accesses existing social media data. Typically, researchers collect such datasets themselves via web scraping or application programming interfaces [@BoegershausenEtAl_2022], or purchase them from proprietary sources [e.g., social media agencies in  @WiesBeierEdeling_2023]. Various social media sites such as Twitter (#2, N = 27) and Facebook (#6, N = 13) are among the most frequently scraped sources in articles published in the leading marketing journals [@BoegershausenEtAl_2022]. An example of such an observational social media study is the pilot study of @ZhouEtAl_2022, featuring 8,393 tweets from three gaming console manufacturers between September 1st, 2016 to September 30th, 2017 collected via the Twitter API. The authors coded the tweets for their focal construct of interest (i.e., whether they mentioned a competitor) and compared aggregate user reactions to the different types of tweets (i.e., number of likes, number of retweets). A critical advantage of such observational data is that it features consequential dependent variables (e.g., likes, comments, and retweets/reshares) of interest to marketing managers, content creators, and other decision-makers [@InmanEtAl_2018]. As researchers can collect such data unobtrusively, these studies are unlikely to be affected by demand effects and help identify ecologically valid effects "in the real world".
+
+Yet, observational studies are likely affected by "algorithmic interference" [@BoegershausenEtAl_2022], which is the effect of personalization algorithms on information display and retrieval [@XuZhangZhou_2020]. This interference occurs both during the data generation stage (e.g., which tweets users are exposed to) and the data retrieval stage (e.g., which tweets researchers can retrieve). These concerns are particularly pronounced for social media research that draws from online platforms heavily relying on sophisticated, dynamic, black-box algorithms [@AridorEtAl_2024]. The opaqueness and lack of control over these algorithms that shape the data-generating process on social media platforms make it difficult to address these concerns, reducing construct and internal validity in observational social media studies [e.g., @Davidson_2023; @XuZhangZhou_2020]. 
+
+Because observational social media studies are based on archival data, researcher cannot intervene to exogenously manipulate treatment variables. Hence, these datasets require careful consideration of the familiar methodological challenges encountered with organically generated data, due to potential as endogeneity issues (see, e.g., @RutzWatson_2019; @GoldfarbTuckerWang_2022). To overcome these challenges, researchers typically exploit natural experiments in which the assignment of treatments to users is "as good as random" [@AngristPischke_2009] because it is chosen by nature or policy rather than an experimenters. They then and apply regression discontinuity, difference-in-differences as well as instrumental variable designs to these natural experiments to identify causal effects. However, natural experiments are rare to find and the corresponding methods involve postulates, that is, assumptions that are difficult to validate empirically [@GroszEtAl_2024].
+
+Finally, given the increased privacy regulations in the EU and other major markets, most observational studies only contain limited individual-level data and data granularity to explore the psychological processes producing consumer reactions to content.
+
+
+## App Implementation
+
+> _Submissions to the special issue should include a new section titled “App Implementation.” In this section, the author(s) should: (1) Describe the problem solved by the app and how it supplements the research contribution of the manuscript.
+(2) Define the audience or the end users targeted by the app and the usefulness of the app to this audience over and above the current situation or available (software or other) solutions. The audience can be broad and include managers, executives, researchers, consumers, policy makers, government, media, general public, other marketing academics, and students.
+(3) Provide a secure, anonymous relatively permanent link to the app, with appropriate instructions on how to use the app and interpret the results.
+Share open-source access to the app to allow accelerated dissemination upon publication._
+
+> _Ideally, the app implementation informs the problem statement and intended contribution of the research and manuscript._
+
+
+## Case Studies {#sec-dice-case-studies}
+
+The following case studies demonstrate the practical application and novel capabilities of DICE. They not only showcase the tool in action but also highlight its key contributions, particularly by manipulating entire feed contexts and in measuring dwell time. By presenting these studies, we aim to provide a blueprint for researchers interested in adopting DICE for their own studies The first case study illustrates the tool's capacity for manipulating and controlling entire feed contexts whereas the second focuses on measuring participant engagement through dwell times. Together, these studies exemplify how our tool can enhance ecological validity while maintaining high levels of internal validity as discussed above.
+
+
+### Context Matters: Evaluating Brand Safety in Social Media Advertising
+
+```{r read_data}
+raw    <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/raw/all_apps_wide-2024-05-10.csv")
+input  <- data.table::fread(file = "../../oFeeds/studies/brand_safety/stimuli/brazil.csv")
+dice   <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/processed/DICE-processed-2024-05-10.csv")
+qualtrics  <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/raw/DICE_Validation_Brand_Safety_Brazil_May+10,+2024_07.51.csv")
+page_times <- data.table::fread(file = "../../oFeeds/studies/brand_safety/data/raw/PageTimes-2024-05-13.csv")
+```
+
+```{r set_names}
+setnames(old = "tweet",
+         new = "doc_id",
+         x = dice)
+
+setnames(old = "PROLIFIC_PID",
+         new = "participant_label",
+         x = qualtrics)
+
+qualtrics <- qualtrics[-1]
+qualtrics <- qualtrics[-1]
+```
+
+```{r demographics}
+# female
+qualtrics[, female := FALSE]
+qualtrics[gender == "Female", female := TRUE]
+
+# age
+qualtrics[, age := as.numeric(age)]
+
+# change naming of condition values
+dice[, condition := as.factor(ifelse(test = condition == "safe",
+                                     yes  = "appropriate",
+                                     no   = "inappropriate"))]
+dice[, appropriate := FALSE]
+dice[condition == "appropriate", appropriate := TRUE]
+```
+
+```{r brand_attitude}
+qualtrics[, 
+          brand_attitude := mean(c(as.numeric(brand_att_1), as.numeric(brand_att_2), as.numeric(brand_att_3)), na.rm = TRUE),
+          by = participant_label]
+```
+
+```{r initial_recall}
+qualtrics[, klm_initial_recall := ifelse(test = str_detect(string = str_to_lower(initial_recall),
+                                                        pattern = "klm"),
+                                     yes = TRUE,
+                                     no = FALSE)]
+
+qualtrics[, klm_second_recall := ifelse(test = str_detect(string = str_to_lower(second_recall),
+                                                       pattern = "klm"),
+                                     yes = TRUE,
+                                     no = FALSE)]
+
+qualtrics[, klm_aided_recall := ifelse(test = str_detect(string = aided_recall, pattern = "KLM"),
+                                    yes  = TRUE,
+                                    no   = FALSE)]
+
+qualtrics[, klm_final_recall := ifelse(test = final_recall == "Yes",
+                                    yes  = TRUE,
+                                    no   = FALSE)]
+
+```
+
+```{r flood_awareness}
+qualtrics[, 
+      binary_flood_awareness := ifelse(test = str_detect(string = flood_awareness,
+                                                         pattern = "Yes,"),
+                                       yes  = 1,
+                                       no   = 0) %>% 
+        as.logical()]
+```
+
+```{r page_times}
+times <- page_times[session_code == dice[, unique(session_code)] & participant_code %in% dice[, unique(participant_code)]]
+
+setorderv(x = times, cols = c("session_code", "participant_id_in_session", "page_index"))
+
+times[, 
+      time_spent_on_page := epoch_time_completed - shift(epoch_time_completed, n = 1, fill = NA, type = "lag"),
+      by = c("session_code", "participant_id_in_session")]
+```
+
+```{r merge_0}
+dice_plus <- data.table::merge.data.table(x = dice,
+                                          y = times[page_name == "C_Feed",
+                                                    .(participant_code, time_spent_on_page)],
+                                          by = "participant_code")
+```
+
+```{r merge_1}
+output <- data.table::merge.data.table(x = dice_plus,
+                                       y = qualtrics,
+                                       by = "participant_label")
+
+```
+
+```{r merge_2}
+long <- data.table::merge.data.table(x = output,
+                          y = input,
+                          by = c("doc_id", "condition"))
+
+setorder(long, participant_code, displayed_sequence)
+
+long <- long[complete.cases(long[, .SD, .SDcols = 34:56])]
+```
+
+```{r}
+tmp <- data.table::merge.data.table(x = dice_plus[,
+                                                    .(condition = unique(condition),
+                                                      time_spent_on_page = unique(time_spent_on_page)),
+                                               by = participant_label],
+                                      y = qualtrics,
+                                      by = "participant_label")
+
+# short <- short[complete.cases(short[, .SD, .SDcols = 21:ncol(short)])]
+```
+
+```{r relative_dwell_time}
+long[, 
+     relative_dwell_time := seconds_in_viewport / time_spent_on_page, 
+     by = participant_label]
+
+# To do: How comes, the following code also returns values smaller than 1? Refreshs? Page loading time?
+# long[, sum(relative_dwell_time, na.rm = TRUE), by = participant_label]
+```
+
+```{r}
+short <- data.table::merge.data.table(x = tmp,
+                                      y = long[displayed_sequence == 5, 
+                                               .(participant_label,
+                                                 relative_dwell_time,
+                                                 seconds_in_viewport)],
+                                      by = "participant_label")
+```
+
+
+Brand safety refers to strategies and measures ensuring that a brand's content, particularly advertisements, does not appear in contexts that could harm the brand's reputation [see, e.g., @BellmanEtAl_2018; @LeeKimLim_2021; @Hemmings_2021]. These measures are especially crucial in social media, where platforms use automated systems to place ads in dynamic, rapidly changing, and user-generated content environments. Such automated systems often lack the nuanced understanding that humans possess, which can lead to ad placements in contexts that seem appropriate at first glance but are ultimately unsuitable.
+In our hyper-connected world, such of misplacement can rapidly propagate, potentially magnifying reputational damage beyond the initial exposure [@SwaminathanEtAl_2020]. Accordingly, @AhmadEtAl_2024 found that most brand managers have a strong preference to avoid misplacement and @Schmitt_1994 [p. 1986] quotes an expert saying _"Advertisers [do] not want to display their products between battle scenes."_ This is also reflected in an industry report that not only states that about 70% of brands take brand safety seriously but also that 75% of the interviewed brands report brand-unsafe exposures [@GumGum_2017].
+
+Brands typically consider juxtapositions with hate speech, pornography, and violence as the most egregious violations of brand safety. To mitigate such risks, brands and platforms commonly employ blacklists and negative targeting strategies, defining keywords and publishers associated with these topics to avoid undesirable ad placements. On X (formerly Twitter), for instance, brand managers can utilize adjacency controls, allowing them to specify up to 1,000 negative keywords to regulate the content appearing above and below their ads in users' timelines. While these measures have proven relatively effective in preventing placements alongside the most _brand-unsafe_ content, misplacements adjacent to disasters, tragedies, divisive political content, and misinformation remain prevalent and, in part, unnoticed: @AhmadEtAl_2024 find that most decision-makers are unaware that their companies’ advertising appears on misinformation websites. This persistent challenge may be attributed to the inherent difficulty in accurately classifying and identifying fake news, subtle forms of divisive content, and emerging crisis situations in real-time. @GumGum_2017 reported that 39% of sampled brands experienced their content being displayed adjacent to at least one of these problematic topics. 
+
+To illustrate the unique capabilities of DICE, we propose a simple study that extends beyond altering individual posts to modifying entire feeds: Unlike traditional online platform studies, we hold the ad copy and creative constant while manipulating the surrounding context between-subjects. 
+Importantly, this study design is uniquely feasible within the DICE paradigm due to its precise control over the contextual environment—a capability not available in other experimental methodologies such as vignette or online platform studies. This level of control is crucial when examining brand safety, a phenomenon inherently defined by an advertisement's context. By manipulating the surrounding content while keeping the ad constant, we can directly investigate how context impacts brand perceptions, offering insights into brand safety that would be challenging to obtain through alternative research approaches.
+
+We test the intuitive hypothesis that an inappropriate (compared to a more general) context negatively affects brand attitudes. To better understand whether the effect is also driven by implicit memory effects [@Schmitt_1994], we control for cued and uncued recall.
+
+<!--
+
+This study directly relates to the topic of brand safety by highlighting how _malgorithms_ that place advertisements in insensitive or inappropriate contexts can impact consumer perception [see, e.g., @BellmanEtAl_2018; @LeeKimLim_2021; @Hemmings_2021].
+
+Anecdotal evidence of algorithmic misplacement is exemplified by the juxtaposition of an Apple iPad advertisement with a headline reporting the disappearance of Malaysia Airlines flight 370, as illustrated in @fig-misplaced-ad. This instance demonstrates how algorithmic ad placement can result in content juxtapositions that potentially undermine the advertiser's intended message and brand positioning.
+
+![Programmatic Advertising Misplacement During Sensitive News Coverage](https://i.insider.com/552318f2ecad04737e059937?width=1300&format=jpeg&auto=webp){#fig-misplaced-ad}
+
+Our case study sought to examine whether such misaligned contexts significantly influence consumer brand perceptions. Specifically, we investigated if misaligned ad placements generate unintended associations between brands and sensitive content, potentially eroding brand equity. We believe that this question is salient given the viral nature of digital content in today's interconnected media landscape [@SwaminathanEtAl_2020], where instances of misplaced advertisements can rapidly propagate, potentially magnifying reputational damage beyond the initial exposure.
+-->
+
+
+#### Experimental Design
+
+Our study focuses on scenarios where airlines promote travel destinations through targeted advertising, placing ads in contexts that align with specific destinations. Given that major airlines serve numerous destinations globally, these ad placements are typically managed through automated programmatic systems. We leverage this automated placement approach to create two hypothetical scenarios featuring KLM Royal Dutch Airlines (KLM) promoting flights to Brazil. At the time of the study, Brazil was experiencing severe flooding that claimed at least 95 lives [@Buschschlueter_2024]. To simulate real-world conditions, we scraped real tweets and assembled them to two distinct Twitter feeds: one covering the natural disaster and another featuring more general content, including coverage of Madonna's free concert in Rio de Janeiro.
+This experimental design allows us to examine the impact of contextual advertising in varying circumstances, including during times of crisis.
+
+<!--
+
+inadvertently promotes a travel destination recently impacted by a natural disaster.^[This approach mirrors real-world practices; for instance, the German airline Lufthansa actively monitors news coverage and maintains a blacklist of affected travel destinations to avoid such misplacements.]
+More specifically, we exposed participants in the treatment group to a simulated Twitter feed that consisted of real tweets describing the [severe flooding](https://www.bbc.com/news/articles/cle07g0zzqeo) affecting Brazil in 2024. 
+
+Assuming that the automated placement systems focus on the keyword "Brazil" without any further nuance, the social media platform should display one and the same ad in both contexts. Accordingly, we placed the same fictitious sponsored post by KLM advertising flights to Brazil in both feeds. Clearly, both the creative (displayed in @fig-ad) and the copy saying _"Brazil's wild beauty calls! Experience nature like never before. Book your breathtaking adventure with KLM."_ appear inappropriate in light of the natural disaster (but would have appeared normal without the flooding). 
+
+-->
+
+For the illustrative character of this study, we assumed that automated placement systems primarily target the keyword "Brazil" without considering nuanced contextual factors. This assumption allowed us to simulate how the same advertisement might appear in markedly different contexts on a social media platform. Consequently, we placed an identical fictitious sponsored post by KLM, promoting flights to Brazil, into both Twitter feeds. The advertisement features a creative (as shown in @fig-ad) as well as copy that read: _"Brazil's wild beauty calls! Experience nature like never before. Book your breathtaking adventure with KLM."_ While this messaging would typically be considered appropriate for tourism promotion, it appears strikingly insensitive when juxtaposed against news of a natural disaster. `[Shall we pre-test this assumption?]`
+
+![KLM Ad Creative](https://github.com/Howquez/oFeeds/blob/main/studies/brand_safety/stimuli/brazil_wild_beauty.png?raw=true){#fig-ad}
+
+
+
+**Method:**
+Participants read instructions and browsed one of two twitter feeds (flooding-related vs. general) `[formerly called unsafe and safe, respectively]` in which we placed the KLM ad, before they were directed to a Qualtrics survey.
+Our stimuli, that is, the two feeds consisted of 20 real tweets each and placed the focal ad (by KLM) in fifth position.^[You can browse the flooding-related feed [here](https://web.archive.org/web/20240509200732/https://ibt-hsg.herokuapp.com/p/6ni2o3bv/DICE/C_Feed/3) and the more general feed [here.](https://web.archive.org/web/20240509200758/https://ibt-hsg.herokuapp.com/p/97fable0/DICE/C_Feed/3)]
+In the survey, we elicited whether participants recall a brand advertising in the feed—first uncued and then cued (i.e., participants saw a list of a diverse range of brands and had to indicate whether they recall seeing them).
+Next, participants evaluated the target brand on three seven-point scales presented in a random order (1 = "Negative/Unfavorable/Dislike" and 7 = "Positive/Favorable/Like"), which we averaged into a single measure.
+Finally, participants indicated whether they were aware of the flooding, provided demographic information, read a debriefing and were redirected to Prolific.
+
+**Participants:**
+We recruited `r qualtrics[, .N]` US-American participants ($M_{age} = `r short[, round(mean(age, na.rm = TRUE))]`$ years; `r round(short[, mean(female, na.rm = TRUE)] * 100)`% female) from Prolific.
+All participants who started the experiment and read the instructions (N=`r raw[participant._index_in_pages > 2, .N]`), submitted the social media feed. `r qualtrics[, .N]` finished the qualtrics survey. Of these `r qualtrics[, .N]` participants, `r long[condition == "unsafe" & sequence == 5 & seconds_in_viewport < 10, .N]` have been assigned to the inappropriate condition. 
+We do not observe selective attrition and are confident that the group assignment was indeed random—an assumption that is generally accepted in vignette studies, but cannot be presumed in observational studies. @tbl-balance demonstrates that the two treatment groups do not exhibit significant differences in observables. Nevertheless, the unsafe condition tends to skew slightly younger, as indicated by the second column group.
+
+
+```{r}
+#| warning: false
+#| label: tbl-balance 
+#| tbl-cap: Balance Across Conditions
+
+balance_1 <- lm(formula = female ~ condition, data = short)
+balance_2 <- lm(formula = age ~ condition, data = short)
+
+tbl_merge(tbls = list(tbl_regression(balance_1), tbl_regression(balance_2)),
+          tab_spanner = c("Female", "Age"))
+```
+
+```{r}
+#| eval: false
+#| label: tbl-attrition 
+#| tbl-cap: Attrition Across Conditions
+started <- raw[participant._index_in_pages > 2, unique(participant.label)]
+finished <- short[, participant_label]
+
+raw[participant._index_in_pages > 2 & !(participant.label %in% finished), 
+    .N,
+    by = DICE.1.player.feed_condition] %>% kable(col.names = c("condition", "N"))
+```
+
+
+#### Implementation
+
+We implemented the two cell between-subjects design by creating a csv file that contains two times twenty rows (i.e., twenty tweets for each condition). Whereas all other columns are unique, two of these rows represent one and the same sponsored post, which we simply duplicated before we assigned it to each of the two conditions. To specify the spondered posts, we set `sponsored` to 1, provided a landing page in the `target` column to which participants are directed when clicking on the ad. In addition, we set its `sequence` parameter to 5 to guarantee that it is displayed in fifth position of the feed. We did not specify that parameter for any other tweet such that DICE orders the remaining tweets randomly between-subject. Finally, we added a `source` column that provides URLs to the tweets we scraped. Even though this column is not required (as DICE does not evaluate it) we considered such a column useful for documentation purposes. The described csv file, whose structure we illustrate in @tbl-csv, was then uploaded to Github such that we can pass the corresponding URL to the DICE app.
+
+| doc_id | text                                                  | username        | condition     | sponsored | target    | sequence |
+|--------|-------------------------------------------------------|-----------------|---------------|-----------|-----------|----------|
+| 1      | Madonna breaks the record for biggest audience...     | chart data      | appropriate   | 0         |           |          |
+| 2      | Saudades do Rio 🫶🏼<br><br>didn’t want to leave...     | diplo           | appropriate   | 0         |           |          |
+| 3      | 50 million people watched on TV Madonna...            | Madonna Daily   | appropriate   | 0         |           |          |
+| 4      | Chelsea really wanted Real Madrid-bound...            | Nizaar Kinsella | appropriate   | 0         |           |          |
+| 5      | Brazil's wild beauty calls! Experience nature...      | KLM             | appropriate   | 1         | [KLM url] | 5        |
+| ...    | ...                                                   | ...             | ...           | ...       |           |          |
+| 25     | Brazil's wild beauty calls! Experience nature...      | KLM             | inappropriate | 1         | [KLM url] | 5        |
+| ...    | ...                                                   | ...             | ...           | ...       |           |          |
+| 40     | i mentioned this on another tweet! if you can help... | Evil Scientist  | inappropriate | 0         |           |          |
+
+: CSV Exerpt {#tbl-csv}
+
+#### Results
+
+```{r regressions_1}
+lm_1 <- lm(brand_attitude ~ condition, data = short, subset = klm_initial_recall == TRUE)
+model_summary <- summary(lm_1)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short[klm_initial_recall == TRUE], pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+**Brand attitude.** As pre-registered, we conduct a simple OLS regression where the inappropriate feed ($M_u = `r short[condition == "unsafe" & klm_initial_recall == TRUE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$) resulted in significantly less favorable brand evaluations than the more appropriate feed for those who recalled seeing a KLM ad without a cue ($M_s = `r short[condition == "safe" & klm_initial_recall == TRUE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $F(1, `r f_df2`) = `r round(f_value, 2)`$, $p = `r sprintf("%.3f", p_value)`$, $\text{Cohen's d} = `r cohensD`$).
+
+
+```{r regressions_2}
+lm_2 <- lm(brand_attitude ~ condition, data = short, subset = (klm_aided_recall == TRUE & klm_initial_recall == FALSE))
+model_summary <- summary(lm_2)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short[klm_aided_recall == TRUE & klm_initial_recall == FALSE], pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+This also holds for participants who needed a cue to recall the ad ($M_u = `r short[condition == "unsafe" & klm_aided_recall == TRUE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $M_s = `r short[condition == "safe" & klm_aided_recall == TRUE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $F(1, `r f_df2`) = `r round(f_value, 2)`$, $p = `r sprintf("%.3f", p_value)`$, $\text{Cohen's d} = `r cohensD`$).
+
+```{r regressions_3}
+lm_3 <- lm(brand_attitude ~ condition, data = short, subset = klm_aided_recall == FALSE & klm_initial_recall == FALSE)
+model_summary <- summary(lm_3)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short[klm_aided_recall == FALSE & klm_initial_recall == FALSE], pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+Importantly, we also observe the effect for those participants who do not recall seeing a KLM ad at all ($M_u = `r short[condition == "unsafe" & klm_aided_recall == FALSE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $M_s = `r short[condition == "safe" & klm_aided_recall == FALSE & klm_initial_recall == FALSE, round(mean(brand_attitude, na.rm = TRUE), digits = 2)]`$, $F(1, `r f_df2`) = `r round(f_value, 2)`$, $p = `r sprintf("%.3f", p_value)`$, $\text{Cohen's d} = `r cohensD`$).
+
+```{r regressions_5}
+#| eval: false
+
+lm_5 <- lm(brand_attitude ~ condition, data = short)
+model_summary <- summary(lm_5)
+
+f_value <- model_summary$fstatistic[1]  # F-statistic value
+f_df1 <- model_summary$fstatistic[2]    # degrees of freedom for the model
+f_df2 <- model_summary$fstatistic[3]    # degrees of freedom for the residuals
+p_value <- pf(f_value, f_df1, f_df2, lower.tail = FALSE)  # p-value from F-statistic
+cohensD <- round(effectsize::cohens_d(brand_attitude ~ condition, data = short, pooled_sd = FALSE)$Cohens_d, digits = 2)
+```
+
+
+```{r}
+#| label: fig-main-effects
+#| fig-cap: "Effect of Misplaced Ad on Brand Evaluations"
+
+# p1 <- ggplot(data = short,
+#        mapping = aes(x = brand_attitude,
+#                      fill = condition)) +
+#   geom_density(alpha = 0.5) + 
+#   scale_x_continuous(limits = c(1, 7),
+#                      breaks = 1:7) +
+#   scale_y_continuous(expand = c(0, NA)) +
+#   scale_fill_custom_d() +
+#   layout +
+#   theme(legend.position = "top",
+#         axis.text.y = element_blank(),
+#         panel.grid.major.y = element_blank()) +
+#   labs(title = "A: All paricipants.",
+#        x = "Brand Attitude",
+#        y = "Density")
+
+p1 <- ggplot(data = short[klm_initial_recall == TRUE],
+       mapping = aes(x = brand_attitude,
+                     fill = condition)) +
+  geom_density(alpha = 0.5) + 
+  scale_x_continuous(limits = c(1, 7),
+                     breaks = 1:7) +
+  scale_y_continuous(expand = c(0, NA)) +
+  scale_fill_custom_d() +
+  layout +
+  theme(legend.position = "top",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  labs(title = paste0("A: Participants with uncued recall (N=", short[klm_initial_recall == TRUE, .N],")."),
+       x = "Brand Attitude",
+       y = "")
+
+p2 <- ggplot(data = short[klm_aided_recall == TRUE & klm_initial_recall == FALSE],
+       mapping = aes(x = brand_attitude,
+                     fill = condition)) +
+  geom_density(alpha = 0.5) + 
+  scale_x_continuous(limits = c(1, 7),
+                     breaks = 1:7) +
+  scale_y_continuous(expand = c(0, NA)) +
+  scale_fill_custom_d() +
+  layout +
+  theme(legend.position = "top",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  labs(title = paste0("B: Participants without uncued but\nwith cued recall (N=", short[klm_aided_recall == TRUE  & klm_initial_recall == FALSE, .N],")."),
+       x = "Brand Attitude",
+       y = "")
+
+p3 <- ggplot(data = short[klm_aided_recall == FALSE & klm_initial_recall == FALSE],
+       mapping = aes(x = brand_attitude,
+                     fill = condition)) +
+  geom_density(alpha = 0.5, bw = 0.25) + 
+  scale_x_continuous(limits = c(1, 7),
+                     breaks = 1:7) +
+  scale_y_continuous(expand = c(0, NA)) +
+  scale_fill_custom_d() +
+  layout +
+  theme(legend.position = "top",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  labs(title = paste0("C: Participants without any recall (N=", short[klm_aided_recall == FALSE & klm_initial_recall == FALSE, .N],")."),
+       x = "Brand Attitude",
+       y = "")
+
+
+
+combined <- (p1 | p2) / (p3) & theme(legend.position = "bottom") 
+combined + plot_layout(guides = "collect")
+```
+
+We illustrate all three effects in panel A, B and C of Figure @fig-main-effects, respectively. Even though the distributions in panel C accumulate more density at the their center, there still is a significant difference between both groups, which indicates an implicit memory effect: even though participants do not recall seeing an KLM ad, the (forgotten) exposure in the inappropriate context dilluted the brand's reputation.
+
+`[This raises the question of whether dwell time, an implicit measure, may explain such implicit processes. What would be the theoretical argument? More attention?]`
+
+#### Legacy
+
+
+```{r}
+glm_1 <- glm(formula = klm_aided_recall ~ seconds_in_viewport, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+
+glm_2 <- glm(formula = klm_aided_recall ~ seconds_in_viewport + condition + seconds_in_viewport*condition, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+
+glm_3 <- glm(formula = klm_aided_recall ~ relative_dwell_time, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+
+glm_4 <- glm(formula = klm_aided_recall ~ relative_dwell_time + condition + relative_dwell_time*condition, 
+    data = long, 
+    subset = sequence == 5,
+    family = binomial(link = "logit"))
+```
+
+**Recall.**  `[If we use this study to demonstrate the context-contribution, we don't need dwell time analyses here.]` A logit regression provides correlational evidence which indicates that an additional second in the viewport increases the odds of recall by about `r (round(exp(coef(summary(glm_1))["seconds_in_viewport", "Estimate"]), digits = 2) - 1) * 100`% holding other factors constant ($p = `r round(coef(summary(glm_1))["seconds_in_viewport", "Pr(>|z|)"], digits = 2)`$).
+Controlling for the experimental condition this value changes only slightly^[An additional second in the viewport increases the odds of recall by about `r round(exp(coef(summary(glm_2))["seconds_in_viewport", "Estimate"]), digits = 2)`% ($p = `r round(coef(summary(glm_2))["seconds_in_viewport", "Pr(>|z|)"], digits = 2)`$)]. The interaction's large standard error in Model 2 presented in @tbl-recall-regressions indicates that this correlation is robust across conditions.
+
+
+```{r}
+#| warning: false
+#| label: tbl-recall-regressions 
+#| tbl-cap: Logit Results
+tbl_merge(tbls = list(tbl_regression(glm_1, exponentiate = TRUE) %>% modify_column_hide(ci),
+                      tbl_regression(glm_2, exponentiate = TRUE, show_single_row = condition) %>% modify_column_hide(ci),
+                      tbl_regression(glm_3, exponentiate = TRUE) %>% modify_column_hide(ci),
+                      tbl_regression(glm_4, exponentiate = TRUE, show_single_row = condition) %>% modify_column_hide(ci)),
+          tab_spanner = rep("Aided Recall", 4))
+
+```
+
+`[Because we analyze dwell time in the next study in more detail, we should use it here to exclude participants who have not paid attention to the ad: either exclude them or control for dwell time on focal post.]`
+
+### Dwell Time Case
+
+Lorem ipsum.
+
+
+## Future Opportunities from using DICE in Marketing Research
+
+The current paper proposes a novel paradigm, DICE, to conduct research that has the capacity to keep the advantages of classic vignette studies (e.g., high experimental control to maximize internal validity) and advantages of observational and online platform studies (e.g., high realism to maximize ecological validity) while eliminating their main disadvantages and methodological issues discussed in prior work (see Table 1). DICE also enables researchers to measure content engagement with maximal resolution at the individual level, which was not possible in any of the currently used social media research designs (e.g., millisecond dwell time response measures at the feed level or sequential content browsing trajectories during a session). These features allow researchers to pursue entirely new lines of inquiry in future social media research. In what follows, we discuss the methodological contributions and offer directions for future work and how DICE could be utilized to make better-informed decisions for key players in the social media ecosystem (e.g., brands, influencers, platform providers, agencies, and public policy).  
+
+### Methodological Implications 
+
+The methodological contributions of DICE directly address several challenges in the research designs employed in prior social media research. First, DICE ensures stable group assignment by eliminating divergent delivery and issues with potentially multiple exposures in online platform studies. DICE, therefore, directly addresses the limitations of “black box” engagement algorithms on all major social media platforms and the lack of control for researchers to study truly causal effects on these platforms.
+
+Second, and as a consequence, DICE offers high ecological value that closely mimics the environments in online platform studies or observational studies but with the additional advantage of offering feed composition controls in which researchers can directly specify the mode and sequence of how content should be delivered across conditions. This researcher-controlled delivery overcomes the methodological drawbacks of typical observational studies (e.g., endogeneity) and online platform studies (e.g., divergent delivery), while offering a similar level of control as vignettes.
+
+Third, DICE offers the ability to measure content engagement with high resolution at the individual level, which was not possible before without extensive monetary and time investments. DICE allows researchers to track millisecond dwell time content engagement and sequential content trajectories at the individual level. Thus, researchers can directly measure the relative content engagement, a proxy for consumer attention, at a highly atomized level for every single post or item in a feed and the sequence of content consumption (e.g., whether users read a post, then scroll down and up again). The metrics produced from this tracking data in DICE offer a new lens to study attention-related mechanisms in future social media research (see our future research directions section).
+
+Fourth, DICE directly integrates crowdsourcing platforms for participant recruitment, such as Prolific or Amazon Mechanical Turk, to track participant identifiers across the entire duration of a study and also integrates with survey management platforms, such as Qualtrics, to follow up with post-survey measurements after exposure to different treatment conditions. Thus, our paradigm combines behavioral tracking data and traditional survey instruments within a single study. While the tracking data is theoretically available in online platform studies, it is typically inaccessible for researchers as it is used to “optimize” engagement metrics (and, in turn, jeopardizes the possibility of drawing causal inferences). 
+Finally, we designed DICE as an easy-to-use, low-cost, open-source environment to promote replicability and transparency for all researchers. Our aim is to offer a paradigm and platform to conduct robust, high-quality social media research studies, that directly address the lack of transparency, replicability, and customization on major social media platforms.
+
+
+### Future Research Directions
+
+In what follows, we outline future directions for key actors and stakeholders in the social media ecosystem (i.e., marketing scholars, brands, influencers, agencies, and public policy) on how DICE offers the possibility to explore either new phenomena or to utilize the methodological advantages to deepen our understanding of previously studied phenomena. We offer a summary of selected and exemplary questions in Table 2.
+
+
+## Concluding Thoughts
+
+In this paper, we have introduced DICE, a novel experimental paradigm, along with a user-friendly, open-source research app that resolves key methodological issues in social media research while enhancing ecological value and causal inference. DICE represents a synthesis of the advantages of high experimental control (and therefore internal validity) found in scenario-based vignette studies with the advantages of high realism (and therefore ecological validity) of observational and platform studies. Our DICE paradigm, along with the behavioral tracking possibilities to assess attention and scrolling trajectories with high resolution at the individual level, offers new avenues for rigorous, realistic, and ultimately relevant marketing research for a wide range of stakeholders within the social media ecosystem. Given DICE’s modular nature, it is also possible to further adapt the environment to just any other platform featuring scrollable content streams. `[Show how and under which conditions in Appendix.]` For example, professional networks like LinkedIn, online review platforms like Yelp or e-commerce sites like Amazon could be modeled to test messaging effects on engagement, recruitment, product search, and purchasing behavior with high resolution. This adaptability of DICE underscores its capacity for broad application across various online environments, each with its idiosyncratic user engagement dynamics and commercial and theoretical implications [see also @SwaminathanEtAl_2023]. In summary, DICE presents a novel research paradigm to examine important marketing questions in social media and other digital contexts.
+
+
+
+

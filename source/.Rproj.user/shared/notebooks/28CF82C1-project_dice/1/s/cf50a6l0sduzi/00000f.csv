@@ -1,0 +1,7 @@
+"0","times <- page_times[session_code == dice[, unique(session_code)] & participant_code %in% dice[, unique(participant_code)]]"
+"0",""
+"0","setorderv(x = times, cols = c(""session_code"", ""participant_id_in_session"", ""page_index""))"
+"0",""
+"0","times[, "
+"0","      time_spent_on_page := epoch_time_completed - shift(epoch_time_completed, n = 1, fill = NA, type = ""lag""),"
+"0","      by = c(""session_code"", ""participant_id_in_session"")]"

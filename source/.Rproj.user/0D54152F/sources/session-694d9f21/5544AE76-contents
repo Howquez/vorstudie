@@ -1,0 +1,68 @@
+project:
+  type: book
+  output-dir: "../output"
+
+book:
+  output-file: "hauke_roggenkamp_research_propoasal"
+  # title: "Do actions speak loder than words?"
+  # subtitle: "Utilizing Implicit Data for Marketing Research"
+  title: "Out of Control:"
+  subtitle: "Utilizing Implicit Data for Behavioral Science"
+  author:
+    - name: Hauke Roggenkamp
+      email: Hauke.Roggenkamp@unisg.ch
+      orcid: 0009-0005-5176-4718
+      corresponding: true
+      affiliations:
+        - name: University of St. Gallen
+          department: Institute of Behavioral Science and Technology
+          address: Torstrasse 25
+          city: St. Gallen
+          country: Switzerland
+          postal-code: 9000
+  date: now
+  chapters:
+    - index.qmd
+    - part: intro.qmd
+      chapters:
+      - overview.qmd
+    - part: projects.qmd
+      chapters: 
+      - project_dice.qmd
+      - project_civility.qmd
+      - project_sounds.qmd
+    - part: "OUTLOOK"
+      chapters:
+      - timeline.qmd
+      - outcomes.qmd
+    - references.qmd
+  appendices:
+    - appendix_sounds.qmd
+
+bibliography: ../literature/references.bib
+
+format:
+  html:
+    theme: cosmo
+    execute:
+      echo: false
+      warning: false
+  pdf:
+    execute:
+      echo: false
+      warning: false
+    documentclass: scrreprt
+    keep-tex: true
+    toc: true
+    toc-depth: 3
+    toc-title: "Table of contents"
+    lof: false
+    lot: false
+    number-sections: true
+    number-depth: 2
+    papersize: a4
+    indent: true
+    template-partials:
+      - before-body.tex
+  epub:
+    cover-image: cover.png
